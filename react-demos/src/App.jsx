@@ -1,14 +1,9 @@
-import './App.css'
-import Add from './components/Add';
-import Footer from './components/Footer';
-import Greet from './components/Greet';
-import { Header } from './components/header';
+import './App.css';
+import JsxRules from './components/JsxRules';
 function App() {
   return (
     <>
-      <Greet />
-      <Header />
-      <Footer />
+      <JsxRules />
     </>
   )
 }
