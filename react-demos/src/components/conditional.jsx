@@ -15,15 +15,16 @@ export function UseTernery({isValid}){
 }
 
 
+const styles={color: "orange", backgroundColor:"green",padding:"2rem"}
 
 export function Cart(){
     const items=["Apple","Banana","Chocolate"]
     return (
         <>
-            <h1>Cart: 🛒</h1>
+            <h1 style={styles}> Cart: 🛒</h1>
             {items.length>0 && <h2>You have {items.length} items in your cart</h2>}
             <ul>
-                <h4>Products: </h4>
+                <h4 style={{color: "lightblue"}}>Products: </h4>
                 {items.map((item)=>{
                     return <li key={crypto.randomUUID}>{item}</li>
                 })}
