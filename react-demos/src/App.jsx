@@ -1,11 +1,9 @@
 import './App.css';
-import JSXfunctions from './components/JSXfunctions';
-import JsxRules from './components/JsxRules';
+import JsxLists from './components/JsxLists';
 function App() {
   return (
     <>
-      <JsxRules />
-      <JSXfunctions />
+      <JsxLists />
     </>
   )
 }
