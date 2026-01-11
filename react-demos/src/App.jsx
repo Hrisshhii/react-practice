@@ -1,9 +1,9 @@
 import './App.css';
-import JsxLists from './components/JsxLists';
+import JSXProps from './components/JSXProps';
 function App() {
   return (
     <>
-      <JsxLists />
+      <JSXProps />
     </>
   )
 }
