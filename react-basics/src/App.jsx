@@ -1,9 +1,9 @@
 import './App.css';
-import Hooks from './components/Hooks';
+import {Example} from './components/Hooks';
 function App() {
   return (
     <>
-      <Hooks />
+      <Example />
     </>
   )
 }
