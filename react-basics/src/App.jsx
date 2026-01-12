@@ -1,9 +1,10 @@
 import './App.css';
-import {Example} from './components/Hooks';
+import { Counter, ToDoList } from './components/Mini';
 function App() {
   return (
     <>
-      <Example />
+      <Counter />
+      <ToDoList />
     </>
   )
 }
