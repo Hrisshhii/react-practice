@@ -1,10 +1,13 @@
 import './App.css';
+import CopyInput from './components/CopyInput';
 import { Counter, ToDoList } from './components/Mini';
+import { Switcher } from './components/Switcher';
 function App() {
   return (
     <>
-      <Counter />
-      <ToDoList />
+      <CopyInput />
+      <br></br>
+      <Switcher />
     </>
   )
 }
