@@ -1,6 +1,5 @@
-import { createContext, useState } from 'react';
-
-export const Data=createContext({greet:{greetings:""},updateGreet:()=>{}});
+import { useState } from 'react';
+import { Data } from './Context';
 
 const UserProvider=({children})=>{
     const [greet, setGreet] = useState({ greetings: "Hello" });

@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { Data } from './UseContext'
+import { Data } from './Context'
 const UseProfile = () => {
     const {greet,updateGreet}=useContext(Data)
   return (
