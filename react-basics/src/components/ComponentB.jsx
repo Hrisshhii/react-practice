@@ -1,11 +1,10 @@
 import React from 'react'
-import { Data, Data1 } from '../App'
-import { useContext } from 'react'
+import { Data } from './UseContext'
+import { UseContext } from 'react'
 const ComponentB = () => {
-    const greetings=useContext(Data);
-    const time=useContext(Data1);
+    const greetings=UseContext(Data);
   return (
-    <h1>{greetings} {time}</h1>
+    <h1>{greetings}</h1>
 )}
 
 export default ComponentB
