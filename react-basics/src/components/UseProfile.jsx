@@ -1,5 +1,7 @@
 import React, { useContext } from 'react'
 import { Data } from './Context'
+
+
 const UseProfile = () => {
     const {greet,updateGreet}=useContext(Data)
   return (
@@ -13,3 +15,10 @@ const UseProfile = () => {
 }
 
 export default UseProfile
+
+
+{/*
+In main to use:
+    <UserProvider>
+        <UseProfile />
+    </UserProvider> */}
