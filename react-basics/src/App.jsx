@@ -1,16 +1,11 @@
 import './App.css';
-import { useRef } from 'react';
+import FocusInput from './components/FocusInput';
 
 function App() {
-  const inputElem=useRef(null);
-  function focusInput(){
-    inputElem.current.focus();
-    inputElem.current.value="Hello";
-  };
+  
   return (
     <>
-      <input type="text" ref={inputElem}/>
-      <button onClick={()=>focusInput()}>Focus Element</button>
+      <FocusInput />
     </>
   );
 }
