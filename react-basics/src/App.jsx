@@ -1,11 +1,12 @@
 import './App.css';
-import FocusInput from './components/FocusInput';
+import FocusInput, { Timer } from './components/FocusInput';
 
 function App() {
   
   return (
     <>
       <FocusInput />
+      <Timer />
     </>
   );
 }
