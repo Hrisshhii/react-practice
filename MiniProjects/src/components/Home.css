@@ -42,7 +42,7 @@
     max-width: 800px;
     animation: fadeUp 0.8s ease forwards;
     flex:1;
-    max-height: none;
+    max-height: 100vh;
     overflow-y: auto;
     scrollbar-width: none;
 }
