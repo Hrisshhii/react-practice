@@ -11,7 +11,8 @@
 .home{
     position: relative;
     font-family: 'Poppins',sans-serif;
-    min-height: 100vh;
+    min-height: 100svh;
+    height: auto;
     background: radial-gradient(circle at top, #1a1a1a 0%, #0f0f0f 60%);
     color: white;
     display: flex;
@@ -19,7 +20,7 @@
     align-items: center;
     justify-content: flex-start;
     padding: 4rem 1rem 6rem;
-    overflow-y: auto;
+    overflow-y: hidden;
 }
 
 .title{
@@ -39,7 +40,8 @@
     width: 80%;
     max-width: 800px;
     animation: fadeUp 0.8s ease forwards;
-    max-height: calc(100vh - 200px);
+    flex:1;
+    max-height: none;
     overflow-y: auto;
     scrollbar-width: none;
 }
