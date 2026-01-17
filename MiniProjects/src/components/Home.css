@@ -20,8 +20,7 @@
     align-items: center;
     justify-content: flex-start;
     padding: 4rem 1rem 6rem;
-    overflow-y: hidden;
-
+    overflow-y: auto;
 }
 
 .title{
@@ -41,14 +40,10 @@
     width: 80%;
     max-width: 800px;
     animation: fadeUp 0.8s ease forwards;
-    flex:1;
-    max-height: 100vh;
-    overflow-y: auto;
-    scrollbar-width: none;
 }
 
 .home::-webkit-scrollbar {
-  display: none;
+  width: 0;
 }
 
 @keyframes fadeUp{
