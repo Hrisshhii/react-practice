@@ -1,11 +1,13 @@
-import { Counter } from './components/Counter'
+import { Counter } from './components/Counter/Counter'
 import {Routes,Route} from 'react-router';
+import { Home } from './components/Home';
 function App() {
 
   return (
     <>
       <Routes>
-        <Route index element={<Counter />}/>
+        <Route path="/" element={<Home />}/>
+        <Route path="/counter" element={<Counter />}/>
       </Routes>
     </>
   )
