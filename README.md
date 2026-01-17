@@ -54,22 +54,6 @@ Axios (API calls)
 
 GitHub Pages (Deployment)
 
-# 📂 Project Structure
-
-MiniProjects/
-│
-├── src/
-│ ├── components/
-│ │ ├── Home
-│ │ ├── Counter
-│ │ ├── Todo
-│ │ └── Meals
-│ │
-│ └── App.jsx
-│
-├── public/
-└── package.json
-
 # 🚀 Deployment
 
 This project is deployed on GitHub Pages using:
