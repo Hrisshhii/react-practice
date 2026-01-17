@@ -1,4 +1,4 @@
-import { useState,useEffect } from 'react';
+import { useState,useEffect,useRef } from 'react';
 import './Todo.css';
 import { BackHome } from '../BackHome';
 
@@ -55,8 +55,12 @@ export function Todo(){
             )
         );
         setEditingId(null);
-    }
+    };
 
+    const listEndRef=useRef(null);
+    useEffect(()=>{
+        listEndRef.current?.scrollIntoView({behavior:"smooth"});
+    },[todos]);
 
     return (
         <div className='todo'>
@@ -83,12 +87,13 @@ export function Todo(){
                                     autoFocus
                                 />
                             ):(
-                                <span onDoubleClick={()=>startEditing(id)} onClick={()=>toggleTodo(id)}>{text}</span>
+                                <span onDoubleClick={()=>startEditing(id,text)} onClick={()=>toggleTodo(id)}>{text}</span>
                             )}
 
                             <button className='delete-button' onClick={() => deleteTodo(id)}>🗑</button>
                         </li>
                     ))}
+                    <div ref={listEndRef}></div>
                 </ul>
                 {todos.some(t=>t.done) && (
                     <button className='clear-completed' onClick={()=>setTodos(todos.filter(t=>!t.done))}>Clear Completed</button>
