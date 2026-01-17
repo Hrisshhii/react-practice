@@ -1,7 +1,6 @@
 .home::before {
     content: "";
-    position: absolute;
-    inset: 0;
+    position: relative;
     background-image: radial-gradient(rgba(255,255,255,0.04) 1px, transparent 1px);
     background-size: 40px 40px;
     pointer-events: none;
@@ -68,7 +67,6 @@
     text-decoration: none;
     color: white;
     background: rgba(26,26,26,0.7);
-    background-color: #1a1a1a;
     backdrop-filter: blur(10px) saturate(120%);
     -webkit-backdrop-filter: blur(10px) saturate(120%);
     padding: 1.5rem;

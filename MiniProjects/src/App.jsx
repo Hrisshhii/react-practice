@@ -1,6 +1,7 @@
 import { Counter } from './components/Counter/Counter'
 import {Routes,Route} from 'react-router';
 import { Home } from './components/Home';
+import './App.css';
 function App() {
 
   return (

@@ -19,8 +19,8 @@ export const Counter = () => {
         return ()=>window.removeEventListener('keydown',handleKey);
     },[]);
   return (
-    <>
-        <div className="container">
+    <div className='counter'>
+        <div className="counter-card">
             <h1 className="number">{count}</h1>
 
             <div className='buttons-container'>
@@ -29,6 +29,6 @@ export const Counter = () => {
                 <button onClick={() => setCount(0)} className="reset-but">Reset</button>
             </div>
         </div>
-    </>
+    </div>
   )
 }
