@@ -1,6 +1,11 @@
 html, body, #root {
-  min-height: 100%;
+  height: auto;
   overflow-y: auto;
+}
+
+body {
+  display: block;
+  margin: 0;
 }
 
 .home::before {
@@ -26,6 +31,9 @@ html, body, #root {
     padding: 4rem 1rem 6rem;
 }
 
+.home {
+  -webkit-overflow-scrolling: touch;
+}
 
 .title{
     font-size: 3rem;
