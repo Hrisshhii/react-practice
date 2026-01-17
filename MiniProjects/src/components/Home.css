@@ -20,7 +20,9 @@
     align-items: center;
     justify-content: flex-start;
     padding: 4rem 1rem 6rem;
-    overflow-y: hidden;
+    overflow-y: auto;
+    scrollbar-width: none;
+
 }
 
 .title{
