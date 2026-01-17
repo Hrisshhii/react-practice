@@ -1,6 +1,6 @@
 import {useState,useEffect} from 'react';
 import './Counter.css';
-
+import { BackHome } from '../BackHome';
 export const Counter = () => {
     const [count,setCount]=useState(0);
     function increment(){
@@ -20,6 +20,7 @@ export const Counter = () => {
     },[]);
   return (
     <div className='counter'>
+        <BackHome />
         <div className="counter-card">
             <h1 className="number">{count}</h1>
 
