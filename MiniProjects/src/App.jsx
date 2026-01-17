@@ -1,10 +1,12 @@
 import { Counter } from './components/Counter'
-
+import {Routes,Route} from 'react-router';
 function App() {
 
   return (
     <>
-      <Counter />
+      <Routes>
+        <Route index element={<Counter />}/>
+      </Routes>
     </>
   )
 }
