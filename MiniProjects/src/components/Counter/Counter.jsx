@@ -20,6 +20,7 @@ export const Counter = () => {
     },[]);
   return (
     <div className='counter'>
+        <title>Counter</title>
         <BackHome />
         <div className="counter-card">
             <h1 className="number">{count}</h1>

@@ -64,6 +64,7 @@ export function Todo(){
 
     return (
         <div className='todo'>
+            <title>To Do list</title>
             <BackHome />
             <div className="todo-card">
                 <input 
