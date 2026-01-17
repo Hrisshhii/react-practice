@@ -1,13 +1,3 @@
-html, body, #root {
-  height: auto;
-  overflow-y: auto;
-}
-
-body {
-  display: block;
-  margin: 0;
-}
-
 .home::before {
     content: "";
     position: absolute;
@@ -21,7 +11,7 @@ body {
 .home{
     position: relative;
     font-family: 'Poppins',sans-serif;
-    min-height: 100svh;
+    min-height: 100vh;
     background: radial-gradient(circle at top, #1a1a1a 0%, #0f0f0f 60%);
     color: white;
     display: flex;
@@ -29,10 +19,7 @@ body {
     align-items: center;
     justify-content: flex-start;
     padding: 4rem 1rem 6rem;
-}
-
-.home {
-  -webkit-overflow-scrolling: touch;
+    overflow-y: auto;
 }
 
 .title{
@@ -52,6 +39,13 @@ body {
     width: 80%;
     max-width: 800px;
     animation: fadeUp 0.8s ease forwards;
+    max-height: calc(100vh - 200px);
+    overflow-y: auto;
+    scrollbar-width: none;
+}
+
+.home::-webkit-scrollbar {
+  display: none;
 }
 
 @keyframes fadeUp{
