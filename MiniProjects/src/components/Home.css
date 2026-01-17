@@ -1,12 +1,15 @@
 .home::before {
     content: "";
-    position: relative;
+    position: absolute;
+    inset: 0;
     background-image: radial-gradient(rgba(255,255,255,0.04) 1px, transparent 1px);
-    background-size: 40px 40px;
+    background-size: 50px 50px;
     pointer-events: none;
+    opacity: 0.4;
 }
 
 .home{
+    position: relative;
     font-family: 'Poppins',sans-serif;
     min-height: 100vh;
     background: radial-gradient(circle at top, #1a1a1a 0%, #0f0f0f 60%);
@@ -20,7 +23,7 @@
 
 .title{
     font-size: 3rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
     background: linear-gradient(90deg, #ffffff, #b0c7ff);
     background-clip: text;
     -webkit-background-clip: text;
@@ -30,10 +33,10 @@
 
 .projects{
     display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(180px,1fr));
+    grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
     gap: 1.5rem;
     width: 80%;
-    max-width: 600px;
+    max-width: 800px;
     animation: fadeUp 0.8s ease forwards;
 }
 
@@ -64,6 +67,13 @@
 
 
 .card{
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+
     text-decoration: none;
     color: white;
     background: rgba(26,26,26,0.7);
@@ -71,14 +81,13 @@
     -webkit-backdrop-filter: blur(10px) saturate(120%);
     padding: 1.5rem;
     border-radius: 12px;
-    text-align: center;
     font-size: 1.2rem;
     transition: all 0.2s ease;
     border: 1px solid rgba(255,255,255,0.05);
     position:relative;
     overflow: hidden;
-    animation: float 6s ease-in-out infinite;
     cursor: pointer;
+    text-align: center;
 }
 
 @keyframes float {
@@ -90,6 +99,7 @@
     transform: translateY(-5px) scale(1.02);
     background: linear-gradient(145deg, #1f1f1f, #151515);;
     box-shadow: 0 10px 20px rgba(0,0,0,0.6), 0 0 12px rgba(255,255,255,0.05);
+    animation: float 6s ease-in-out infinite;
 }
 
 .card:active{
