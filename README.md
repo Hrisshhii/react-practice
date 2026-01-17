@@ -59,12 +59,13 @@ GitHub Pages (Deployment)
 MiniProjects/
 │
 ├── src/
-│   ├── components/
-│   │   ├── Home
-│   │   ├── Counter
-│   │   ├── Todo
-│   │   └── Meals
-│   └── App.jsx
+│ ├── components/
+│ │ ├── Home
+│ │ ├── Counter
+│ │ ├── Todo
+│ │ └── Meals
+│ │
+│ └── App.jsx
 │
 ├── public/
 └── package.json
@@ -76,3 +77,17 @@ This project is deployed on GitHub Pages using:
 npm run deploy
 
 Every time a new mini project is added, the site is rebuilt and redeployed.
+
+
+## 🧩 Mini Apps Included
+
+- 🔢 Counter App  
+- 📝 Todo App  
+- 🍽️ Meals List  
+- 🧮 Calculator  
+- 🎨 Toggle Background Color  
+- 🔍 Hidden Search Bar  
+- 💬 Testimonials  
+- 📂 Accordion  
+- ✅ Form Validation  
+- 🛒 E-commerce Filtering 
