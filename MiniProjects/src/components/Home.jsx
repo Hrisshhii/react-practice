@@ -15,8 +15,9 @@ export const Home = () => {
         <Link to="/accordion" className="card">📂 Accordion</Link>
         <Link to="/formvalidation" className="card">✅ Form Validation</Link>
         <Link to="/ecommercefiltering" className="card">🛒 E-commerce (Filtering)</Link>
+        
+        <p className="footer">React Mini Projects</p>
       </div>
-      <p className="footer">React Mini Projects</p>
     </div>
   );
 };
