@@ -11,7 +11,7 @@ export const Home = () => {
         <Link to="/calculator" className="card">🧮 Calculator</Link>
         <Link to="/togglebgcolor" className="card">🎨 Toggle BG Color</Link>
         <Link to="/hiddensearchbar" className="card">🔍 Hidden Searchbar</Link>
-        <Link to="/pokedex" className="card">🐉 Pokedex</Link>
+        <Link to="/pokedex" className="card">🐉 Pokédex</Link>
         <Link to="/accordion" className="card">📂 Accordion</Link>
         <Link to="/formvalidation" className="card">✅ Form Validation</Link>
         <Link to="/ecommercefiltering" className="card">🛒 E-commerce (Filtering)</Link>
