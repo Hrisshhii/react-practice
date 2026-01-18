@@ -35,6 +35,14 @@ export function Hidden(){
         setTimeout(()=>setLoading(false),1000);
     };
 
+    useEffect(()=>{
+        const handleEnter=(e)=>{
+            if(e.key==="Enter" && open) search();
+        };
+        window.addEventListener("keydown", handleEnter);
+        return () => window.removeEventListener("keydown", handleEnter);
+    },[open]);
+
     return(
         <div className='hidden-search'>
             <BackHome />
