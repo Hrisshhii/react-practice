@@ -1,10 +1,33 @@
+import { useState,useRef,useEffect } from 'react';
 import './Hidden.css';
 import { BackHome } from '../BackHome';
 
 export function Hidden(){
+    const [open,setOpen]=useState(false);
+    const inputRef=useRef(null);
+
+    useEffect(()=>{
+        if(open) inputRef.current.focus();
+    },[open]);
+    useEffect(()=>{
+        const handleKey=(e)=>{
+            if(e.key==="Escape") setOpen(false);
+        };
+        window.addEventListener("keydown",handleKey);
+        return ()=>window.removeEventListener("keydown",handleKey)
+    },[]);
+
     return(
-        <div className='Hidden-Search-bar'>
+        <div className='hidden-search'>
             <BackHome />
+            <div className={`search-container ${open ? "open" : ""}`}>
+                <input 
+                    ref={inputRef}
+                    type='text'
+                    placeholder='Search...'
+                />
+                <button className="search-button" onClick={()=> setOpen(!open)}>🔍</button>
+            </div>
         </div>
     );
 };
