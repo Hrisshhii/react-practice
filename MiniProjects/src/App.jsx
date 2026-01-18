@@ -7,6 +7,7 @@ import './App.css';
 import { Calculator } from './components/Calculator/Calculator';
 import { ToggleBg } from './components/ToggleBg/ToggleBg';
 import { Hidden } from './components/HiddenSearchbar/Hidden';
+import { PokemonSlider } from './components/PokeDex/Pokedex';
 function App() {
 
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/calculator" element={<Calculator />} />
         <Route path="/togglebgcolor" element={<ToggleBg />} />
         <Route path="/hiddensearchbar" element={<Hidden />} />
+        <Route path="/pokedex" element={<PokemonSlider />} />
       </Routes>
     </>
   )
