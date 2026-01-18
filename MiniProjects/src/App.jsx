@@ -5,6 +5,7 @@ import {Routes,Route} from 'react-router';
 import { Home } from './components/Home';
 import './App.css';
 import { Calculator } from './components/Calculator/Calculator';
+import { ToggleBg } from './components/ToggleBg/ToggleBg';
 function App() {
 
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/todo" element={<Todo />} />
         <Route path="/mealslist" element={<MealsList />} />
         <Route path="/calculator" element={<Calculator />} />
+        <Route path="/togglebgcolor" element={<ToggleBg />} />
       </Routes>
     </>
   )
