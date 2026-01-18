@@ -10,7 +10,7 @@ export function Hidden(){
 
     useEffect(()=>{
         const close=(e)=>{
-            if(boxRef.current && !boxRef.current.contains(e.target)){
+            if(boxRef.current && !boxRef.current.contains(e.target) && inputRef.current.value===""){
                 setOpen(false);
             }
         };
@@ -29,6 +29,12 @@ export function Hidden(){
         return ()=>window.removeEventListener("keydown",handleKey)
     },[]);
 
+    const [loading,setLoading]=useState(false);
+    const search=()=>{
+        setLoading(true);
+        setTimeout(()=>setLoading(false),1000);
+    };
+
     return(
         <div className='hidden-search'>
             <BackHome />
@@ -38,7 +44,7 @@ export function Hidden(){
                     type='text'
                     placeholder='Search...'
                 />
-                <button className="search-button" onClick={()=> setOpen(!open)}>🔍</button>
+                <button className="search-button" onClick={()=> {setOpen(!open); search();}}>{loading ? "⏳": "🔍"}</button>
             </div>
         </div>
     );
