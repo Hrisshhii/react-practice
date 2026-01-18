@@ -6,6 +6,18 @@ export function Hidden(){
     const [open,setOpen]=useState(false);
     const inputRef=useRef(null);
 
+    const boxRef=useRef();
+
+    useEffect(()=>{
+        const close=(e)=>{
+            if(boxRef.current && !boxRef.current.contains(e.target)){
+                setOpen(false);
+            }
+        };
+        document.addEventListener("mousedown",close);
+        return ()=>document.removeEventListener("mousedown",close);
+    },[]);
+
     useEffect(()=>{
         if(open) inputRef.current.focus();
     },[open]);
@@ -20,7 +32,7 @@ export function Hidden(){
     return(
         <div className='hidden-search'>
             <BackHome />
-            <div className={`search-container ${open ? "open" : ""}`}>
+            <div ref={boxRef} className={`search-container ${open ? "open" : ""}`}>
                 <input 
                     ref={inputRef}
                     type='text'
