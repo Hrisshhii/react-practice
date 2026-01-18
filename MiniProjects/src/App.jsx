@@ -6,6 +6,7 @@ import { Home } from './components/Home';
 import './App.css';
 import { Calculator } from './components/Calculator/Calculator';
 import { ToggleBg } from './components/ToggleBg/ToggleBg';
+import { Hidden } from './components/HiddenSearchbar/Hidden';
 function App() {
 
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/mealslist" element={<MealsList />} />
         <Route path="/calculator" element={<Calculator />} />
         <Route path="/togglebgcolor" element={<ToggleBg />} />
+        <Route path="/hiddensearchbar" element={<Hidden />} />
       </Routes>
     </>
   )
