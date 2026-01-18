@@ -1,0 +1,110 @@
+.toggle-bg{
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background 0.8s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.toggle-bg.light{
+    background: linear-gradient(135deg,#f5f7fa,#c3cfe2);
+    color: #000;
+}
+
+.toggle-bg.dark::before{
+    content: "";
+    position: absolute;
+    inset:0;
+    background: radial-gradient(rgba(255,255,255,0.08) 1px,transparent 1px);
+    background-size: 40px 40px;
+    opacity: 0.2;
+}
+
+.toggle-bg.dark{
+    background: radial-gradient(circle at top,#1a1a1a,#000);
+    color: #fff;
+}
+
+.toggle-bg.dark::after{
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: 
+        radial-gradient(1px 1px at 5% 10%, white, transparent),
+        radial-gradient(1px 1px at 15% 30%, white, transparent),
+        radial-gradient(1px 1px at 25% 70%, white, transparent),
+        radial-gradient(1px 1px at 35% 50%, white, transparent),
+        radial-gradient(1px 1px at 45% 20%, white, transparent),
+        radial-gradient(1px 1px at 55% 80%, white, transparent),
+        radial-gradient(1px 1px at 65% 40%, white, transparent),
+        radial-gradient(1px 1px at 75% 60%, white, transparent),
+        radial-gradient(1px 1px at 85% 25%, white, transparent),
+        radial-gradient(1px 1px at 95% 75%, white, transparent),
+
+        radial-gradient(2px 2px at 10% 60%, white, transparent),
+        radial-gradient(2px 2px at 30% 20%, white, transparent),
+        radial-gradient(2px 2px at 50% 50%, white, transparent),
+        radial-gradient(2px 2px at 70% 15%, white, transparent),
+        radial-gradient(2px 2px at 90% 40%, white, transparent);
+    opacity: 0.6;
+    animation: twinkle 4s infinite alternate;
+    pointer-events: none;
+}
+
+@keyframes twinkle{
+    from{opacity: 0.3;}to{opacity: 0.8;}
+}
+
+.toggle-card h1{
+    transition: color 0.5s ease, transform 0.5s ease;
+}
+
+.toggle-bg.dark .toggle-card{
+    box-shadow: 0 0 40px rgba(120,150,255,0.15), 0 20px 40px rgba(0,0,0,0.6);
+}
+
+
+.toggle-card{
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(12px);
+    padding: 3rem;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+    animation: pop 0.5s ease;
+}
+
+@keyframes pop{
+    from{
+        transform: scale(0.75);
+        opacity: 0;
+    }to{
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.toggle-button{
+    margin-top: 1.5rem;
+    padding: 0.7rem 1.5rem;
+    border-radius: 999px;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    background: linear-gradient(135deg,#4facfe,#00f2fe);
+    color: #000;
+    transition: transform 0.2s ease,box-shadow 0.2s ease;
+}
+
+.toggle-button:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(79,172,254,0.4);
+}
+
+.keyhint{
+    margin-top: 1rem;
+    opacity: 0.6;
+    font-size: 0.9rem;
+}
