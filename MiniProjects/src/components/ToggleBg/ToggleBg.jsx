@@ -26,18 +26,14 @@ export function ToggleBg(){
         return ()=>window.removeEventListener("keydown",handleKey);
     },[]);
 
-    useEffect(()=>{
-        localStorage.setItem("theme", dark ? "dark" : "light");
-    },[dark]);
-
     return(
         <div className={`toggle-bg ${dark ? "dark" : "light"}`}>
             <BackHome />
             <div className="toggle-card">
                 <h1>{dark ? "Dark Mode":"Light Mode"}</h1>
-                <button className='toggle-button' onClick={toggleTheme}>
-                    Toggle Theme
-                </button>
+                <div className={`switch ${dark ? "on" : ""}`} onClick={toggleTheme}>
+                    <div className="thumb">{dark ? "🌙":"☀️"}</div>
+                </div>
                 <p className="keyhint">Press "T" to toggle</p>
             </div>
         </div>
