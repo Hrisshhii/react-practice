@@ -1,9 +1,8 @@
+import {Routes,Route} from 'react-router';
+import { Home } from './components/Home';
 import { Counter } from './components/Counter/Counter'
 import { Todo } from './components/Todo/Todo';
 import { MealsList } from './components/MealsList/MealsList';
-import {Routes,Route} from 'react-router';
-import { Home } from './components/Home';
-import './App.css';
 import { Calculator } from './components/Calculator/Calculator';
 import { ToggleBg } from './components/ToggleBg/ToggleBg';
 import { Hidden } from './components/HiddenSearchbar/Hidden';
@@ -12,6 +11,8 @@ import { Accordion } from './components/Accordion/Accordion';
 import { FormValidation } from './components/FormValidation/FormValidation';
 import { Ecommerce } from './components/Ecommerce-filtering/Ecommerce';
 import { Weather } from './components/Weather/Weather';
+import { Music } from './components/Music-Player/Music';
+import './App.css';
 function App() {
 
   return (
@@ -29,6 +30,7 @@ function App() {
         <Route path="/formvalidation" element={<FormValidation />} />
         <Route path="/ecommercefiltering" element={<Ecommerce />} />
         <Route path='/weather' element={<Weather />}/>
+        <Route path='/musicplayer' element={<Music />} />
       </Routes>
     </>
   )
