@@ -11,6 +11,7 @@ import { PokemonSlider } from './components/PokeDex/Pokedex';
 import { Accordion } from './components/Accordion/Accordion';
 import { FormValidation } from './components/FormValidation/FormValidation';
 import { Ecommerce } from './components/Ecommerce-filtering/Ecommerce';
+import { Weather } from './components/Weather/Weather';
 function App() {
 
   return (
@@ -27,6 +28,7 @@ function App() {
         <Route path="/accordion" element={<Accordion />} />
         <Route path="/formvalidation" element={<FormValidation />} />
         <Route path="/ecommercefiltering" element={<Ecommerce />} />
+        <Route path='/weather' element={<Weather />}/>
       </Routes>
     </>
   )
