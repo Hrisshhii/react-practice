@@ -15,6 +15,8 @@ export const Home = () => {
         <Link to="/accordion" className="card">📂 Accordion</Link>
         <Link to="/formvalidation" className="card">✅ Form Validation</Link>
         <Link to="/ecommercefiltering" className="card">🛒 E-commerce (Filtering)</Link>
+        <Link to="/weather" className="card">🌤️ Weather App (API based)</Link>
+        <Link to="/musicplayer" className="card">🎵 Music Player UI</Link>
 
       </div>
       <p className="footer">React Mini Projects</p>
