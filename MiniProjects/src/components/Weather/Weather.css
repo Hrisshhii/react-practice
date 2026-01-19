@@ -1,0 +1,90 @@
+.weather-page{
+  min-height:100vh;
+  background: radial-gradient(circle at top,#1a1a1a,#000);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  padding:3rem 1.5rem;
+  color:white;
+}
+
+.weather-title{
+  font-size:2.2rem;
+  margin-bottom:2rem;
+  background:linear-gradient(90deg,#fff,#7aa2ff);
+  background-clip:text;
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+.weather-search{
+  display:flex;
+  gap:0.8rem;
+  margin-bottom:2rem;
+}
+
+.weather-search input{
+  padding:0.7rem 1rem;
+  border-radius:999px;
+  border:none;
+  outline:none;
+  background:rgba(255,255,255,0.1);
+  color:white;
+  width:200px;
+}
+
+.weather-search button{
+  padding:0.7rem 1.4rem;
+  border:none;
+  border-radius:999px;
+  background:linear-gradient(135deg,#4facfe,#00f2fe);
+  cursor:pointer;
+  font-weight:600;
+}
+
+.weather-search button:hover{
+  opacity:0.9;
+}
+
+.status{
+  color:#7aa2ff;
+  margin-top:1rem;
+}
+
+.error{
+  color:#ff6b6b;
+  margin-top:1rem;
+}
+
+.weather-card{
+  margin-top:2rem;
+  background:rgba(255,255,255,0.08);
+  backdrop-filter:blur(12px);
+  border-radius:18px;
+  padding:2rem 2.5rem;
+  text-align:center;
+  box-shadow:0 20px 40px rgba(0,0,0,0.6);
+  animation:fadeIn 0.5s ease;
+}
+
+.weather-card h2{
+  font-size:1.5rem;
+  margin-bottom:0.5rem;
+}
+
+.temp{
+  font-size:3rem;
+  font-weight:700;
+  color:#4facfe;
+}
+
+.desc{
+  text-transform:capitalize;
+  opacity:0.8;
+  margin-top:0.3rem;
+}
+
+@keyframes fadeIn{
+  from{opacity:0; transform:translateY(10px);}
+  to{opacity:1; transform:translateY(0);}
+}
