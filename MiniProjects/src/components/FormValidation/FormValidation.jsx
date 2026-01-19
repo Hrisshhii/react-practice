@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 import { BackHome } from '../BackHome';
 import './FormValidation.css';
 
@@ -25,7 +25,7 @@ export function FormValidation(){
         }
 
         if (!form.password){
-            newErrors.passward="Password is required";
+            newErrors.password="Password is required";
         }else if(form.password.length<8){
             newErrors.password="Minimum 8 characters";
         }
@@ -37,12 +37,25 @@ export function FormValidation(){
         setErrors(newErrors);
         return Object.keys(newErrors).length===0;
     };
+
     const handleSubmit=(e)=>{
         e.preventDefault();
         if(validate()){
             alert("Form Submitted Successfully 🎉")
         }
     };
+
+    useEffect(()=>{
+        const handleKey=(e)=>{
+            if(e.key==="Escape"){
+                setForm({name:"",email:"",password:"",confirm:""});
+                setErrors({});
+            }
+        };
+        window.addEventListener("keydown",handleKey);
+        return ()=>window.removeEventListener("keydown",handleKey);
+    },[]);
+
     return (
         <div className="form-page">
             <BackHome />
