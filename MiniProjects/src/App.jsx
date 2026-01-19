@@ -10,6 +10,7 @@ import { Hidden } from './components/HiddenSearchbar/Hidden';
 import { PokemonSlider } from './components/PokeDex/Pokedex';
 import { Accordion } from './components/Accordion/Accordion';
 import { FormValidation } from './components/FormValidation/FormValidation';
+import { Ecommerce } from './components/Ecommerce-filtering/Ecommerce';
 function App() {
 
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route path="/pokedex" element={<PokemonSlider />} />
         <Route path="/accordion" element={<Accordion />} />
         <Route path="/formvalidation" element={<FormValidation />} />
+        <Route path="/ecommercefiltering" element={<Ecommerce />} />
       </Routes>
     </>
   )
