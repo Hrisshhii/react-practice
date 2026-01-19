@@ -8,6 +8,7 @@ import { Calculator } from './components/Calculator/Calculator';
 import { ToggleBg } from './components/ToggleBg/ToggleBg';
 import { Hidden } from './components/HiddenSearchbar/Hidden';
 import { PokemonSlider } from './components/PokeDex/Pokedex';
+import { Accordion } from './components/Accordion/Accordion';
 function App() {
 
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/togglebgcolor" element={<ToggleBg />} />
         <Route path="/hiddensearchbar" element={<Hidden />} />
         <Route path="/pokedex" element={<PokemonSlider />} />
+        <Route path='/accordion' element={<Accordion />} />
       </Routes>
     </>
   )
