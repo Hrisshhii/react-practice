@@ -1,0 +1,102 @@
+.form-page{
+  min-height:100vh;
+  background: radial-gradient(circle at top,#1a1a1a,#000);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.form-card{
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(12px);
+  padding:2rem 2.5rem;
+  border-radius:18px;
+  width:100%;
+  max-width:380px;
+  box-shadow:0 20px 40px rgba(0,0,0,0.6);
+  color:white;
+}
+
+.form-card{
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-card:hover{
+  transform: translateY(-4px);
+  box-shadow:0 30px 60px rgba(0,0,0,0.8);
+}
+
+.field{
+  margin-bottom:1.2rem;
+}
+
+.field input{
+  width:100%;
+  padding:0.7rem 1rem;
+  border-radius:10px;
+  border:1px solid rgba(255,255,255,0.2);
+  background:transparent;
+  color:white;
+  outline:none;
+}
+
+.field input:focus{
+  border-color: #4facfe;
+  box-shadow: 0 0 0 2px rgba(79,172,254,0.3);
+}
+
+.field input.error{
+  border-color:#ff4d4d;
+}
+
+.error-text{
+  color:#ff6b6b;
+  font-size:0.75rem;
+  margin-top:0.3rem;
+  display:block;
+}
+
+.error-text{
+  animation: shake 0.3s ease;
+}
+
+@keyframes shake{
+  0%{transform:translateX(0)}
+  25%{transform:translateX(-4px)}
+  50%{transform:translateX(4px)}
+  75%{transform:translateX(-4px)}
+  100%{transform:translateX(0)}
+}
+
+
+.form-card button{
+  width:100%;
+  margin-top:1rem;
+  padding:0.7rem;
+  border:none;
+  border-radius:999px;
+  background:linear-gradient(135deg,#4facfe,#00f2fe);
+  cursor:pointer;
+  font-weight:600;
+}
+
+.form-card button:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(79,172,254,0.5);
+}
+
+.form-card button:active{
+  transform: scale(0.96);
+}
+
+.form-card h2{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  background: linear-gradient(90deg, #ffffff, #7aa2ff);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

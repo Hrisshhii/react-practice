@@ -9,6 +9,7 @@ import { ToggleBg } from './components/ToggleBg/ToggleBg';
 import { Hidden } from './components/HiddenSearchbar/Hidden';
 import { PokemonSlider } from './components/PokeDex/Pokedex';
 import { Accordion } from './components/Accordion/Accordion';
+import { FormValidation } from './components/FormValidation/FormValidation';
 function App() {
 
   return (
@@ -22,7 +23,8 @@ function App() {
         <Route path="/togglebgcolor" element={<ToggleBg />} />
         <Route path="/hiddensearchbar" element={<Hidden />} />
         <Route path="/pokedex" element={<PokemonSlider />} />
-        <Route path='/accordion' element={<Accordion />} />
+        <Route path="/accordion" element={<Accordion />} />
+        <Route path="/formvalidation" element={<FormValidation />} />
       </Routes>
     </>
   )
