@@ -20,9 +20,10 @@ html, body, #root {
 }
 
 .home{
+    display: flex;
     position: relative;
     font-family: 'Poppins',sans-serif;
-    min-height: 100svh;
+    min-height: 100vh;
     height: auto;
     background: radial-gradient(circle at top, #1a1a1a 0%, #0f0f0f 60%);
     color: white;
@@ -48,14 +49,11 @@ html, body, #root {
     display: grid;
     grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
     gap: 1.5rem;
-    width: 80%;
+    width: 100%;
     max-width: 800px;
     animation: fadeUp 0.8s ease forwards;
 }
 
-.home::-webkit-scrollbar {
-  width: 0;
-}
 
 @keyframes fadeUp{
     from{
@@ -90,6 +88,7 @@ html, body, #root {
     justify-content: center;
     align-items: center;
     gap: 0.5rem;
+    flex: 1;
 
     text-decoration: none;
     color: white;
@@ -102,9 +101,11 @@ html, body, #root {
     transition: all 0.2s ease;
     border: 1px solid rgba(255,255,255,0.05);
     position:relative;
-    overflow: hidden;
     cursor: pointer;
     text-align: center;
+    overflow-y: auto;
+    scrollbar-width: none;
+    scroll-behavior: smooth;
 }
 
 @keyframes float {
@@ -129,4 +130,10 @@ html, body, #root {
   color: rgba(255,255,255,0.4);
   letter-spacing: 0.5px;
   text-align: center;
+}
+
+@media (max-width: 600px) {
+  .title {
+    font-size: 2.2rem;
+  }
 }
