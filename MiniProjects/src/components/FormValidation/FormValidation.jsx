@@ -13,7 +13,9 @@ export function FormValidation(){
 
     const handleChange=(e)=>{
         const {name,value} =e.target;
-        setForm(prev=>({...prev,[name]:value}))
+        const updateForm={...form,[name]:value};
+        setForm(updateForm)
+        validateLive(updateForm);
     };
 
     const validate=()=>{
@@ -36,6 +38,17 @@ export function FormValidation(){
 
         setErrors(newErrors);
         return Object.keys(newErrors).length===0;
+    };
+
+    const validateLive=(values)=>{
+        let newErrors={};
+        if(!values.name.trim()) newErrors.name="Name is required";
+        if (!values.email.trim()) newErrors.email = "Email is required";
+        else if (!/^\S+@\S+\.\S+$/.test(values.email)) newErrors.email = "Invalid email format";
+        if (!values.password) newErrors.password="Password is required";
+        else if (values.password.length<8) newErrors.password = "Minimum 8 characters";
+        if (values.confirm && values.confirm!==values.password) newErrors.confirm="Passwords do not match";
+        setErrors(newErrors);
     };
 
     const handleSubmit=(e)=>{
@@ -62,19 +75,19 @@ export function FormValidation(){
             <form className='form-card' onSubmit={handleSubmit}>
                 <h2>Form Validation</h2>
                 <div className='field'>
-                    <input name="name" placeholder='name' onChange={handleChange}/>
+                    <input name="name" placeholder='name' value={form.name} onChange={handleChange}/>
                     {errors.name && <span className='error-text'>{errors.name}</span>}
                 </div>
                 <div className='field'>
-                    <input name="email" placeholder='Email' onChange={handleChange}/>
+                    <input name="email" placeholder='Email' value={form.email} onChange={handleChange}/>
                     {errors.email && <span className='error-text'>{errors.email}</span>}
                 </div>
                 <div className='field'>
-                    <input type="password" name='password' placeholder='Password' onChange={handleChange}/>
+                    <input type="password" name='password' value={form.password} placeholder='Password' onChange={handleChange}/>
                     {errors.password && <span className='error-text'>{errors.password}</span>}
                 </div>
                 <div className='field'>
-                    <input type="password" name='confirm' placeholder='Confirm Password' onChange={handleChange}/>
+                    <input type="password" name='confirm' value={form.confirm} placeholder='Confirm Password' onChange={handleChange}/>
                     {errors.confirm && <span className='error-text'>{errors.confirm}</span>}
                 </div>
 
