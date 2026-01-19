@@ -71,6 +71,7 @@ export function FormValidation(){
 
     return (
         <div className="form-page">
+            <title>Form Validation</title>
             <BackHome />
             <form className='form-card' onSubmit={handleSubmit}>
                 <h2>Form Validation</h2>

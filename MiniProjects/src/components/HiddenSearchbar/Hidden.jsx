@@ -45,6 +45,7 @@ export function Hidden(){
 
     return(
         <div className='hidden-search'>
+            <title>Hidden Search Bar</title>
             <BackHome />
             <div ref={boxRef} className={`search-container ${open ? "open" : ""}`}>
                 <input 

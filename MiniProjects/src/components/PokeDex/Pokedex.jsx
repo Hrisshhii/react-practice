@@ -16,6 +16,7 @@ export function PokemonSlider(){
 
   return (
     <div className="testimonials-page">
+      <title>PokeDex</title>
       <BackHome />
       <div className='slider'>
         {pokemons.map((t,i)=>{

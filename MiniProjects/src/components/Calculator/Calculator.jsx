@@ -43,6 +43,7 @@ export function Calculator(){
 
   return(
     <div className="calculator">
+      <title>Calculator</title>
       <BackHome />
       <div className='calculator-card'>
         <div className='screen'>{value || "0"}</div>

@@ -26,6 +26,7 @@ export function Accordion(){
 
     return (
         <div className='accordion-page'>
+            <title>Accordion</title>
             <BackHome />
             <div className='accordion'>
                 <h1 className='accordion-title'>📂 Accordion</h1>

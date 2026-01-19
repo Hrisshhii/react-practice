@@ -28,6 +28,7 @@ export function ToggleBg(){
 
     return(
         <div className={`toggle-bg ${dark ? "dark" : "light"}`}>
+            <title>Toggle Background Theme</title>
             <BackHome />
             <div className="toggle-card">
                 <h1>{dark ? "Dark Mode":"Light Mode"}</h1>
