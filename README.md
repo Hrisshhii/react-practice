@@ -1,77 +1,88 @@
 # 🚀 React Mini Projects Showcase
 
-My complete React learning journey with practice code and mini projects, built using React + Vite and deployed on GitHub Pages.
+A collection of React mini projects built as part of my frontend learning journey.  
+This repository demonstrates practical implementation of core React concepts, UI logic, state management, and API integration using modern tools like **React 19** and **Vite**.
 
-live Demo:
+🔗 **Live Demo:**  
 👉 https://hrisshhii.github.io/react-practice
 
-# 📌 Projects Included (So Far)
+---
 
-🔢 Counter App
+## 🎯 Purpose
 
-Increment / Decrement / Reset
+- Strengthen React fundamentals through hands-on projects  
+- Practice building real-world UI components and app logic  
+- Learn routing, state management, API integration, and persistence  
+- Create a portfolio-ready showcase for internships and frontend roles  
 
-Keyboard support
-
-Clean UI with animations
-
-📝 Todo App
-
-Add / Delete / Edit / Complete tasks
-
-LocalStorage persistence
-
-Auto-scroll, animations, modern glass UI
-
-🍽️ Meals Explorer
-
-Fetches data from TheMealDB API
-
-Search meals by name
-
-Category filter chips
-
-“🎲 Surprise Me” random meal
-
-Click card → Detailed modal view
-
-Responsive grid & smooth UI
-
-
-
-(More projects coming soon 🚧)
-
-
-# 🛠 Tech Stack
-
-React (Hooks, Router)
-
-Vite
-
-CSS (Glassmorphism, Animations, Flex/Grid)
-
-Axios (API calls)
-
-GitHub Pages (Deployment)
-
-# 🚀 Deployment
-
-This project is deployed on GitHub Pages using:
-
-npm run deploy
-
-Every time a new mini project is added, the site is rebuilt and redeployed.
-
+---
 
 ## 🧩 Mini Apps Included
 
 - 🔢 Counter App  
 - 📝 Todo App  
-- 🍽️ Meals List  
+- 🍽️ Meals Explorer  
 - 🧮 Calculator  
-- 🎨 Toggle Background Color  
+- 🎨 Toggle Background Theme  
 - 🔍 Hidden Search Bar  
-- 💬 Testimonials  
+- 💬 PokeDex Slider  
 - 📂 Accordion  
 - ✅ Form Validation  
-- 🛒 E-commerce Filtering 
+- 🛒 E-commerce Filtering (Game Store)    
+- ☁️ Weather App  
+- 🎵 Music Player
+
+(More projects will be added as I continue learning 🚧)
+
+---
+
+## 📌 Highlighted Projects
+
+### 📝 Todo App
+- Add, delete, edit, complete tasks  
+- LocalStorage persistence  
+- Auto-scroll, animations, modern UI  
+- Keyboard & double-click support  
+
+### 🍽️ Meals Explorer
+- Data from TheMealDB API  
+- Search meals by name  
+- Category filters  
+- “🎲 Surprise Me” random meal  
+- Detailed modal view  
+
+### 🛒 E-commerce Filtering (Game Store)
+- Search, filter by genre & platform  
+- Sort by price and rating  
+- Dynamic product grid UI  
+
+### 🎵 Music Player
+- Playlist with play/pause/next/previous  
+- Progress seek bar & volume control  
+- Audio API integration  
+
+### ☁️ Weather App
+- City-based weather search  
+- OpenWeather API with geocoding  
+- Loading and error states  
+
+---
+
+## 🛠 Tech Stack
+
+- React 19 (Hooks, Router)
+- Vite
+- JavaScript (ES6+)
+- Axios (API calls)
+- CSS (Flexbox, Grid, Animations, Glassmorphism)
+- LocalStorage
+- GitHub Pages (Deployment)
+
+---
+
+## 🚀 Deployment
+
+The project is deployed using GitHub Pages.
+
+```bash
+npm run deploy
