@@ -21,12 +21,14 @@
 .products-grid{
     flex: 1;
     display: grid;
+    justify-content: center;
     grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
     align-content: start;
     gap: 1.5rem;
     max-width: 1200px;
     margin: 0 auto;
     padding-bottom: 2rem;
+    overflow-x: auto;
     overflow-y: auto;
     scrollbar-width: none;
     scroll-behavior: smooth;
