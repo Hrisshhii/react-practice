@@ -21,7 +21,6 @@
 .products-grid{
     flex: 1;
     display: grid;
-    justify-items: center;
     grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
     align-content: start;
     gap: 1.5rem;
