@@ -4,6 +4,9 @@ This folder contains a collection of small React projects built using **React + 
 
 These mini projects focus on building real UI components and application logic commonly used in modern web apps.
 
+🔗 **Live Demo:**  
+👉 https://hrisshhii.github.io/react-practice
+
 ## 🎯 Purpose
 - Strengthen React fundamentals through practical projects  
 - Practice building reusable components and clean UI logic  
