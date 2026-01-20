@@ -14,7 +14,15 @@
     padding: 2rem;
     text-align: center;
     width: 320px;
+    max-width: 90vw;
     box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+    transition: transform 0.3s ease,box-shadow 0.3s ease;
+}
+
+.player-card:hover{
+    transform: scale(1.02) translateY(-2px);
+    box-shadow: 0 0 15px rgba(79,172,254,0.5),
+                0 0 40px rgba(0,242,254,0.2);
 }
 
 .cover{
@@ -41,6 +49,11 @@
     font-size: 1.2rem;
     color: white;
     cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.controls button:hover{
+    transform: scale(1.1);
 }
 
 .progress{
@@ -59,4 +72,20 @@
 .volume input{
     width: 90%;
     accent-color: #00f2fe;
+}
+
+.progress:hover, .volume input:hover{
+    filter: drop-shadow(0 0 6px #4facfe);
+}
+
+.play-button{
+    background: linear-gradient(135deg,#4facfe,#00f2fe);
+    color: black;
+    box-shadow: 0 0 15px rgba(79,172,254,0.5),
+                0 0 40px rgba(0,242,254,0.2);
+}
+
+.play-button:hover{
+    box-shadow: 0 0 25px rgba(79,172,254,1),
+                0 0 60px rgba(0,242,254,1);
 }

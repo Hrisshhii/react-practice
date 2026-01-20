@@ -70,7 +70,7 @@ export function Music(){
 
                 <div className='controls'>
                     <button onClick={prevSong}>⏮</button>
-                    <button onClick={togglePlay}>{isPlaying ? "⏸" : "▶️"}</button>
+                    <button onClick={togglePlay} className='play-button'>{isPlaying ? "⏸" : "▶️"}</button>
                     <button onClick={nextSong}>⏭</button>
                 </div>
 
