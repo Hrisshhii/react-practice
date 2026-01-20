@@ -36,9 +36,7 @@ export function Music(){
     };
 
     useEffect(()=>{
-        if(isPlaying){
-            audioRef.current.play();
-        }
+        if(isPlaying) audioRef.current.play();
     },[currentIndex,isPlaying]);
 
     const handleTimeUpdate=()=>{
