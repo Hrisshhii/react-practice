@@ -7,6 +7,8 @@ export function Music(){
     const audioRef=useRef(null);
     const [currentIndex,setCurrentIndex]=useState(0);
     const [isPlaying,setIsPlaying] = useState(false);
+    const [progress,setProgress]=useState(0);
+    const [volume,setVolume]=useState(0.7);
 
     const togglePlay=()=>{
         if(isPlaying){
@@ -39,6 +41,19 @@ export function Music(){
         }
     },[currentIndex,isPlaying]);
 
+    const handleTimeUpdate=()=>{
+        const current=audioRef.current.currentTime;
+        const duration=audioRef.current.duration;
+        setProgress((current/duration)*100);
+    };
+
+    const seek=(e)=>{
+        const value=e.target.value;
+        const duration=audioRef.current.duration;
+        audioRef.current.currentTime=(value/100)*duration;
+        setProgress(value);
+    };
+
     return(
         <div className='music-page'>
             <title>Music Player</title>
@@ -48,13 +63,16 @@ export function Music(){
                 <h3>{songs[currentIndex].title}</h3>
                 <p>{songs[currentIndex].artist}</p>
 
-                <audio ref={audioRef} src={songs[currentIndex].src}></audio>
+                <audio ref={audioRef} src={songs[currentIndex].src} onTimeUpdate={handleTimeUpdate}></audio>
+                <input type="range" className='progress' value={progress} onChange={seek}/>
 
                 <div className='controls'>
                     <button onClick={prevSong}>⏮</button>
                     <button onClick={togglePlay}>{isPlaying ? "⏸" : "▶️"}</button>
                     <button onClick={nextSong}>⏭</button>
                 </div>
+
+                <div className='volume'>🔊</div>
             </div>
         </div>
     );
