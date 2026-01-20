@@ -52,6 +52,10 @@ export function Music(){
         setProgress(value);
     };
 
+    useEffect(()=>{
+        audioRef.current.volume=volume;
+    },[volume]);
+
     return(
         <div className='music-page'>
             <title>Music Player</title>
@@ -70,7 +74,9 @@ export function Music(){
                     <button onClick={nextSong}>⏭</button>
                 </div>
 
-                <div className='volume'>🔊</div>
+                <div className='volume'>🔊
+                    <input type="range" min="0" max="1" step="0.01" value={volume} onChange={(e)=>setVolume(e.target.value)} />
+                </div>
             </div>
         </div>
     );
