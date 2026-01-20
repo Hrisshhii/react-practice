@@ -30,6 +30,12 @@
     overflow-y: auto;
     scrollbar-width: none;
     scroll-behavior: smooth;
+    box-sizing: border-box;
+}
+@media (max-width: 900px) and (min-width: 600px) {
+  .products-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 
 @media (max-width: 480px) {
@@ -63,6 +69,7 @@
     text-align: center;
     box-shadow: 0 10px 30px rgba(0,0,0,0.6);
     transition: transform 0.25s ease, box-shadow 0.25s ease;
+    box-sizing: border-box;
     cursor: pointer;
 }
 
