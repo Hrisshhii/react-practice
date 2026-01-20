@@ -1,5 +1,5 @@
 .ecommerce-page{
-    height: 100dvh;
+    min-height: 100dvh;
     display: flex;
     flex-direction: column;
     background: radial-gradient(circle at top,#1a1a1a,#000);
@@ -21,7 +21,7 @@
 .products-grid{
     flex: 1;
     display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+    grid-template-columns: repeat(auto-fill,minmax(200px,1fr));
     align-content: start;
     gap: 1.5rem;
     max-width: 1200px;
