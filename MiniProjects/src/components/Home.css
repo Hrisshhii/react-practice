@@ -20,7 +20,6 @@ html, body, #root {
 }
 
 .home{
-    display: flex;
     position: relative;
     font-family: 'Poppins',sans-serif;
     min-height: 100vh;
@@ -88,7 +87,6 @@ html, body, #root {
     justify-content: center;
     align-items: center;
     gap: 0.5rem;
-    flex: 1;
 
     text-decoration: none;
     color: white;
@@ -103,9 +101,6 @@ html, body, #root {
     position:relative;
     cursor: pointer;
     text-align: center;
-    overflow-y: auto;
-    scrollbar-width: none;
-    scroll-behavior: smooth;
 }
 
 @keyframes float {
@@ -130,10 +125,4 @@ html, body, #root {
   color: rgba(255,255,255,0.4);
   letter-spacing: 0.5px;
   text-align: center;
-}
-
-@media (max-width: 600px) {
-  .title {
-    font-size: 2.2rem;
-  }
 }
