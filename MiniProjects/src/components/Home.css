@@ -1,17 +1,16 @@
 html, body, #root {
   min-height: 100%;
-  overflow-x: hidden;
   overflow-y: auto;
   margin: 0;
 }
 
 #root {
-  min-height: 100vh;
+  display: block;
 }
 
 .home::before {
     content: "";
-    position: absolute;
+    position: fixed;
     inset: 0;
     background-image: radial-gradient(rgba(255,255,255,0.04) 1px, transparent 1px);
     background-size: 50px 50px;
@@ -23,6 +22,8 @@ html, body, #root {
 .home{
     position: relative;
     font-family: 'Poppins',sans-serif;
+    min-height: 100vh;
+    height: auto;
     background: radial-gradient(circle at top, #1a1a1a 0%, #0f0f0f 60%);
     color: white;
     display: flex;
@@ -30,7 +31,7 @@ html, body, #root {
     align-items: center;
     justify-content: flex-start;
     padding: 4rem 1rem 6rem;
-    min-height: 100vh;
+    z-index: 1;
 }
 
 .title{
