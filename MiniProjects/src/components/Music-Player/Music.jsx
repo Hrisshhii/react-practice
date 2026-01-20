@@ -17,8 +17,9 @@ export function Music(){
         setIsPlaying(!isPlaying);
     };
 
+
     return(
-        <div className='Music-page'>
+        <div className='music-page'>
             <title>Music Player</title>
             <BackHome />
             <div className='player-card'>
@@ -29,9 +30,9 @@ export function Music(){
                 <audio ref={audioRef} src={songs[currentIndex].src}></audio>
 
                 <div className='controls'>
-                    <button onClick={()=>setCurrentIndex(currentIndex-1)}>⏮</button>
+                    <button >⏮</button>
                     <button onClick={togglePlay}>{isPlaying ? "⏸" : "▶️"}</button>
-                    <button onClick={()=>setCurrentIndex(currentIndex+1)}>⏭</button>
+                    <button >⏭</button>
                 </div>
             </div>
         </div>
