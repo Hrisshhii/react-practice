@@ -5,7 +5,7 @@
     background: radial-gradient(circle at top,#1a1a1a,#000);
     padding: 2rem 1.5rem;
     color: white;
-    overflow-x: clip;
+    overflow-x: hidden;
 }
 
 .ecom-title{
@@ -19,7 +19,6 @@
 }
 
 .products-grid{
-    flex: 1;
     display: grid;
     grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
     align-content: start;
@@ -35,8 +34,8 @@
 
 @media (max-width: 1000px) {
   .products-grid {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    max-width: 100%;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1rem;
   }
 }
 
