@@ -42,26 +42,33 @@
 
 @media (max-width: 900px) {
   .products-grid {
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    justify-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    justify-items: stretch;
   }
 
   .product-card {
-    width: 240px;
-    max-width: 240px;
+    width: 100%;
+    max-width: 100%;
   }
 }
 
+
 @media (max-width: 480px) {
   .products-grid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 1rem;
+  }
+
+  .product-card {
+    width: 100%;
+    max-width: 100%;
   }
 
   .product-card img {
     height: 130px;
   }
 }
+
 
 .products-grid::-webkit-scrollbar {
     width: 6px;
