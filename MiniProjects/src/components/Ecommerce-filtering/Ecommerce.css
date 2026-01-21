@@ -44,6 +44,25 @@
   }
 }
 
+@media (max-width: 1000px) {
+  .products-grid {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .products-grid {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    justify-items: center;
+  }
+
+  .product-card {
+    width: 240px;
+    max-width: 240px;
+  }
+}
+
 .products-grid::-webkit-scrollbar {
     width: 6px;
 }
