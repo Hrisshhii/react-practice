@@ -6,6 +6,7 @@
     padding: 2rem 1.5rem;
     color: white;
     overflow-x: hidden;
+    box-sizing: border-box;
 }
 
 .ecom-title{
@@ -20,11 +21,11 @@
 
 .products-grid{
     display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+    grid-template-columns: repeat(auto-fit,minmax(180px,1fr));
     align-content: start;
     gap: 1.5rem;
     max-width: 1200px;
-    margin: 0 auto;
+    margin-inline: auto;
     padding:0 0.5rem 2rem;
     overflow-y: auto;
     scrollbar-width: none;
@@ -38,6 +39,19 @@
     gap: 1rem;
   }
 }
+
+@media (max-width: 900px) {
+  .products-grid {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    justify-items: center;
+  }
+
+  .product-card {
+    width: 240px;
+    max-width: 240px;
+  }
+}
+
 
 @media (max-width: 480px) {
   .products-grid {
