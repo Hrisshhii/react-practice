@@ -96,11 +96,21 @@ console.log(myVar);
 
 //Literal: only specified values allowed
 let color: "red" | "blue" | "green";
-console.log(color);
+//console.log(color);
 color="red";
 console.log(color);
 color="green";
 console.log(color);
+
+//Tuples: 
+const myTup:[string,number]=["Hello",45];
+console.log(myTup);
+console.log(myTup[0]);
+console.log(myTup[1]);
+const [first,second]=myTup;
+console.log(first);
+console.log(second);
+
 export function Annotations(){
     return (
     <>
