@@ -88,6 +88,11 @@ printMessage("Hello");
 // x = neverReturns(); // program stops here forever
 // console.log(x); // unreachable
 
+//Union: 
+let myVar: number | string='Light';
+console.log(myVar);
+myVar=11;
+console.log(myVar);
 
 export function Annotations(){
     return (
