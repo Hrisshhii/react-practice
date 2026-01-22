@@ -70,6 +70,18 @@ function printMessage(msg: string): void{
 };
 printMessage("Hello");
 
+//Never keyword: for a fun throwing an error, infinite loop and for variable that can never have value
+
+function throwErr(msg: string): never{
+  throw new Error(msg);
+}
+try {
+  throwErr("Error!!");
+} catch (e) {
+  console.log("Caught error:", e);
+}
+
+
 export function Annotations(){
     return (
     <>
