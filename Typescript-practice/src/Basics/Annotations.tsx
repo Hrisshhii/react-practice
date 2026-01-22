@@ -1,8 +1,8 @@
 //let myVar: type=value
 
-let name: string="Hrishi";
+let name: string="Old Name";
 console.log(name);
-name="New name";
+name="New Name";
 console.log(name);
 // Error name=12
 
@@ -16,6 +16,11 @@ console.log(bool);
 bool=!bool;
 console.log(bool);
 
+const tech ="TypeScript";
+const ver=1.0;
+const use=true;
+console.log(tech,ver,use);
+console.log(typeof tech,typeof ver, typeof use);
 
 export function Annotations(){
     return (
