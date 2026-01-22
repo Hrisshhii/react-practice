@@ -23,12 +23,24 @@ console.log(tech,ver,use);
 console.log(typeof tech,typeof ver, typeof use);
 
 //Any type
-let val: any="ABC";
-console.log(val ,typeof val);
-val=15;
-console.log(val ,typeof val);
-val=true;
-console.log(val ,typeof val);
+/*
+  let val: any="ABC";
+  console.log(val ,typeof val);
+  val=15;
+  console.log(val ,typeof val);
+  val=true;
+  console.log(val ,typeof val);
+*/
+
+function addOne(num: number){
+  return num+1;
+}
+const result=addOne(3);
+console.log(result);
+
+const double=(x:number,y:number)=>x*y;
+const res=double(2,10);
+console.log(res);
 
 export function Annotations(){
     return (
@@ -40,6 +52,8 @@ export function Annotations(){
         <p>{bool? "true":"false"}</p>
         <p>{tech} {ver} {use}</p>
         <p>{typeof tech} {typeof ver} {typeof use}</p>
+        <p>3+1={result}</p>
+        <p>2*10={res}</p>
       </div>
     </>
   );
