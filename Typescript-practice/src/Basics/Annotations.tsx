@@ -72,14 +72,14 @@ printMessage("Hello");
 
 //Never keyword: for a fun throwing an error, infinite loop and for variable that can never have value
 
-function throwErr(msg: string): never{
-  throw new Error(msg);
-}
-try {
-  throwErr("Error!!");
-} catch (e) {
-  console.log("Caught error:", e);
-}
+// function throwErr(msg: string): never{
+//   throw new Error(msg);
+// }
+// try {
+//   throwErr("Error!!");
+// } catch (e) {
+//   console.log("Caught error:", e);
+// }
 
 // let x: never;
 // function neverReturns():never{
@@ -87,6 +87,7 @@ try {
 // }
 // x = neverReturns(); // program stops here forever
 // console.log(x); // unreachable
+
 
 export function Annotations(){
     return (
