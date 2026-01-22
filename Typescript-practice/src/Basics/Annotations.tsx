@@ -81,6 +81,12 @@ try {
   console.log("Caught error:", e);
 }
 
+// let x: never;
+// function neverReturns():never{
+//   while (true){}
+// }
+// x = neverReturns(); // program stops here forever
+// console.log(x); // unreachable
 
 export function Annotations(){
     return (
