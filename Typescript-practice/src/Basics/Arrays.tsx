@@ -21,6 +21,9 @@ console.log(matrix[1][2]);
 console.log(matrix[0][1]);
 console.log(matrix);
 
+//Union:
+const stuff: (number | string)[]=[1,5,4,'light'];
+console.log(stuff);
 
 export function Arrays(){
     return <>
@@ -28,5 +31,6 @@ export function Arrays(){
         <p>{items}</p>
         <p>{components}</p>
         <p>{matrix}</p>
+        <p>{stuff}</p>
     </>
 };
