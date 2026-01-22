@@ -1,6 +1,8 @@
+//Access Modifiers: public, private and protected
+
 class Person{
-    name: string;
-    age: number;
+    public name: string;
+    public age: number;
 
     constructor(name: string,age: number){
         this.name=name;
