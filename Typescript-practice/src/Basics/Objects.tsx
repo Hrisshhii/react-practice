@@ -15,6 +15,19 @@ function printUser(): {name: string,age: number}{
 const n=printUser();
 console.log(n.name,n.age);
 
+//type alias: 
+type Person={
+    name: string,
+    age: number
+};
+
+function printPerson(user: Person){
+    console.log(`Name: ${user.name}, Age: ${user.age}`);
+}
+const myPerson: Person={ name: "Marty", age: 25 };
+printPerson(myPerson);
+
+
 export function Objects(){
     return <>
         <p>Name: {person.firstName} {person.lastName}</p>
