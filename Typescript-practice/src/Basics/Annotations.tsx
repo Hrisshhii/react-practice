@@ -43,7 +43,7 @@ const res=double(2,10);
 console.log(res);
 
 // Default parameters
-function greet(person="Anonoymous"){
+function greet(person="Anonymous"){
   return `Hello ${person}`
 }
 let greetRes=greet();
@@ -64,6 +64,12 @@ const dubRet=(x:number): number => {
 returnRes=dubRet(4);
 console.log(returnRes);
 
+//Void type
+function printMessage(msg: string): void{
+  console.log(`Message: ${msg}`);
+};
+printMessage("Hello");
+
 export function Annotations(){
     return (
     <>
@@ -77,6 +83,7 @@ export function Annotations(){
         <p>3+1={result}</p>
         <p>2*10={res}</p>
         <p>{greetRes}</p>
+        <p>Check console for: printMessage("Hello")</p>
       </div>
     </>
   );

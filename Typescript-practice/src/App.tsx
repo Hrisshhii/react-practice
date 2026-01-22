@@ -4,7 +4,7 @@ import { Annotations } from './Basics/Annotations'
 function App() {
   return (
     <>
-      <Annotations />
+      {<Annotations />}
     </>
   )
 }
