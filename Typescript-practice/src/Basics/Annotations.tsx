@@ -111,6 +111,13 @@ const [first,second]=myTup;
 console.log(first);
 console.log(second);
 
+//Enums:
+enum Weather{Sunny,Cloudy,Rainy,Snowy};
+console.log(Weather);
+console.log(Weather[2]);
+
+
+
 export function Annotations(){
     return (
     <>
@@ -125,6 +132,7 @@ export function Annotations(){
         <p>2*10={res}</p>
         <p>{greetRes}</p>
         <p>Check console for: printMessage("Hello")</p>
+        <p>{Weather[0]}</p>
       </div>
     </>
   );
