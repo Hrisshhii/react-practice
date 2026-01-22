@@ -27,6 +27,19 @@ function printPerson(user: Person){
 const myPerson: Person={ name: "Marty", age: 25 };
 printPerson(myPerson);
 
+//Optional peroperties
+type Teacher={
+    name: string;
+    age: number;
+    subject?: string
+};
+function printTeacher(teacher: Teacher){
+    console.log(`Name: ${teacher.name}, Age: ${teacher.age}, Subject: ${teacher.subject ?? "Not assigned"}`);
+};
+
+printTeacher({name:"Walter White",age:50,subject:"Chemistry"});
+printTeacher({name: "Mr. Miyagi",age:70});
+
 
 export function Objects(){
     return <>
