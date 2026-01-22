@@ -94,6 +94,13 @@ console.log(myVar);
 myVar=11;
 console.log(myVar);
 
+//Literal: only specified values allowed
+let color: "red" | "blue" | "green";
+console.log(color);
+color="red";
+console.log(color);
+color="green";
+console.log(color);
 export function Annotations(){
     return (
     <>
