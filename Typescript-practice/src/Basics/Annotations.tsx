@@ -22,6 +22,14 @@ const use=true;
 console.log(tech,ver,use);
 console.log(typeof tech,typeof ver, typeof use);
 
+//Any type
+let val: any="ABC";
+console.log(val ,typeof val);
+val=15;
+console.log(val ,typeof val);
+val=true;
+console.log(val ,typeof val);
+
 export function Annotations(){
     return (
     <>
@@ -30,6 +38,8 @@ export function Annotations(){
         <p>{name}</p>
         <p>{num}</p>
         <p>{bool? "true":"false"}</p>
+        <p>{tech} {ver} {use}</p>
+        <p>{typeof tech} {typeof ver} {typeof use}</p>
       </div>
     </>
   );
