@@ -42,6 +42,28 @@ const double=(x:number,y:number)=>x*y;
 const res=double(2,10);
 console.log(res);
 
+// Default parameters
+function greet(person="Anonoymous"){
+  return `Hello ${person}`
+}
+let greetRes=greet();
+console.log(greetRes);
+greetRes=greet('User')
+console.log(greetRes);
+
+// Return Annotation
+function doubleRet(x:number): number {
+  return x*x;
+};
+let returnRes=doubleRet(2);
+console.log(returnRes);
+
+const dubRet=(x:number): number => {
+  return x*x;
+};
+returnRes=dubRet(4);
+console.log(returnRes);
+
 export function Annotations(){
     return (
     <>
@@ -54,6 +76,7 @@ export function Annotations(){
         <p>{typeof tech} {typeof ver} {typeof use}</p>
         <p>3+1={result}</p>
         <p>2*10={res}</p>
+        <p>{greetRes}</p>
       </div>
     </>
   );
