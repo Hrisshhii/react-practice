@@ -51,6 +51,23 @@ const newPerson: {
   age: 55
 };
 
+//Intersection Types: 
+type animal={
+    species: string;
+
+};
+type human={
+    name: string;
+    age: number;
+};
+
+type Both=animal & human;
+const jack: Both={
+    species: "Homo-Sapiens",
+    name: "Jack",
+    age: 25
+};
+console.log(jack);
 
 export function Objects(){
     return <>
@@ -58,5 +75,6 @@ export function Objects(){
         <p>Age: {person.age}</p>
         <p>User: {n.name}, Age: {n.age}</p>
         <p>Name: {newPerson.firstName} {newPerson.lastName}</p>
+        <p>Species: {jack.species}</p>
     </>
 };
