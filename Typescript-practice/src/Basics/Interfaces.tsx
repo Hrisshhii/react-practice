@@ -81,6 +81,26 @@ const rec: Rectangle={
 };
 console.log(rec);
 
+// Implementing interface in class
+interface Vehicle{
+    start(): string;
+    stop(): string;
+};
+
+class Car implements Vehicle{
+    start(): string{
+        return "Car Started";
+    }
+    stop(): string{
+        return "Car Stopped";
+    }
+};
+
+const c1=new Car();
+console.log(c1.start());
+console.log(c1.stop());
+
+
 export const Interfaces = () => {
   return (
     <div>
