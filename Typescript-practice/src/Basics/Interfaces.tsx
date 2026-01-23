@@ -37,6 +37,30 @@ const sub: mathFunc=(a,b)=>{
     return a-b;
 };
 
+// Inteface with classes: 
+interface Animals{
+    species: string;
+    sayHello(): string;
+}
+function animalGreet(animal: Animals): string{
+    return `Hello from ${animal.species}`;
+    animal.sayHello();
+}
+
+const dog: Animals={
+    species: "Canine",
+    sayHello(): string{
+        return "Woof Woof!";
+    }
+};
+
+const cat: Animals={
+    species: "Feline",
+    sayHello(): string{
+        return "Meow Meow!";
+    }
+};
+
 console.log(p2.greet());
 export const Interfaces = () => {
   return (
@@ -45,6 +69,8 @@ export const Interfaces = () => {
         <p>{p2.greet()}</p>
         <p>Addition: 5+3={add(5,3)}</p>
         <p>Subtraction: 5-3={sub(5,3)}</p>
+        <p>Dog: {animalGreet(dog)}--{dog.sayHello()}</p>
+        <p>Cat: {animalGreet(cat)}--{cat.sayHello()}</p>
     </div>
   )
 }
