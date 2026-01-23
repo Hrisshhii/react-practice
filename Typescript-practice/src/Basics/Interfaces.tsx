@@ -101,10 +101,14 @@ console.log(c1.start());
 console.log(c1.stop());
 
 //Declaration Merging in interfaces
+//TS merges two inteface with same name
+
+//Original interface
 interface Book{
     title: string;
     read(): void;
 };
+//Merged interface
 interface Book{
     author: string;
     publish(): void;
@@ -123,6 +127,8 @@ const myBook: Book={
 
 myBook.read();
 myBook.publish();
+
+//Generics 
 
 export const Interfaces = () => {
   return (

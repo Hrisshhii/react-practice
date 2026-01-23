@@ -39,6 +39,22 @@ const emp=new Employee();
 emp.myProperty="Ryan Gosling";
 console.log(emp.myProperty);
 
+//Generics with classes
+
+class TimeStamp<T extends Date>{
+  private data: T;
+  constructor(data: T){
+    this.data=data;
+  }
+  getTimeStamp(): string{
+    return this.data.toISOString().split('T')[0];
+  }
+}
+const time=new TimeStamp(new Date());
+console.log(time.getTimeStamp());
+
+
+
 const ClassOOP = () => {
   return (
     <div>
