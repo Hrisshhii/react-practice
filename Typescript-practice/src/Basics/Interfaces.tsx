@@ -23,12 +23,28 @@ const p2: Person={
         return `Hello ${this.name},age is ${this.age}`;
     }
 };
+
+//Interface for function types:
+interface mathFunc{
+    (x: number,y: number): number;
+}
+
+const add: mathFunc=function(x: number,y: number): number{
+    return x+y;
+}
+
+const sub: mathFunc=(a,b)=>{
+    return a-b;
+};
+
 console.log(p2.greet());
 export const Interfaces = () => {
   return (
     <div>
         <p>{p1.greet()}</p>
         <p>{p2.greet()}</p>
+        <p>Addition: 5+3={add(5,3)}</p>
+        <p>Subtraction: 5-3={sub(5,3)}</p>
     </div>
   )
 }
