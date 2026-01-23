@@ -138,6 +138,20 @@ console.log(str);
 console.log(num);
 
 //Generics with intefaces 
+interface Pair<T,U>{
+    first : T;
+    second: U;
+    getpair(): string;
+}
+
+const p: Pair<number,string>={
+    first: 1,
+    second: "One",
+    getpair(): string{
+        return `First: ${this.first}, Second: ${this.second}`;
+    }
+};
+console.log(p.getpair());
 
 export const Interfaces = () => {
   return (
