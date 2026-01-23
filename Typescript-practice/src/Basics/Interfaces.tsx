@@ -100,6 +100,29 @@ const c1=new Car();
 console.log(c1.start());
 console.log(c1.stop());
 
+//Declaration Merging in interfaces
+interface Book{
+    title: string;
+    read(): void;
+};
+interface Book{
+    author: string;
+    publish(): void;
+};
+
+const myBook: Book={
+    title: "Notes from Underground",
+    author: "Fyodor Dostoevsky",
+    read(): void{
+        console.log(`Reading ${this.title}`);
+    },
+    publish(): void{
+        console.log(`Publish by ${this.author}`);
+    }
+};
+
+myBook.read();
+myBook.publish();
 
 export const Interfaces = () => {
   return (
