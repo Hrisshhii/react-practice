@@ -128,7 +128,16 @@ const myBook: Book={
 myBook.read();
 myBook.publish();
 
-//Generics 
+//Generics with functions
+function printInfo<T>(x: T): T{
+    return x;
+};
+const str=printInfo<string>("Hello Generics");
+const num=printInfo<number>(2);
+console.log(str);
+console.log(num);
+
+//Generics with intefaces 
 
 export const Interfaces = () => {
   return (
