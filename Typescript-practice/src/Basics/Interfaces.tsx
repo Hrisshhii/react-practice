@@ -23,6 +23,7 @@ const p2: Person={
         return `Hello ${this.name},age is ${this.age}`;
     }
 };
+console.log(p2.greet());
 
 //Interface for function types:
 interface mathFunc{
@@ -61,7 +62,25 @@ const cat: Animals={
     }
 };
 
-console.log(p2.greet());
+// Interface inheritance
+interface Shape{
+    readonly name: string;
+    sides: number;
+    area: number | string;
+}
+interface Rectangle extends Shape{
+    length: number;
+    breadth: number;
+}
+const rec: Rectangle={
+    name: "Rectangle",
+    sides: 4,
+    length: 10,
+    breadth: 5,
+    area: 50
+};
+console.log(rec);
+
 export const Interfaces = () => {
   return (
     <div>
@@ -71,6 +90,7 @@ export const Interfaces = () => {
         <p>Subtraction: 5-3={sub(5,3)}</p>
         <p>Dog: {animalGreet(dog)}--{dog.sayHello()}</p>
         <p>Cat: {animalGreet(cat)}--{cat.sayHello()}</p>
+        <p>Shape Name: {rec.name}</p>
     </div>
   )
 }
