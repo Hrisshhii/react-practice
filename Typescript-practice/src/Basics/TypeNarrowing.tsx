@@ -11,6 +11,30 @@ function exampleFun(val: MyType):MyType{
     }
 }
 
+// instance of narrowing
+class Dog{
+    bark(): void{
+        console.log("Woof Woof");
+    }
+};
+class Cat{
+    meow(): void{
+        console.log("Meow Meow");
+    }
+}
+
+function animalSound(animal: Dog|Cat):void{
+    if(animal instanceof Dog){
+        animal.bark();
+    }else{
+        animal.meow();
+    }
+};
+
+const myDog=new Dog();
+const myCat=new Cat();
+animalSound(myDog);
+animalSound(myCat);
 
 export const TypeNarrowing = () => {
   return (
