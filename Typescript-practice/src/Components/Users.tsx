@@ -1,9 +1,15 @@
+type Props={
+  name: string;
+  age: number;
+}
 
 
-
-const Users = ({name,age}:{name: string; age: number}) => {
+const Users = ({name,age}: Props) => {
   return (
-    <div>Users: {name} Age: {age}</div>
+    <>
+      <h1>user: {name}</h1>
+      <h2>age: {age}</h2>
+    </>
   )
 }
 
