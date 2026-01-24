@@ -2,6 +2,7 @@ import {type Admin,type User} from './types'
 import AdminInfo from './Components/AdminInfo'
 import Buttons from './Components/Buttons'
 import UserInfo from './Components/UserInfo'
+import Counter from './Components/Counter'
 //import Users from './Components/Users'
 
 
@@ -45,6 +46,7 @@ function App() {
       <Buttons label="Click me" onClick={()=>console.log("Clicked")} disabled={false} />
       <AdminInfo admin={admin}/>
       <UserInfo user={user}/>
+      <Counter />
     </>
   )
 }
