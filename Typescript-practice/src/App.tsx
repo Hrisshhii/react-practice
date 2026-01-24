@@ -5,6 +5,7 @@ import UserInfo from './Components/UserInfo'
 import Counter from './Components/Counter'
 import UserProfile from './Components/UserProfile'
 import Todo from './Components/Todo'
+import Form from './Components/Form'
 //import Users from './Components/Users'
 
 
@@ -51,6 +52,7 @@ function App() {
       <Counter />
       <UserProfile />
       <Todo />
+      <Form />
     </>
   )
 }
