@@ -36,6 +36,31 @@ const myCat=new Cat();
 animalSound(myDog);
 animalSound(myCat);
 
+// Intersection type narrowing
+
+type Employee={
+    id: number;
+    name: string;
+};
+type Manager={
+    department: string;
+    manage(): void;
+};
+
+type ManagerWithEmployee=Employee & Manager;
+const manager: ManagerWithEmployee={
+    id: 123,
+    name: "Brad Pitt",
+    department: "Sales",
+    manage(): void{
+        console.log(`Managing Depatment: ${this.department}`);
+    }
+};
+console.log(manager.name);
+console.log(manager.id);
+console.log(manager.department);
+manager.manage();
+
 export const TypeNarrowing = () => {
   return (
     <div>
