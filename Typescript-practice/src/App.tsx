@@ -4,6 +4,7 @@ import { Arrays } from './Basics/Arrays'
 import ClassOOP from './Basics/ClassOOP'
 import { Interfaces } from './Basics/Interfaces'
 import { Objects } from './Basics/Objects'
+import { TypeNarrowing } from './Basics/TypeNarrowing'
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       {<Objects />}
       {<ClassOOP />}
       {<Interfaces />}
+      {<TypeNarrowing />}
     </>
   )
 }
