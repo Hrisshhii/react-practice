@@ -1,9 +1,9 @@
 
 
 
-const Users = () => {
+const Users = ({name,age}:{name: string; age: number}) => {
   return (
-    <div>Users</div>
+    <div>Users: {name} Age: {age}</div>
   )
 }
 
