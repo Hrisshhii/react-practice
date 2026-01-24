@@ -156,6 +156,23 @@ const numObj={one:1,two:2,three:3};
 const resNum=getRandomKeyValuePair<number>(numObj);
 console.log(resNum);
 
+//Generics with arrays
+
+function filterArray<T>(arr:T[],condition:(item:T)=>boolean):T[]{
+    return arr.filter((item)=>condition(item));
+}
+
+const numArr=[1,2,3,4,5,6,7,8,9,10];
+const evenNum=filterArray<number>(numArr,(item)=>item%2===0);
+console.log(evenNum);
+
+const oddNum=filterArray<number>(numArr,(item)=>item%2!==0);
+console.log(oddNum);
+
+const strArr=["Apple","Banana","Cherry","Date","Elderberry","Fig","Grape","Honeydew","Ita","Jackfruit"];
+const longStr=filterArray<string>(strArr,(item)=>item.length>6);
+console.log(longStr);
+
 //Generics with intefaces 
 interface Pair<T,U>{
     first : T;
