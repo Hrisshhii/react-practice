@@ -3,6 +3,7 @@ import AdminInfo from './Components/AdminInfo'
 import Buttons from './Components/Buttons'
 import UserInfo from './Components/UserInfo'
 import Counter from './Components/Counter'
+import UserProfile from './Components/UserProfile'
 //import Users from './Components/Users'
 
 
@@ -47,6 +48,7 @@ function App() {
       <AdminInfo admin={admin}/>
       <UserInfo user={user}/>
       <Counter />
+      <UserProfile />
     </>
   )
 }
