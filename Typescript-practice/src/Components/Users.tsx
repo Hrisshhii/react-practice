@@ -1,4 +1,4 @@
-import {type ReactNode} from "react";
+import {type FC, type ReactNode} from "react";
 
 type Props={
   name: string;
@@ -7,7 +7,7 @@ type Props={
 }
 
 
-const Users = ({name,age,children}: Props) => {
+const Users: FC<Props>= ({name,age,children}) => {
   return (
     <>
       <h1>{children}</h1>
