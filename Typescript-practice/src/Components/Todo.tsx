@@ -27,7 +27,7 @@ const Todo = () => {
         <button onClick={addToDo}>Add Todo</button>
         <ul>
             {todos.map(todo=>(
-                <li key={todo.id}>{todo.task}</li>
+                <li key={todo.id}>{todo.task} {todo.completed ? "(Completed)": "(Pending)"}</li>
             ))}
         </ul>
     </div>
