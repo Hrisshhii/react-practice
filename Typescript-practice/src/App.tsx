@@ -4,6 +4,7 @@ import Buttons from './Components/Buttons'
 import UserInfo from './Components/UserInfo'
 import Counter from './Components/Counter'
 import UserProfile from './Components/UserProfile'
+import Todo from './Components/Todo'
 //import Users from './Components/Users'
 
 
@@ -49,6 +50,7 @@ function App() {
       <UserInfo user={user}/>
       <Counter />
       <UserProfile />
+      <Todo />
     </>
   )
 }
