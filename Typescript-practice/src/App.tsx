@@ -1,5 +1,9 @@
 
-import Users from './Components/Users'
+import Buttons from './Components/Buttons'
+//import Users from './Components/Users'
+
+
+
 // import { Annotations } from './Basics/Annotations'
 // import { Arrays } from './Basics/Arrays'
 // import ClassOOP from './Basics/ClassOOP'
@@ -15,9 +19,15 @@ function App() {
       {<ClassOOP />}
       {<Interfaces />}
       {<TypeNarrowing />} */}
-      <Users name={"Hrishi"} age={21}>
+
+      {/*
+        react with typescript
+      */}
+
+      {/* <Users name={"Hrishi"} age={21}>
         <p>Hello</p>
-      </Users>
+      </Users> */}
+      <Buttons label="Click me" onClick={()=>console.log("Clicked")} disabled={false} />
     </>
   )
 }
