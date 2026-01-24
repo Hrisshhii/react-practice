@@ -173,6 +173,22 @@ const strArr=["Apple","Banana","Cherry","Date","Elderberry","Fig","Grape","Honey
 const longStr=filterArray<string>(strArr,(item)=>item.length>6);
 console.log(longStr);
 
+//using generics with interfaces
+
+interface Song{
+    title:string, artist:string
+};
+const songs: Song[]=[
+    {title:"Black Dog",artist:"Led Zeppelin"},
+    {title:"Back in Black",artist:"AC/DC"},
+    {title:"End of Beginning",artist:"Djo"},
+    {title:"NOKIA",artist:"Drake"},
+    {title:"No Time",artist:"KSI"}
+];
+
+const filteredSongs=filterArray<Song>(songs,(item)=>item.artist.includes("K"));
+console.log(filteredSongs);
+
 //Generics with intefaces 
 interface Pair<T,U>{
     first : T;
