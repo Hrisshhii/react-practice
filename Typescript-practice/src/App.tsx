@@ -1,5 +1,7 @@
-
+import {type Admin,type User} from './types'
+import AdminInfo from './Components/AdminInfo'
 import Buttons from './Components/Buttons'
+import UserInfo from './Components/UserInfo'
 //import Users from './Components/Users'
 
 
@@ -11,6 +13,19 @@ import Buttons from './Components/Buttons'
 // import { Objects } from './Basics/Objects'
 // import { TypeNarrowing } from './Basics/TypeNarrowing'
 function App() {
+  const user: User={
+    id: 1,
+    name: "User",
+    email: "user@gmail.com"
+  }
+  const admin: Admin={
+    id: 2,
+    name: "Admin",
+    email:"admin@gmail.com",
+    lastLogin: new Date()
+  }
+
+
   return (
     <>
       {/* {<Annotations />}
@@ -28,6 +43,8 @@ function App() {
         <p>Hello</p>
       </Users> */}
       <Buttons label="Click me" onClick={()=>console.log("Clicked")} disabled={false} />
+      <AdminInfo admin={admin}/>
+      <UserInfo user={user}/>
     </>
   )
 }
