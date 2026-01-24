@@ -15,7 +15,9 @@ function App() {
       {<ClassOOP />}
       {<Interfaces />}
       {<TypeNarrowing />} */}
-      <Users name={"Hrishi"} age={21}/>
+      <Users name={"Hrishi"} age={21}>
+        <p>Hello</p>
+      </Users>
     </>
   )
 }
