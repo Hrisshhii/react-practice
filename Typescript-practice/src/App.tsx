@@ -9,6 +9,7 @@ import Form from './Components/Form'
 import FocusInput from './Components/FocusInput'
 import ContactForm from './Components/ContactForm'
 import EventHandling from './Components/EventHandling'
+import ContextCounter from './Components/ContextCounter'
 //import Users from './Components/Users'
 
 
@@ -59,6 +60,7 @@ function App() {
       <FocusInput />
       <ContactForm />
       <EventHandling />
+      <ContextCounter />
     </>
   )
 }
