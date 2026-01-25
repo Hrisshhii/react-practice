@@ -6,6 +6,7 @@ import Counter from './Components/Counter'
 import UserProfile from './Components/UserProfile'
 import Todo from './Components/Todo'
 import Form from './Components/Form'
+import FocusInput from './Components/FocusInput'
 //import Users from './Components/Users'
 
 
@@ -53,6 +54,7 @@ function App() {
       <UserProfile />
       <Todo />
       <Form />
+      <FocusInput />
     </>
   )
 }
