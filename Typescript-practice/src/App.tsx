@@ -11,6 +11,7 @@ import ContactForm from './Components/ContactForm'
 import EventHandling from './Components/EventHandling'
 import ContextCounter from './Components/ContextCounter'
 import ReducerCounter from './Components/ReducerCounter'
+import UseEffect from './Components/UseEffect'
 //import Users from './Components/Users'
 
 
@@ -63,6 +64,7 @@ function App() {
       <EventHandling />
       <ContextCounter />
       <ReducerCounter />
+      <UseEffect />
     </>
   )
 }
