@@ -8,6 +8,7 @@ import Todo from './Components/Todo'
 import Form from './Components/Form'
 import FocusInput from './Components/FocusInput'
 import ContactForm from './Components/ContactForm'
+import EventHandling from './Components/EventHandling'
 //import Users from './Components/Users'
 
 
@@ -57,6 +58,7 @@ function App() {
       <Form />
       <FocusInput />
       <ContactForm />
+      <EventHandling />
     </>
   )
 }
