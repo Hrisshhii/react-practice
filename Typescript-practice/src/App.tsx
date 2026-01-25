@@ -7,6 +7,7 @@ import UserProfile from './Components/UserProfile'
 import Todo from './Components/Todo'
 import Form from './Components/Form'
 import FocusInput from './Components/FocusInput'
+import ContactForm from './Components/ContactForm'
 //import Users from './Components/Users'
 
 
@@ -55,6 +56,7 @@ function App() {
       <Todo />
       <Form />
       <FocusInput />
+      <ContactForm />
     </>
   )
 }
