@@ -12,6 +12,7 @@ import EventHandling from './Components/EventHandling'
 import ContextCounter from './Components/ContextCounter'
 import ReducerCounter from './Components/ReducerCounter'
 import UseEffect from './Components/UseEffect'
+import UserList from './Components/UserList'
 //import Users from './Components/Users'
 
 
@@ -65,6 +66,7 @@ function App() {
       <ContextCounter />
       <ReducerCounter />
       <UseEffect />
+      <UserList />
     </>
   )
 }
