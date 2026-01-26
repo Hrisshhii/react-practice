@@ -154,7 +154,6 @@ You can now start adding components to your project.
 The command above will add the Button component to your project. You can then import it like this:
 
     src/App.tsx
-    Copy
     import { Button } from "@/components/ui/button"
     
     function App() {
