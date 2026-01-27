@@ -1,13 +1,13 @@
 import { Link } from "react-router";
 import "./HomePage.css";
 
-const Home = () => {
+const HomePage = () => {
   return (
     <div className="home">
       <h1 className="title">TS-Mini Projects</h1>
 
       <div className="projects">
-        <Link to="/tabs" className="card">Tabs Project</Link>
+        <Link to="/tabs" className="card">📂 Tabs Project</Link>
       </div>
 
       <p className="footer">TypeScript-React Mini Projects</p>
@@ -15,4 +15,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default HomePage;
