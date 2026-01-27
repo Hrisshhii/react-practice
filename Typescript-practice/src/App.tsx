@@ -16,9 +16,13 @@ import UserList from './Components/UserList'
 import HookForm from './React-hook-form/HookForm'
 //import FetchTodo from './React-19 features/FetchTodo'
 //import { Suspense } from 'react'
-import Theme from './React-19 features/Theme'
+import Theme from './React-19 features/Theme/Theme'
 import ActionForm from './React-19 features/ActionForm'
 import ActionCount from './React-19 features/ActionCount'
+import { useState,useTransition } from 'react'
+import Home from './React-19 features/UseTransitionHook/Home'
+import Posts from './React-19 features/UseTransitionHook/Posts'
+import Contact from './React-19 features/UseTransitionHook/Contact'
 //import Users from './Components/Users'
 
 
@@ -41,6 +45,28 @@ function App() {
     lastLogin: new Date()
   }
 
+  //react 19 useTransitionHook
+  const [activeTab,setActiveTab]=useState('home');
+  const [isPending,startTransition]=useTransition();
+
+  const handleTabChange=(tab:string)=>{
+    startTransition(()=>{
+      setActiveTab(tab);
+    })
+  };
+
+  const renderContent=()=>{
+    switch(activeTab){
+      case 'home':
+        return <Home />
+      case 'posts':
+        return <Posts />
+      case 'contact':
+        return <Contact />
+      default:
+        return <Home />
+    }
+  };
 
   return (
     <>
@@ -87,6 +113,16 @@ function App() {
       <br />
       <ActionForm />
       <ActionCount />
+
+      <div>
+        <div className="tabs">
+          <button className="border-2 p-4" onClick={()=>handleTabChange('home')}>Home</button>
+          <button onClick={()=>handleTabChange('contact')}>Contacts</button>
+          <button onClick={()=>handleTabChange('posts')}>Posts</button>
+        </div>
+        {isPending && <p>Loading.....</p>}
+        <div className="content">{renderContent()}</div>
+      </div>
     </>
   )
 }
