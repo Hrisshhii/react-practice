@@ -1,9 +1,13 @@
+import {Routes,Route} from 'react-router';
+import HomePage from './Components/HomePage';
 
 function App() {
 
   return (
     <>
-      <h1 className="text-4xl font-bold text-red-500">Tailwind is Working 🔥</h1>
+    <Routes>
+      <Route path="/" element={<HomePage/>}/>
+    </Routes>
     </>
   )
 }
