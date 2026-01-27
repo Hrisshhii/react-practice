@@ -14,8 +14,9 @@ import ReducerCounter from './Components/ReducerCounter'
 import UseEffect from './Components/UseEffect'
 import UserList from './Components/UserList'
 import HookForm from './React-hook-form/HookForm'
-import FetchTodo from './React-19 features/FetchTodo'
-import { Suspense } from 'react'
+//import FetchTodo from './React-19 features/FetchTodo'
+//import { Suspense } from 'react'
+import Theme from './React-19 features/Theme'
 //import Users from './Components/Users'
 
 
@@ -75,9 +76,12 @@ function App() {
       <HookForm />
 
       <h1>React 19 Features</h1>
-      <Suspense fallback={<p>Loading todo...</p>}>
+      {/* <Suspense fallback={<p>Loading todo...</p>}>
         <FetchTodo />
-      </Suspense>
+      </Suspense> */}
+      <div className='flex justify-center items-center w-full mt-10rem'>
+        <Theme />
+      </div>
     </>
   )
 }
