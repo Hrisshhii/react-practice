@@ -1,7 +1,5 @@
 .home-btn {
-    position: fixed;
-    top: 20px;
-    left: 20px;
+    position: relative; 
     width: 45px;
     height: 45px;
     background: rgba(20,20,25,0.8);
@@ -14,11 +12,10 @@
     align-items: center;
     justify-content: center;
     
-    transform: translateZ(0);
     box-shadow: 0 8px 20px rgba(0,0,0,0.5);
     transition: all 0.2s ease;
-    z-index: 1000;
 }
+
 
 .home-btn:hover {
     transform: scale(1.1);
