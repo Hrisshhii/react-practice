@@ -13,8 +13,8 @@ import ContextCounter from './Components/ContextCounter'
 import ReducerCounter from './Components/ReducerCounter'
 import UseEffect from './Components/UseEffect'
 import UserList from './Components/UserList'
+import HookForm from './React-hook-form/HookForm'
 //import Users from './Components/Users'
-
 
 
 // import { Annotations } from './Basics/Annotations'
@@ -67,6 +67,10 @@ function App() {
       <ReducerCounter />
       <UseEffect />
       <UserList />
+
+      {/* React Hook Form:  */}
+      <h1>Reat hook Form</h1>
+      <HookForm />
     </>
   )
 }
