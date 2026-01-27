@@ -14,6 +14,8 @@ import ReducerCounter from './Components/ReducerCounter'
 import UseEffect from './Components/UseEffect'
 import UserList from './Components/UserList'
 import HookForm from './React-hook-form/HookForm'
+import FetchTodo from './React-19 features/FetchTodo'
+import { Suspense } from 'react'
 //import Users from './Components/Users'
 
 
@@ -71,6 +73,11 @@ function App() {
       {/* React Hook Form:  */}
       <h1>Reat hook Form</h1>
       <HookForm />
+
+      <h1>React 19 Features</h1>
+      <Suspense fallback={<p>Loading todo...</p>}>
+        <FetchTodo />
+      </Suspense>
     </>
   )
 }
