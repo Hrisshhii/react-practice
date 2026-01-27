@@ -134,12 +134,12 @@ Add the following code to the vite.config.ts so your app can resolve paths witho
 
     // https://vite.dev/config/
     export default defineConfig({
-    plugins: [react(), tailwindcss()],
-    resolve: {
-        alias: {
-        "@": path.resolve(__dirname, "./src"),
+        plugins: [react(), tailwindcss()],
+        resolve: {
+            alias: {
+            "@": path.resolve(__dirname, "./src"),
+            },
         },
-    },
     })
 
 6. Run the CLI
@@ -157,11 +157,11 @@ The command above will add the Button component to your project. You can then im
     import { Button } from "@/components/ui/button"
     
     function App() {
-    return (
-        <div className="flex min-h-svh flex-col items-center justify-center">
-        <Button>Click me</Button>
-        </div>
-    )
+        return (
+            <div className="flex min-h-svh flex-col items-center justify-center">
+            <Button>Click me</Button>
+            </div>
+        )
     }
     
     export default App
