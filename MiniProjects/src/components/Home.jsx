@@ -19,7 +19,7 @@ export const Home = () => {
         <Link to="/musicplayer" className="card">🎵 Music Player UI</Link>
 
         <a
-          href="/react-practice/ts"
+          href="https://hrisshhii.github.io/react-practice/ts"
           className="card"
           style={{ background: "linear-gradient(135deg,#6366f1,#22d3ee)" }}
         >
