@@ -18,6 +18,7 @@ import HookForm from './React-hook-form/HookForm'
 //import { Suspense } from 'react'
 import Theme from './React-19 features/Theme'
 import ActionForm from './React-19 features/ActionForm'
+import ActionCount from './React-19 features/ActionCount'
 //import Users from './Components/Users'
 
 
@@ -85,6 +86,7 @@ function App() {
       </div>
       <br />
       <ActionForm />
+      <ActionCount />
     </>
   )
 }
