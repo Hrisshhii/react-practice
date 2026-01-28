@@ -60,49 +60,61 @@ const Inventory = () => {
         {filteredItems.map((item)=>(
           <div key={item.id} className={`relative rounded-xl p-4 bg-gradient-to-br from-[#1a1c1f] to-[#0f1113]
             border ${rarityColors[item.rarity]} shadow-lg backdrop-blur-md
-            hover:-translate-y-1 hover:shadow-xl transition-all duration-300 hover:scale-[1.02] hover:rotate-[0.2deg]`}>
-            <span
-              className={`absolute top-2 right-2 text-[10px] px-2 py-0.5 rounded-full uppercase tracking-wider
-              ${
-                item.rarity === "legendary"
-                  ? "before:absolute before:inset-0 before:bg-gradient-to-r before:from-transparent before:via-yellow-300/20 before:to-transparent before:animate-[shine_2s_infinite]"
-                  : item.rarity === "epic"
-                  ? "bg-purple-500/20 text-purple-300 animate-pulse"
-                  : item.rarity === "rare"
-                  ? "bg-blue-500/20 text-blue-300 animate-pulse"
-                  : "bg-gray-500/20 text-gray-300 animate-pulse"
-              }`}
-            >
-              {item.rarity}
-            </span>
-            <img src={item.image} alt={item.name} className="w-20 h-22 mx-auto mb-3 drop-shadow-lg flex justify-center align-middle"/>
-            <h3 className="text-center text-sm font-semibold tracking-wide">{item.name}</h3>
-            <p className="text-center text-xs text-gray-400 mt-1" >{item.description}</p>
-            <div className="mt-2">
-              <div className="text-[11px] text-gray-300 text-center mb-1">
-                Power: {item.power}
-              </div>
-              <div className="w-full h-2 bg-gray-700 rounded-full overflow-hidden">
-                <div
-                  className="h-full bg-blue-500 rounded-full transition-all duration-500"
-                  style={{ width: `${Math.min(item.power, 100)}%` }}
-                />
-              </div>
-            </div>
-
-            <button 
-              onClick={()=>{
-                setEquipped(item.id);
-                localStorage.setItem("equipped",item.id.toString());
-              }}
-              className={`mt-3 w-full py-1 rounded-md text-xs font-semibold transition
+            hover:-translate-y-1 hover:shadow-xl transition-all duration-300 hover:scale-[1.02] hover:rotate-[0.2deg]
+            flex flex-col`}>
+            <div className="flex flex-col h-full">
+              <span className={`absolute top-2 right-2 text-[10px] px-2 py-0.5 rounded-full uppercase tracking-wider
                 ${
-                  equipped===item.id ? "bg-green-600 text-white":"bg-[#1a1c1f] border-gray-600 hover:bg-blue-600"
-                }
-                `}
+                  item.rarity === "legendary"
+                    ? "bg-yellow-400/20 text-yellow-300"
+                    : item.rarity === "epic"
+                    ? "bg-purple-500/20 text-purple-300"
+                    : item.rarity === "rare"
+                    ? "bg-blue-500/20 text-blue-300"
+                    : "bg-gray-500/20 text-gray-300"
+                }`}
               >
-              {equipped===item.id?"EQUIPPED":"EQUIP"}
-            </button>
+                {item.rarity}
+              </span>
+
+              <img
+                src={item.image}
+                alt={item.name}
+                className="w-20 h-20 object-contain mx-auto mb-3"
+              />
+
+              <h3 className="text-center text-sm font-semibold tracking-wide">{item.name}</h3>
+              <p className="text-center text-xs text-gray-400 mt-1 line-clamp-2">
+                {item.description}
+              </p>
+
+              <div className="mt-3">
+                <div className="text-[11px] text-gray-300 text-center mb-1">
+                  Power: {item.power}
+                </div>
+                <div className="w-full h-2 bg-gray-700 rounded-full overflow-hidden">
+                  <div
+                    className="h-full bg-blue-500 rounded-full transition-all duration-500"
+                    style={{ width: `${Math.min(item.power, 100)}%` }}
+                  />
+                </div>
+              </div>
+                <br />
+              <button
+                onClick={() => {
+                  setEquipped(item.id);
+                  localStorage.setItem("equipped", item.id.toString());
+                }}
+                className={`mt-auto w-full py-1.5 rounded-md text-xs font-semibold transition
+                  ${
+                    equipped === item.id
+                      ? "bg-green-600 text-white"
+                      : "bg-[#1a1c1f] border border-gray-600 hover:bg-blue-600"
+                  }`}
+              >
+                {equipped === item.id ? "EQUIPPED" : "EQUIP"}
+              </button>
+            </div>
           </div>
         ))}
       </div>

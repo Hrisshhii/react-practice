@@ -45,7 +45,7 @@ export const items: Item[] = [
     rarity: "common",
     power: 30,
     description: "Basic training sword. Reliable but not very powerful.",
-    image: "https://tse4.mm.bing.net/th/id/OIP.1aYPA7va-BzRKXtTXYaIZAHaE7?rs=1&pid=ImgDetMain&o=7&rm=3",
+    image: "https://img.freepik.com/premium-photo/detailed-fantasy-sword-with-ornate-hilt-black-background_984102-22046.jpg?semt=ais_hybrid",
   },
   {
     id: 5,
