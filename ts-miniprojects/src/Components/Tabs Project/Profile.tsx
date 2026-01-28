@@ -24,7 +24,7 @@ export const Profile = () => {
   };
 
   return (
-    <div className="relative w-screen ml-20">
+    <div className="relative flex-1 ml-20">
     {/* Banner */}
       <div className="relative">
         <img src={bannerUrl} alt="Background" className="w-full h-60 object-cover" />

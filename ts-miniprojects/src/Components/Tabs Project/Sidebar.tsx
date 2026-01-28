@@ -5,7 +5,7 @@ import { MdOutlineArrowBackIos } from "react-icons/md";
 
 const Sidebar = () => {
   return (
-    <aside className="fixed top-0 left-0 h-screen w-20 bg-[#1A1C1E] text-white flex flex-col items-center py-4">
+    <aside className="fixed top-0 left-0 h-screen w-16 md:w-20 bg-[#1A1C1E] text-white flex flex-col items-center py-4">
       
       {/* Top Section */}
       <div className="flex flex-col items-center gap-6">
