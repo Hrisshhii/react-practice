@@ -1,5 +1,9 @@
 import { useState } from "react";
 import { FaCamera } from "react-icons/fa";
+import { items } from "./data/items";
+
+const equippedId=Number(localStorage.getItem("equipped"))
+const equippedItem=items.find((i)=>i.id===equippedId);
 
 export const Profile = () => {
   const [bannerUrl, setBannerUrl] = useState(
@@ -64,6 +68,17 @@ export const Profile = () => {
             onChange={handleProfileChange}
         />
       </div>
+      {equippedItem && (
+        <div className="mt-4 ml-6 p-3 bg-[#1a1c1f] rounded-lg border border-white/10 max-w-xs font-sans">
+          <div className="text-ts text-gray-400 mb-1">Equipped</div>
+          <div className="flex items-center gap-3">
+            <div>
+              <p className="text-sm text-gray-400 font-semibold">{equippedItem.name}</p>
+              <p className="text-xs text-gray-400">Power: {equippedItem.power}</p>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
