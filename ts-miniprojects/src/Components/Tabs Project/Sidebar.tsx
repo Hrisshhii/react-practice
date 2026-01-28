@@ -29,7 +29,7 @@ const Sidebar = ({isActive,setIsActive}:Props) => {
 
       {/* Bottom Section */}
       <div className="flex flex-col items-center gap-6 pb-4 mb-4">
-        <IoMdSettings size={22} className={iconClass("settings")} onClick={()=>setIsActive("settings")} />
+        <IoMdSettings size={22} className={`${iconClass("settings")} hover: rotate-90 transition-transform duration-300`} onClick={()=>setIsActive("settings")} />
       </div>
 
     </aside>

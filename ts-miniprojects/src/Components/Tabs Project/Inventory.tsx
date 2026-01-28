@@ -22,7 +22,7 @@ const Inventory = () => {
 
   return (
     <div className="flex-1 ml-20 p-6 text-white bg-[#141821] min-h-screen font-sans">
-      <h2 className="flex text-2x1 font-bold mb-6 tracking-wide align-middle justify-center">
+      <h2 className="flex text-5xl font-bold mb-6 tracking-wide align-middle justify-center">
         Inventory
       </h2>
 
