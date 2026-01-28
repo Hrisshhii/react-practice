@@ -5,7 +5,11 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily:{
+        game:['"Press Start 2P"', 'cursive'],
+      },
+    },
   },
   plugins: [],
 }
