@@ -1,4 +1,4 @@
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 import "./HomePage.css";
 
 const HomePage = () => {
@@ -8,7 +8,7 @@ const HomePage = () => {
 
       <div className="projects">
         <Link to="/tabs" className="card">📂 Tabs Project</Link>
-        <a href="/react-practice/" className="card">
+        <a href="https://hrisshhii.github.io/react-practice/" className="card">
           🏠 React Mini Projects
         </a>
       </div>

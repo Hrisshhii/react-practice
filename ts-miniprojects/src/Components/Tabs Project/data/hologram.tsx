@@ -21,7 +21,7 @@ const holoStyles: Record<Theme, { aura: string; glow: string }> = {
 };
 
 const Hologram = ({ theme }: { theme: "default" | "blue" | "purple" | "green" }) => {
-  const styles = holoStyles[theme];
+  const styles = holoStyles[theme] || holoStyles.default;
 
   return (
     <div>
