@@ -84,8 +84,8 @@ const Inventory = () => {
               </div>
               <div className="w-full h-2 bg-gray-700 rounded-full overflow-hidden">
                 <div
-                  className="h-full bg-gradient-to-r from-green-400 via-cyan-400 to-blue-500 transition-all duration-500"
-                  style={{ width: `${item.power}%` }}
+                  className="h-full bg-blue-500 rounded-full transition-all duration-500"
+                  style={{ width: `${Math.min(item.power, 100)}%` }}
                 />
               </div>
             </div>
