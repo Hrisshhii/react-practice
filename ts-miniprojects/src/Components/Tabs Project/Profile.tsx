@@ -7,9 +7,11 @@ const equippedItem=items.find((i)=>i.id===equippedId);
 
 export const Profile = () => {
   const [bannerUrl, setBannerUrl] = useState(
+    localStorage.getItem("banner")||
     "https://images.wallpapersden.com/image/download/starry-landscape-4k-cool-blue-moon_bW5tbG6UmZqaraWkpJRmaWVlrWllZQ.jpg"
   );
   const [profileUrl, setProfileUrl] = useState(
+    localStorage.getItem("avatar")||
     "https://www.pngmart.com/files/23/Profile-PNG-Photo.png"
   );
   const [username,setUsername]=useState(
@@ -38,16 +40,18 @@ export const Profile = () => {
   };
 
   return (
-    <div className="relative flex-1 ml-20">
+    <div className="relative flex-1 ml-20 bg-[#0e1117] min-h-screen">
     {/* Banner */}
       <div className="relative">
         <img src={bannerUrl} alt="Background" className="w-full h-60 object-cover" />
-        <label
-          htmlFor="banner-upload"
-          className="absolute top-2 right-2 bg-gray-800 text-white p-2 rounded-full cursor-pointer hover:bg-gray-600 shadow"
-        >
-          <FaCamera size={20} />
-        </label>
+        <div className="absolute inset-0 bg-gradient-to-br from-[#0e1117] via-[#121826] to-[#0b0f1a] -z-10">
+          <label
+            htmlFor="banner-upload"
+            className="absolute top-2 right-2 bg-gray-800 text-white p-2 rounded-full cursor-pointer hover:bg-gray-600 shadow"
+          >
+            <FaCamera size={20} />
+          </label>
+        </div>
         <input
           type="file"
           id="banner-upload"
@@ -79,7 +83,7 @@ export const Profile = () => {
         />
       </div>
       {/*Username*/}
-      <div className="ml-6 mt-3 flex items-center gap-2">
+      <div className="ml-6 mt-3 flex items-center gap-2 font-sans">
         {editing ? (
           <input 
             value={username} 
@@ -89,31 +93,37 @@ export const Profile = () => {
             autoFocus
           />
         ):(
-          <h2 className="text-2x1 font-bold tracking-wide animate-pulse">
+          <h2 className="text-5xl font-extrabold tracking-wide text-blue-400
+          drop-shadow-[0_0_15px_rgba(34,211,238,0.8)] animate-pulse">
             {username}
           </h2>
         )}
-        <FaPencilAlt className="cursor-pointer text-gray-400 hover:text-white" onClick={()=>setEditing(true)}/>
+        <FaPencilAlt className="cursor-pointer text-gray-400 hover:text-cyan-400 hover:scale-110 transition" onClick={()=>setEditing(true)}/>
       </div>
 
       {/*Equipped Items */}
       {equippedItem && (
-        <div className="mt-6 ml-6 p-4 bg-[#0f1117]/80 backdrop-blur-md rounded-xl border border-white/10 max-w-sm shadow-lg font-sans">
-          <div className="text-xs text-gray-400 mb-2 uppercase tracking-wide">Equipped</div>
+        <div className="relative mt-6 ml-6 max-w-sm">
+          <div className="absolute -inset-1 rounded-2xl blur-xl opacity-40
+            bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500" />
 
-          <div className="flex items-center gap-4">
-            <img
-              src={equippedItem.image}
-              alt={equippedItem.name}
-              className="w-14 h-14 object-contain rounded-lg bg-black/40 p-1"
-            />
+          <div className="relative p-5 rounded-2xl 
+            bg-[#0b0f1a]/90 backdrop-blur-xl 
+            border border-white/20 shadow-2xl font-sans">
+            
+            <div className="text-xs text-gray-400 mb-2 uppercase tracking-wide">Equipped</div>
 
-            <div className="flex-1">
-              <p className="text-sm font-semibold text-white">{equippedItem.name}</p>
-              <p className="text-xs text-gray-400">{equippedItem.type.toUpperCase()}</p>
+            <div className="flex items-center gap-4">
+              <img
+                src={equippedItem.image}
+                alt={equippedItem.name}
+                className="w-14 h-14 object-contain rounded-lg bg-black/40 p-1"
+              />
 
-              <div className="mt-2">
-                <p className="text-[10px] text-gray-400 mt-1">Power: {equippedItem.power}</p>
+              <div className="flex-1">
+                <p className="text-sm font-semibold text-white">{equippedItem.name}</p>
+                <p className="text-xs text-gray-400">{equippedItem.type.toUpperCase()}</p>
+                <p className="text-sm text-cyan-300 mt-1">Power: {equippedItem.power}</p>
               </div>
             </div>
           </div>
