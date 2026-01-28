@@ -7,6 +7,15 @@ const equippedId=Number(localStorage.getItem("equipped"))
 const equippedItem=items.find((i)=>i.id===equippedId);
 
 export const Profile = () => {
+
+  const theme=(localStorage.getItem("theme")||"default") as "blue"|"purple"|"green"|"default";
+  const themeGlow = {
+    default: "text-cyan-400 drop-shadow-[0_0_15px_rgba(34,211,238,0.8)]",
+    blue: "text-blue-400 drop-shadow-[0_0_15px_rgba(59,130,246,0.9)]",
+    purple: "text-purple-400 drop-shadow-[0_0_15px_rgba(168,85,247,0.9)]",
+    green: "text-green-400 drop-shadow-[0_0_15px_rgba(34,197,94,0.9)]",
+  }[theme];
+
   const [bannerUrl, setBannerUrl] = useState(
     localStorage.getItem("banner")||
     "https://images.wallpapersden.com/image/download/starry-landscape-4k-cool-blue-moon_bW5tbG6UmZqaraWkpJRmaWVlrWllZQ.jpg"
@@ -98,8 +107,7 @@ export const Profile = () => {
             autoFocus
           />
         ) : (
-          <h2 className="font-game text-3xl font-extrabold tracking-wide text-blue-400
-            drop-shadow-[0_0_15px_rgba(34,211,238,0.8)] animate-pulse">
+          <h2 className={`font-game text-3xl font-extrabold tracking-wide animate-pulse ${themeGlow}`}>
             {username}
           </h2>
         )}
@@ -111,7 +119,7 @@ export const Profile = () => {
 
       {/*XP and Level*/}
       <div className="ml-6 mt-3 w-80">
-        <div className="flex justify-between text-xs text-cyan-300 mb-1">
+        <div className={`flex justify-between text-xs text-cyan-300 mb-1 ${themeGlow}`}>
           <span>LEVEL {level}</span>
           <span>{xp}%</span>
         </div>
@@ -124,7 +132,7 @@ export const Profile = () => {
           />
         </div>
 
-        <p className="text-[10px] text-gray-400 mt-1">
+        <p className={`text-[10px] text-gray-400 mt-1`}>
           XP to next level: {100 - xp}%
         </p>
       </div>
@@ -180,7 +188,7 @@ export const Profile = () => {
         </div>
       )}
 
-      <Hologram />
+      <Hologram theme={theme}/>
     </div>
   );
 };
