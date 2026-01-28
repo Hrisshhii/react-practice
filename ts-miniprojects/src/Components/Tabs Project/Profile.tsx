@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { FaCamera, FaPencilAlt } from "react-icons/fa";
 import { items } from "./data/items";
+import Hologram from "./data/hologram";
 
 const equippedId=Number(localStorage.getItem("equipped"))
 const equippedItem=items.find((i)=>i.id===equippedId);
@@ -178,6 +179,8 @@ export const Profile = () => {
           </div>
         </div>
       )}
+
+      <Hologram />
     </div>
   );
 };

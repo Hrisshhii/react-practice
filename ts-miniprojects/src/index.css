@@ -1,3 +1,22 @@
 /* @tailwind base;
 @tailwind components; */
 @tailwind utilities;
+
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+}
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes holo-flicker {
+  0%, 100% { opacity: 1; }
+  97% { opacity: 0.9; }
+  98% { opacity: 0.3; }
+  99% { opacity: 1; }
+}
+.animate-holo-flicker {
+  animation: holo-flicker 4s infinite;
+}
