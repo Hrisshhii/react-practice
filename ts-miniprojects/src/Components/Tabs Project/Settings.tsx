@@ -9,7 +9,7 @@ const Settings = () => {
         {/*Profile*/}
         <div className="bg-[#1a1f2e] p-5 rounded-xl border border-white/10">
           <h3 className="font-semibold mb-2">Profile</h3>
-          <button className="text-sm text-blue-400"
+          <button className="rounded-xl p-3 text-sm border-solid border-blue-400 text-white bg-blue-400"
             onClick={()=>{
               const name=prompt("Enter new username: ");
               if(name) localStorage.setItem("username",name);
@@ -18,7 +18,7 @@ const Settings = () => {
           >
             Change Username
           </button>
-          <button className="block text-sm text-blue-400 mt-2"
+          <button className="block rounded-xl p-3 text-sm border-solid border-blue-400 text-white bg-blue-400 mt-2"
             onClick={()=>{
               localStorage.removeItem("avatar");
               window.location.reload();
@@ -26,7 +26,7 @@ const Settings = () => {
           >
             Reset Avatar
           </button>
-          <button className="block text-sm text-red-400 mt-2"
+          <button className="block text-sm p-3 rounded-xl border-solid border-red-400 text-white bg-red-400 mt-2"
             onClick={()=>{
               localStorage.removeItem("banner");
               window.location.reload();
@@ -42,13 +42,13 @@ const Settings = () => {
             <button
               key={c}
               onClick={()=>setTheme(c)}
-              className={`px-3 py-2 rounded text-xs mr-2 transition
+              className={`rounded text-xs mr-2 transition border-solid p-3 text-white
                   ${theme===c?"ring-2 ring-white":"opacity-70"}
                   ${
-                    c==="blue"?"bg-blue-500":
-                    c==="purple"?"bg-purple-500":
-                    c==="green"?"bg-green-500":
-                    "bg-gray-500"
+                    c==="blue"?"bg-blue-500 border-blue-500":
+                    c==="purple"?"bg-purple-500 border-purple-500":
+                    c==="green"?"bg-green-500 border-green-500":
+                    "bg-gray-500 border-gray-500"
                   }
                 `}
             >
@@ -60,7 +60,7 @@ const Settings = () => {
         {/* Danger Zone */}
         <div className="bg-[#2a1212] p-5 rounded-xl border border-red-500/30">
           <h3 className="font-semibold mb-2 text-red-400">Danger Zone</h3>
-          <button className="text-sm text-red-400"
+          <button className="text-sm text-white bg-red-400 px-10 py-4 bodrer-solid border-red-400 rounded-xl"
             onClick={resetAll}
           >Clear All Data</button>
         </div>
