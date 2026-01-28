@@ -18,11 +18,11 @@ export const Profile = () => {
 
   const [bannerUrl, setBannerUrl] = useState(
     localStorage.getItem("banner")||
-    "https://images.wallpapersden.com/image/download/starry-landscape-4k-cool-blue-moon_bW5tbG6UmZqaraWkpJRmaWVlrWllZQ.jpg"
+    "banner.png"
   );
   const [profileUrl, setProfileUrl] = useState(
     localStorage.getItem("avatar")||
-    "https://www.pngmart.com/files/23/Profile-PNG-Photo.png"
+    "profile.png"
   );
   const [username,setUsername]=useState(
     localStorage.getItem("username")||"Player One"

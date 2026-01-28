@@ -104,6 +104,7 @@ const Inventory = () => {
                 onClick={() => {
                   setEquipped(item.id);
                   localStorage.setItem("equipped", item.id.toString());
+                  window.location.reload();
                 }}
                 className={`mt-auto w-full py-1.5 rounded-md text-xs font-semibold transition
                   ${
