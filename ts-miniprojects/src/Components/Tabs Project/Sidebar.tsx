@@ -14,7 +14,9 @@ const Sidebar = ({isActive,setIsActive}:Props) => {
       isActive===tab?"text-blue-400 scale-110":"opacity-70 hover:opacity-100"
     }`;
   return (
-    <aside className="fixed z-40 bg-[#1A1C1E] text-white flex items-center bottom-0 left-0 w-full h-14 md:top-0 md:left-0 md:h-screen md:w-20 md:flex-col">
+    <aside className="fixed z-40 bg-[#1A1C1E] text-white 
+          flex items-center justify-around 
+          bottom-0 left-0 w-full h-14 md:top-0 md:left-0 md:h-screen md:w-20 md:flex-col md:justify-start md:py-4">
       
       {/* Top Section */}
       <div className="flex w-full justify-around md:flex-col md:items-center md:gap-6">
