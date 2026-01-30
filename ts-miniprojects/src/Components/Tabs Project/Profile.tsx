@@ -53,7 +53,7 @@ export const Profile = () => {
   };
 
   return (
-    <div className="relative flex-1 ml-0 md:ml-20 bg-[#0e1117] min-h-screen">
+    <div className="relative flex-1 ml-0 md:ml-20 bg-[#0e1117] min-h-screen pb-24 md:pb-0">
       {/* Banner */}
       <div className="relative">
         <img src={bannerUrl} alt="Background" className="w-full h-60 object-cover" />
@@ -192,7 +192,9 @@ export const Profile = () => {
       <div className="md:hidden mt-10 flex justify-center">
         <Hologram theme={theme} size="small"/>
       </div>
-      
+
+
+
       {/* Desktop hologram */}
       <div className="hidden md:block">
         <Hologram theme={theme}/>

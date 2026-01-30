@@ -30,7 +30,7 @@ const Hologram = ({ theme,size="normal" }:Props) => {
 const sizeClass=size==="small"?"w-40 h-56":"w-72 h-96";
   return (
     <div className="pointer-events-none">
-      <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+      <div className={`${size==="small"?"relative":"absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"}`}>
         <div className={`relative ${sizeClass} flex items-center justify-center animate-float`}>
           
           {/* Glow Aura */}
