@@ -27,13 +27,13 @@ const Inventory = () => {
       </h2>
 
       <div className="mb-8 p-4 rounded-xl bg-white/5 backdrop-blur-md border border-white/10">
-        <div className="mb-4">
+        <div className="mb-4 flex justify-center sm:justify-start">
           <input
             type="text"
             placeholder="Search items..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="w-full sm:w-72 px-4 py-2 rounded-lg bg-[#1a1c1f] border border-gray-600 text-sm text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full max-w-sm px-4 py-2 rounded-lg bg-[#1a1c1f] border border-gray-600 text-sm text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
         </div>
 
