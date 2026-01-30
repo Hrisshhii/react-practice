@@ -118,7 +118,7 @@ export const Profile = () => {
       </div>
 
       {/*XP and Level*/}
-      <div className="mt-4 px-6 w-full md:w-80 md:ml-6">
+      <div className="mt-4 px-6 w-full max-w-sm md:w-80 md:ml-6">
         <div className={`flex justify-between text-xs text-cyan-300 mb-1 ${themeGlow}`}>
           <span>LEVEL {level}</span>
           <span>{xp}%</span>
@@ -189,11 +189,9 @@ export const Profile = () => {
       )}
 
       {/* Mobile hologram */}
-      <div className="md:hidden mt-10 flex justify-center">
+      <div className="md:hidden mt-14 mb-20 flex justify-center relative">
         <Hologram theme={theme} size="small"/>
       </div>
-
-
 
       {/* Desktop hologram */}
       <div className="hidden md:block">
