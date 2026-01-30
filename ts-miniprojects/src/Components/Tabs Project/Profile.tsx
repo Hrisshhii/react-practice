@@ -53,7 +53,7 @@ export const Profile = () => {
   };
 
   return (
-    <div className="relative flex-1 ml-20 bg-[#0e1117] min-h-screen">
+    <div className="relative flex-1 ml-0 md:ml-20 bg-[#0e1117] min-h-screen">
       {/* Banner */}
       <div className="relative">
         <img src={bannerUrl} alt="Background" className="w-full h-60 object-cover" />
@@ -80,7 +80,7 @@ export const Profile = () => {
             src={profileUrl}
             alt="User"
             onClick={()=>setInspect(true)}
-            className="w-40 h-40 object-cover rounded-full cursor-pointer hover:scale-105 transition bg-black"
+            className="w-28 h-28 md:w-40 md:h-40 object-cover rounded-full cursor-pointer hover:scale-105 transition bg-black"
         />
         <label
             htmlFor="profile-upload"
@@ -97,7 +97,7 @@ export const Profile = () => {
         />
       </div>
       {/* Username */}
-      <div className="absolute left-1/2 -translate-x-1/2 top-[14.5rem] flex items-center gap-2 font-sans transform">
+      <div className="mt-4 flex items-center justify-center gap-2 md:absolute md:left-1/2 md:-translate-x-1/2 md:top-[14.5rem] font-sans transform">
         {editing ? (
           <input 
             value={username} 
@@ -118,7 +118,7 @@ export const Profile = () => {
       </div>
 
       {/*XP and Level*/}
-      <div className="ml-6 mt-3 w-80">
+      <div className="mt-4 px-6 w-full md:w-80 md:ml-6">
         <div className={`flex justify-between text-xs text-cyan-300 mb-1 ${themeGlow}`}>
           <span>LEVEL {level}</span>
           <span>{xp}%</span>
@@ -139,7 +139,7 @@ export const Profile = () => {
 
       {/*Equipped Items */}
       {equippedItem && (
-        <div className="relative mt-6 ml-6 max-w-sm">
+        <div className="relative mt-6 mx-auto md:ml-6 max-w-sm">
           <div className="absolute -inset-1 rounded-2xl blur-xl opacity-40
             bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500" />
 
@@ -188,7 +188,9 @@ export const Profile = () => {
         </div>
       )}
 
-      <Hologram theme={theme}/>
+      <div className="hidden md:block">
+        <Hologram theme={theme} />
+      </div>
     </div>
   );
 };
