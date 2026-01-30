@@ -52,6 +52,8 @@ export const Profile = () => {
     }
   };
 
+  const clampedXP = Math.min(100, Math.max(0, xp));
+
   return (
     <div className="relative flex-1 ml-0 md:ml-20 bg-[#0e1117] min-h-screen pb-24 md:pb-0">
       {/* Banner */}
@@ -118,22 +120,23 @@ export const Profile = () => {
       </div>
 
       {/*XP and Level*/}
-      <div className="mt-4 px-6 w-full max-w-sm mx-auto md:mx-0 md:w-80 md:ml-6">
+      <div className="mt-4 px-6 w-[320px] max-w-full mx-auto md:mx-0 md:ml-6">
         <div className={`flex justify-between text-xs text-cyan-300 mb-1 ${themeGlow}`}>
           <span>LEVEL {level}</span>
-          <span>{xp}%</span>
+          <span>{clampedXP}%</span>
         </div>
+        
 
         <div className="h-3 bg-black/60 rounded-full overflow-hidden border border-cyan-500/40 shadow-inner">
           <div 
             className="h-full bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 
-            animate-pulse transition-all duration-1000"
-            style={{ width: `${xp}%` }}
+            block transition-all duration-700 ease-out"
+            style={{ width: `${clampedXP}%` }}
           />
         </div>
 
         <p className="text-[10px] text-gray-400 mt-2 text-center md:text-left">
-          XP to next level: {100 - xp}%
+          XP to next level: {100 - clampedXP}%
         </p>
       </div>
 
