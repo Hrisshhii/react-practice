@@ -118,13 +118,13 @@ export const Profile = () => {
       </div>
 
       {/*XP and Level*/}
-      <div className="mt-4 px-6 w-full max-w-sm md:w-80 md:ml-6">
+      <div className="mt-4 px-6 w-full max-w-sm mx-auto md:mx-0 md:w-80 md:ml-6">
         <div className={`flex justify-between text-xs text-cyan-300 mb-1 ${themeGlow}`}>
           <span>LEVEL {level}</span>
           <span>{xp}%</span>
         </div>
 
-        <div className="h-3 bg-black/40 rounded-full overflow-hidden border border-cyan-500/30">
+        <div className="h-3 bg-black/60 rounded-full overflow-hidden border border-cyan-500/40 shadow-inner">
           <div 
             className="h-full bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 
             animate-pulse transition-all duration-1000"
@@ -132,7 +132,7 @@ export const Profile = () => {
           />
         </div>
 
-        <p className={`text-[10px] text-gray-400 mt-1`}>
+        <p className="text-[10px] text-gray-400 mt-2 text-center md:text-left">
           XP to next level: {100 - xp}%
         </p>
       </div>
