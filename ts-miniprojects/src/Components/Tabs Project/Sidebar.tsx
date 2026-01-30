@@ -14,10 +14,10 @@ const Sidebar = ({isActive,setIsActive}:Props) => {
       isActive===tab?"text-blue-400 scale-110":"opacity-70 hover:opacity-100"
     }`;
   return (
-    <aside className="fixed top-0 left-0 h-screen w-16 md:w-20 bg-[#1A1C1E] text-white flex flex-col items-center py-4">
+    <aside className="fixed z-40 bg-[#1A1C1E] text-white flex items-center bottom-0 left-0 w-full h-14 md:top-0 md:left-0 md:h-screen md:w-20 md:flex-col">
       
       {/* Top Section */}
-      <div className="flex flex-col items-center gap-6">
+      <div className="flex w-full justify-around md:flex-col md:items-center md:gap-6">
         <BackHome />
         <MdOutlineArrowBackIos size={22} className="opacity-80 hover:opacity-100 transition" onClick={()=>setIsActive("profile")}/>
         <FaUser size={22} className={iconClass("profile")} onClick={()=>setIsActive("profile")}/>
@@ -28,7 +28,7 @@ const Sidebar = ({isActive,setIsActive}:Props) => {
       <div className="grow" />
 
       {/* Bottom Section */}
-      <div className="flex flex-col items-center gap-6 pb-4 mb-4">
+      <div className="hidden md:flex flex-col items-center gap-6 pb-4 mb-4">
         <IoMdSettings size={22} className={`${iconClass("settings")} hover: rotate-90 transition-transform duration-300`} onClick={()=>setIsActive("settings")} />
       </div>
 
