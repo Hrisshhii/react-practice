@@ -187,8 +187,12 @@ export const Profile = () => {
           </div>
         </div>
       )}
-
+      {/* Desktop hologram */}
       <div className="hidden md:block">
+        <Hologram theme={theme}/>
+      </div>
+      {/* Mobile hologram */}
+      <div className="md:hidden">
         <Hologram theme={theme} size="small"/>
       </div>
     </div>
