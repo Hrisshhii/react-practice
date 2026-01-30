@@ -110,7 +110,7 @@ const Inventory = () => {
                   ${
                     equipped === item.id
                       ? "bg-green-600 text-white"
-                      : "bg-[#1a1c1f] border border-gray-600 hover:bg-blue-600"
+                      : "bg-[#1a1c1f] border border-gray-600 hover:bg-blue-600 text-white"
                   }`}
               >
                 {equipped === item.id ? "EQUIPPED" : "EQUIP"}

@@ -42,7 +42,7 @@ const Settings = () => {
             <button
               key={c}
               onClick={()=>setTheme(c)}
-              className={`rounded text-xs mr-2 transition border-solid p-3 text-white
+              className={`rounded text-xs mr-2 transition border-solid p-3 text-white mb-2
                   ${theme===c?"ring-2 ring-white":"opacity-70"}
                   ${
                     c==="blue"?"bg-blue-500 border-blue-500":
