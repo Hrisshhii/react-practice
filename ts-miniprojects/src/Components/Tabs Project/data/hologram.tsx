@@ -20,13 +20,18 @@ const holoStyles: Record<Theme, { aura: string; glow: string }> = {
   },
 };
 
-const Hologram = ({ theme }: { theme: "default" | "blue" | "purple" | "green" }) => {
-  const styles = holoStyles[theme] || holoStyles.default;
+type Props={
+  theme: "default" | "blue" | "purple" | "green";
+  size?:"small" | "normal";
+};
 
+const Hologram = ({ theme,size="normal" }:Props) => {
+  const styles = holoStyles[theme] || holoStyles.default;
+const sizeClass=size==="small"?"w-40 h-56":"w-72 h-96";
   return (
-    <div>
-      <div className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-        <div className="relative w-72 h-96 flex items-center justify-center animate-float">
+    <div className="pointer-events-none">
+      <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+        <div className={`relative ${sizeClass} flex items-center justify-center animate-float`}>
           
           {/* Glow Aura */}
           <div

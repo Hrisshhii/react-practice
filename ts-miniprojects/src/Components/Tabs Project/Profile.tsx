@@ -189,7 +189,7 @@ export const Profile = () => {
       )}
 
       <div className="hidden md:block">
-        <Hologram theme={theme} />
+        <Hologram theme={theme} size="small"/>
       </div>
     </div>
   );
