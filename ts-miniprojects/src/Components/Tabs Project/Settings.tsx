@@ -3,7 +3,7 @@ import { useSettings } from "./data/useSettings";
 const Settings = () => {
   const {theme,setTheme,resetAll}=useSettings();
   return (
-    <div className="flex-1 ml-20 p-6 text-white bg-[#0e1117] min-h-screen font-sans">
+    <div className="flex-1 ml-0 md:ml-20 p-6 text-white bg-[#0e1117] min-h-screen font-sans">
       <h2 className="flex align-middle justify-center text-5xl font-bold mb-6">Settings</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/*Profile*/}
