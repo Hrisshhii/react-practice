@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { FaCamera, FaPencilAlt } from "react-icons/fa";
 import { items } from "./data/items";
 import Hologram from "./data/hologram";
-import InfoTabs from "../InfoTabs";
+import InfoTabs from "./InfoTabs";
 
 const equippedId=Number(localStorage.getItem("equipped"))
 const equippedItem=items.find((i)=>i.id===equippedId);
@@ -181,7 +181,7 @@ export const Profile = () => {
               Level {level}
             </div>
             {equippedItem && (
-              <div className="mt-4 flrx jsutify-center gap-3">
+              <div className="mt-4 flex justify-center gap-3">
                 <img src={equippedItem.image} className="w-16 h-16 rounded-lg" />
                 <div>
                   <p className="text-white">{equippedItem.name}</p>
@@ -193,7 +193,10 @@ export const Profile = () => {
         </div>
       )}
       
-      <InfoTabs />
+      <div className="max-w-6xl mx-auto mt-10">
+        <InfoTabs theme={theme} />
+      </div>
+
       {/* Mobile hologram */}
       <div className="md:hidden mt-14 mb-20 flex justify-center relative">
         <Hologram theme={theme} size="small"/>
