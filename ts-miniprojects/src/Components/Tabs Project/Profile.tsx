@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { FaCamera, FaPencilAlt } from "react-icons/fa";
 import { items } from "./data/items";
 import Hologram from "./data/hologram";
+import InfoTabs from "../InfoTabs";
 
 const equippedId=Number(localStorage.getItem("equipped"))
 const equippedItem=items.find((i)=>i.id===equippedId);
@@ -168,6 +169,7 @@ export const Profile = () => {
           </div>
         </div>
       )}
+
       {/*Profile functionality*/}
       {inspect &&(
         <div className="fixed inset-0 bg-black/80 backdrop-blur-xl z-50 flex items-center justify-center" onClick={()=>setInspect(false)}>
@@ -190,7 +192,8 @@ export const Profile = () => {
           </div>
         </div>
       )}
-
+      
+      <InfoTabs />
       {/* Mobile hologram */}
       <div className="md:hidden mt-14 mb-20 flex justify-center relative">
         <Hologram theme={theme} size="small"/>

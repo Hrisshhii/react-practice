@@ -8,6 +8,7 @@ const HomePage = () => {
 
       <div className="projects">
         <Link to="/tabs" className="card">📂 Tabs Project</Link>
+        
         <a href="https://hrisshhii.github.io/react-practice/" className="card">
           🏠 React Mini Projects
         </a>
