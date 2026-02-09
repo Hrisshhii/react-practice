@@ -53,7 +53,7 @@ export const MyBlogs=()=>{
 
   return (
     <>
-      <div className="relative p-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <div className="relative p-8 grid gap-6 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-center">
         {blogs.map((blog)=>(
           <BlogsCard key={blog.id} title={blog.title} description={blog.description} editable onEdit={()=>openEdit(blog)} onDelete={()=>handleDelete(blog.id)}/>
         ))}
