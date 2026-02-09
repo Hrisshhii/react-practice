@@ -1,10 +1,10 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { BlogsCard } from "./BlogsCard";
-import { blogs as initial,type Blog } from "./blogs-data/data";
+import { loadBlogs,saveBlogs,type Blog } from "./blogs-data/data";
 import { BlogModal } from "./BlogModal";
 
 export const MyBlogs=()=>{
-  const [blogs,setBlogs]=useState<Blog[]>(initial);
+  const [blogs,setBlogs]=useState<Blog[]>(()=>loadBlogs());
   const [editing,setEditing]=useState<Blog|null>(null);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -37,11 +37,19 @@ export const MyBlogs=()=>{
       setBlogs(prev=>[newBlog,...prev])
     }
     setIsModalOpen(false);
+    setTitle("");
+    setDescription("");
+    setEditing(null);
+
   };
 
   const handleDelete=(id:number)=>{
     setBlogs(prev=>prev.filter(b=>b.id!==id));
   }
+
+  useEffect(()=>{
+    saveBlogs(blogs);
+  },[blogs]);
 
   return (
     <>
