@@ -2,6 +2,7 @@ export type Blog={
   id:number;
   title:string;
   description:string;
+  trending?:boolean;
 };
 
 const BLOG_Key="myblogs";

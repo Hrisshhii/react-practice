@@ -3,11 +3,12 @@ type BlogCardProps={
   description:string;
   author?:string;
   editable?:boolean;
+  trending?: boolean;
   onEdit?:()=>void;
   onDelete?:()=>void;
 };
 
-export const BlogsCard=({title,description,author,editable,onEdit,onDelete}:BlogCardProps)=>{
+export const BlogsCard=({title,description,author,editable,onEdit,onDelete,trending}:BlogCardProps)=>{
   return(
     <div className="group bg-[#16181C] text-[#b1cbe2] p-6 rounded-2xl hover:border-white/10 hover:shadow-[0_8px_30px_rgba(0,0,0,0.35)] transition-all duration-300 hover:-translate-y-1">
       <h2 className="text-2xl font-medium tracking-tight">{title}</h2>
@@ -17,10 +18,15 @@ export const BlogsCard=({title,description,author,editable,onEdit,onDelete}:Blog
       )}
       {editable &&(
         <div className="flex gap-3 mt-4 justify-end">
-          <button onClick={onEdit} className="px-6 py-3 bg-[#b1cbe2] cursor-pointer rounded-full text-blackrounded-full hover:bg-[#b1cbe2]/50 border-none">Edit</button>
+          <button onClick={onEdit} className="px-6 py-3 bg-[#b1cbe2] cursor-pointer text-black rounded-full hover:bg-[#b1cbe2]/50 border-none">Edit</button>
           <button onClick={onDelete} className="bg-red-500 px-6 py-3 rounded-full hover:bg-red-600 cursor-pointer border-none text-white">Delete</button>
         </div>
       )}
+      {trending && 
+        (
+          <span className="flex justify-end px-2 py-1 rounded-md mb-2 text-[2rem]">🔥</span>
+        )
+      }
     </div>
   );
 };

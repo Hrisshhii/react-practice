@@ -5,9 +5,10 @@ import { Explore } from "./Explore";
 
 const Blogs = () => {
   const [activeTab,setActiveTab]=useState<"my"|"explore">("my");
+  const [search,setSearch]=useState("");
   return (
     <div className="min-h-screen bg-[#121212]">
-      <Navigation />
+      <Navigation search={search} setSearch={setSearch} />
       <div className="flex gap-6 px-8 pt-6 text-white justify-center">
         <button onClick={()=>setActiveTab("my")}
           className={` bg-[#1A1C1E] border-none rounded-full text-[1.2rem] p-4 cursor-pointer ${activeTab==="my"?"text-[#b1cbe2]":"text-gray-300"}`}
@@ -20,7 +21,7 @@ const Blogs = () => {
           Explore
         </button>
       </div>
-      {activeTab==="my"?<MyBlogs/>:<Explore/>}
+      {activeTab==="my"?<MyBlogs/>:<Explore search={search}/>}
     </div>
   )
 }
