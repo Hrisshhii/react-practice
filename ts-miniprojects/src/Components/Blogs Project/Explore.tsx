@@ -1,11 +1,15 @@
+import { useState } from "react";
 import { exploreBlogs } from "./blogs-data/exploredata";
 import { BlogsCard } from "./BlogsCard";
+import type { Blog } from "./blogs-data/data";
+import { BlogViewModal } from "./BlogViewModal";
 
 type ExploreProps = {
   search: string;
 };
 
 export const Explore=({search}:ExploreProps)=>{
+  const [openBlog,setOpenBlog]=useState<Blog|null>(null);
   const trending=exploreBlogs.filter(b=>b.trending);
   const filtered=exploreBlogs.filter(blog=>
     blog.title.toLowerCase().includes(search.toLowerCase())
@@ -17,7 +21,7 @@ export const Explore=({search}:ExploreProps)=>{
         filtered.length>0?(
           <div className="p-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {filtered.map(blog=>(
-              <BlogsCard key={blog.id} {...blog}/>
+              <BlogsCard key={blog.id} {...blog} onOpen={()=>setOpenBlog(blog)}/>
             ))}
           </div>
         ):(
@@ -30,7 +34,7 @@ export const Explore=({search}:ExploreProps)=>{
           </h2>
           <div className="p-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {trending.map(blog=>(
-              <BlogsCard key={blog.id} title={blog.title} description={blog.description}/>
+              <BlogsCard key={blog.id} {...blog} onOpen={()=>setOpenBlog(blog)}/>
             ))}
           </div>
           <h2 className="text-5xl font-semibold px-8 pt-6 text-[#b1cbe2] text-center">
@@ -38,11 +42,12 @@ export const Explore=({search}:ExploreProps)=>{
           </h2>
           <div className="p-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {exploreBlogs.map(blog=>(
-              <BlogsCard key={blog.id} title={blog.title} description={blog.description} trending={blog.trending}/>
+              <BlogsCard key={blog.id} {...blog} onOpen={()=>setOpenBlog(blog)}/>
             ))}
-            </div>
+          </div>
         </>
       )}
+      <BlogViewModal blog={openBlog} onClose={()=>setOpenBlog(null)}/>
     </div>
   );
 };

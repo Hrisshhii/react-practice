@@ -3,6 +3,7 @@ export type Blog={
   title:string;
   description:string;
   trending?:boolean;
+  author?:string;
 };
 
 const BLOG_Key="myblogs";
