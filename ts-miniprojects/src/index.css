@@ -20,3 +20,20 @@
 .animate-holo-flicker {
   animation: holo-flicker 4s infinite;
 }
+
+textarea::-webkit-scrollbar {
+  width: 8px;
+}
+
+textarea::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+textarea::-webkit-scrollbar-thumb {
+  background-color: black;
+  border-radius: 10px;
+}
+
+textarea::-webkit-scrollbar-thumb:hover {
+  background-color: #222;
+}

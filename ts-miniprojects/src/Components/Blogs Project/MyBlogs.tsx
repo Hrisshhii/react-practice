@@ -50,7 +50,7 @@ export const MyBlogs=()=>{
           <BlogsCard key={blog.id} title={blog.title} description={blog.description} editable onEdit={()=>openEdit(blog)} onDelete={()=>handleDelete(blog.id)}/>
         ))}
         <button onClick={openCreate} 
-        className="fixed bottom-10 right-10 bg-[#b1cbe2] text-black text-3xl w-14 h-14 rounded-full shadow-lg hover:scale-110 transition">+</button>
+        className="fixed bottom-10 right-10 bg-[#b1cbe2] text-black text-3xl w-14 h-14 rounded-full shadow-lg hover:scale-110 transition cursor-pointer">+</button>
       </div>
       <BlogModal isOpen={isModalOpen} onClose={()=>setIsModalOpen(false)}
         onSave={handleSave}

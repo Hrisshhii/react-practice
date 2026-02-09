@@ -11,7 +11,7 @@ export const BlogsCard=({title,description,author,editable,onEdit,onDelete}:Blog
   return(
     <div className="bg-[#1F1A1C] text-white p-6 rounded-2xl shadow-md hover:scale-[1.02] transition-all duration-300">
       <h2 className="text-2xl font-semibold">{title}</h2>
-      <p className="text-gray-400 mt-2">{description}</p>
+      <p className="text-gray-400 mt-2 [overflow-wrap:anywhere]">{description}</p>
       {author && (
         <p className="text-sm text-gray-500 mt-3">By {author}</p>
       )}
