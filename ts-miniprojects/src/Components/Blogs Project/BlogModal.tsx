@@ -30,6 +30,13 @@ export const BlogModal=({isOpen,onClose,onSave,editingBlog,title,setTitle,descri
     }
   },[description]);
 
+  useEffect(()=>{
+    document.body.style.overflow=isOpen?"hidden":"auto";
+    return ()=>{
+      document.body.style.overflow="auto";
+    };
+  },[isOpen]);
+
   if(!isOpen) return null;
 
   return (
