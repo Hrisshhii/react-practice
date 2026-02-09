@@ -1,6 +1,7 @@
 import { useState } from "react"
 import Navigation from "./Navigation"
 import { MyBlogs } from "./MyBlogs";
+import { Explore } from "./Explore";
 
 const Blogs = () => {
   const [activeTab,setActiveTab]=useState<"my"|"explore">("my");
@@ -19,7 +20,7 @@ const Blogs = () => {
           Explore
         </button>
       </div>
-      {activeTab==="my"?<MyBlogs/>:""}
+      {activeTab==="my"?<MyBlogs/>:<Explore/>}
     </div>
   )
 }
