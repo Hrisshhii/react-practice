@@ -49,11 +49,11 @@ const ProjectTable = ({projects}:Props) => {
               </td>
               <td className="py-4 px-3 flex flex-wrap gap-2">
                 {project.tags?.map((tag)=>(
-                  <span key={tag} className="bg-white/10 px-2 py-1 rounded-md text-xs">{tag}</span>
+                  <span key={tag} className="bg-white/10 px-2 py-1 text-white/50 rounded-md text-xs">{tag}</span>
                 ))}
               </td>
               <td className="py-4 px-3 text-right">
-                <button className="text-sm px-3 py-1 rounded-md bg-[#b1cbe2] bg-[#b1cbe2]/10 hover:bg-white/20 cursor-pointer">View</button>
+                <button className="text-[1rem] px-4 py-2 text-semibold rounded-md bg-[#b1cbe2] hover:bg-[#b1cbe2]/50 border-none cursor-pointer">View</button>
               </td>
             </tr>
           ))}
