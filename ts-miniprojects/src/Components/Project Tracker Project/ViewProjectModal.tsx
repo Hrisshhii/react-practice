@@ -38,7 +38,7 @@ const ViewProjectModal=({project,onClose,onDelete}:Props)=>{
             Priority: {project.priority}
           </span>
           {project.dueDate && (
-            <span className={`px-3 py-1 bg-white/5 rounded-lg`}>
+            <span className={`px-3 py-1 bg-white/5 rounded-lg text-white/65`}>
               Due: {new Date(project.dueDate).toLocaleDateString()}
             </span>
           )}
@@ -55,7 +55,7 @@ const ViewProjectModal=({project,onClose,onDelete}:Props)=>{
 
         <div className="flex flex-wrap gap-2 mt-6">
           {project.tags?.map(tag => (
-            <span key={tag} className="bg-white/10 px-3 py-1 rounded-md text-sm">
+            <span key={tag} className="bg-white/10 px-3 py-1 rounded-md text-sm text-white/65">
               {tag}
             </span>
           ))}
