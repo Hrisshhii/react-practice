@@ -36,8 +36,8 @@ const CreateProjectModal=({onClose,onCreate}:Props)=>{
   };
 
   return (
-    <div className="fixed inset-0 bg-black/60 backdrop-blur-md flex justify-center items-center z-50">
-        <div className="bg-[#16181C]/95 w-[95%] max-w-xl rounded-2xl p-8 shadow-xl border border-white/10 backdrop-blur-xl">
+    <div className="fixed inset-0 bg-black/60 backdrop-blur-md flex justify-center items-center z-50" onClick={onClose}>
+        <div className="bg-[#16181C]/95 w-[95%] max-w-xl rounded-2xl p-8 shadow-xl border border-white/10 backdrop-blur-xl" onClick={(e) => e.stopPropagation()}>
           <div className="space-y-4">
             <h2 className="text-3xl text-[#b1cbe2] font-semibold">
               Create Project

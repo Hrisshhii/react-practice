@@ -4,9 +4,10 @@ import { motion } from "framer-motion";
 
 type Props={
   projects:Project[];
+  onView:(project:Project)=>void;
 };
 
-const ProjectTable = ({projects}:Props) => {
+const ProjectTable = ({projects,onView}:Props) => {
   return (
     <div className="flex flex-col-reverse lg:flex-row gap-5 items-center px-5 mt-6">
       <div className="md:hidden flex flex-col gap-4 w-full">
@@ -37,7 +38,7 @@ const ProjectTable = ({projects}:Props) => {
                 <span key={tag} className="bg-white/10 px-2 py-1 rounded text-xs text-white/70">{tag}</span>
               ))}
             </div>
-            <button className="mt-4 w-full py-2 rounded-lg bg-[#b1cbe2] text-black font-semibold">View</button>
+            <button onClick={()=>onView(project)} className="mt-4 w-full py-2 rounded-lg bg-[#b1cbe2] text-black font-semibold">View</button>
           </motion.div>
         ))}
       </div>
@@ -107,7 +108,8 @@ const ProjectTable = ({projects}:Props) => {
                   ))}
                 </td>
                 <td className="py-4 px-3 text-right">
-                  <button className="text-[1rem] px-4 py-2 font-semibold text-[#000000] rounded-md bg-[#b1cbe2] hover:bg-[#b1cbe2]/50 border-none cursor-pointer">View</button>
+                  <button onClick={()=>onView(project)}
+                  className="text-[1rem] px-4 py-2 font-semibold text-[#000000] rounded-md bg-[#b1cbe2] hover:bg-[#b1cbe2]/50 border-none cursor-pointer">View</button>
                 </td>
               </tr>
             ))}
