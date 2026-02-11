@@ -3,13 +3,21 @@ import ControlBar from "./ControlBar"
 import Navigation from "./Navigation"
 import ProjectTable from "./ProjectTable";
 import { projectsData } from "./data/data";
+import type { Project } from "./data/pt-types";
+import CreateProjectModal from "./CreateProjectModal";
 
 const ProjectTracker = () => {
+  const [projects,setProjects]=useState(projectsData);
   const [search,setSearch]=useState("");
   const [sort,setSort]=useState<"newest"|"priority"|"progress">("newest");
   const [statusFilter,setStatusFilter]=useState<"all"|"planned"|"in-progress"|"completed">("all");
+  const [showCreate,setShowCreate]=useState(false);
 
-  const processesProjects=[...projectsData].filter(project=>project.title.toLowerCase().includes(search.toLowerCase())).
+  const handleCreateProject=(project:Project)=>{
+    setProjects(prev=>[project,...prev]);
+  };
+
+  const processesProjects=[...projects].filter(project=>project.title.toLowerCase().includes(search.toLowerCase())).
     filter(project=>statusFilter==="all"?true:project.status===statusFilter).
     sort((a,b)=>{
       if(sort==="priority"){
@@ -25,8 +33,11 @@ const ProjectTracker = () => {
   return (
     <div className="min-h-screen bg-[#121212]">
       <Navigation/>
-      <ControlBar search={search} setSearch={setSearch} openCreate={()=>{}} setStatusFilter={setStatusFilter} setSort={setSort}/>
+      <ControlBar search={search} setSearch={setSearch} openCreate={()=>setShowCreate(true)} setStatusFilter={setStatusFilter} setSort={setSort}/>
       <ProjectTable projects={processesProjects}/>
+      {showCreate && (
+        <CreateProjectModal onClose={()=>setShowCreate(false)} onCreate={handleCreateProject}/>
+      )}
     </div>
   )
 }
