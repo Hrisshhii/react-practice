@@ -37,3 +37,13 @@ textarea::-webkit-scrollbar-thumb {
 textarea::-webkit-scrollbar-thumb:hover {
   background-color: #222;
 }
+
+
+.h1-title{
+  font-size: 2.2rem;
+  font-family: "poppins",sans-serif;
+  background:linear-gradient(90deg,#fff,#7aa2ff);
+  background-clip:text;
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
