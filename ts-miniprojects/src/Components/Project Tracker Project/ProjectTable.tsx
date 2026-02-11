@@ -53,7 +53,7 @@ const ProjectTable = ({projects}:Props) => {
                 ))}
               </td>
               <td className="py-4 px-3 text-right">
-                <button className="text-sm px-3 py-1 rounded-md bg-white/10 hover:bg-white/20">View</button>
+                <button className="text-sm px-3 py-1 rounded-md bg-[#b1cbe2] bg-[#b1cbe2]/10 hover:bg-white/20 cursor-pointer">View</button>
               </td>
             </tr>
           ))}
