@@ -9,7 +9,7 @@ const ProjectTracker = () => {
   const [sort,setSort]=useState<"newest"|"priority"|"progress">("newest");
   const [statusFilter,setStatusFilter]=useState<"all"|"planned"|"in-progress"|"completed">("all");
 
-  const processesProjects=projectsData.filter(project=>project.title.toLowerCase().includes(search.toLowerCase())).
+  const processesProjects=[...projectsData].filter(project=>project.title.toLowerCase().includes(search.toLowerCase())).
     filter(project=>statusFilter==="all"?true:project.status===statusFilter).
     sort((a,b)=>{
       if(sort==="priority"){
@@ -17,7 +17,7 @@ const ProjectTracker = () => {
         return order[b.priority]-order[a.priority];
       }
       if(sort==="progress"){
-        return b.progress=a.progress;
+        return b.progress-a.progress;
       }
       return new Date(b.createdAt).getTime()-new Date(a.createdAt).getTime();
     })

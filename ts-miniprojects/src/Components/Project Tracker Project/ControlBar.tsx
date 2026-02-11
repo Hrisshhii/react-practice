@@ -7,8 +7,8 @@ type Props={
   search:string;
   setSearch:(v:string)=>void;
   openCreate:()=>void;
-  setSort:(v:"newest"|"priority"|"progress")=>void;
-  setStatusFilter:(v:"all"|"planned"|"in-progress"|"completed")=>void;
+  setSort:(v:SortOption)=>void;
+  setStatusFilter:(v:StatusFilter)=>void;
 };
 
 
