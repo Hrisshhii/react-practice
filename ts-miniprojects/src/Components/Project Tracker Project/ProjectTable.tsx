@@ -1,5 +1,6 @@
 import type { Project } from "./data/pt-types"
 import ProjectStatusChart from "./ProjectStatusChart";
+import { motion } from "framer-motion";
 
 type Props={
   projects:Project[];
@@ -7,10 +8,15 @@ type Props={
 
 const ProjectTable = ({projects}:Props) => {
   return (
-    <div className="flex flex-col lg:flex-row gap-5 items-center px-5 mt-6">
+    <div className="flex flex-col-reverse lg:flex-row gap-5 items-center px-5 mt-6">
       <div className="md:hidden flex flex-col gap-4 w-full">
         {projects.map(project=>(
-          <div key={project.id} className="bg-[#16181C] rounded-2xl p-5 border border-white/5">
+          <motion.div key={project.id}
+            drag="x" dragConstraints={{left:0,right:0}}
+            whileDrag={{scale:0.95}}
+            dragElastic={0.2}
+            className="bg-[#16181C] rounded-2xl p-5 border border-white/5 active:cursor-grabbing cursor-grab"
+            >
             <div className="flex justify-between items-center">
               <h2 className="font-semibold text-[#b1cbe2]">{project.title}</h2>
               <span className={`px-2 py-2 rounded-full text-xs
@@ -32,7 +38,7 @@ const ProjectTable = ({projects}:Props) => {
               ))}
             </div>
             <button className="mt-4 w-full py-2 rounded-lg bg-[#b1cbe2] text-black font-semibold">View</button>
-          </div>
+          </motion.div>
         ))}
       </div>
       <div className="hidden md:block flex-1 overflow-x-auto">
