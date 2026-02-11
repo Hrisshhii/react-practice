@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import ControlBar from "./ControlBar"
 import Navigation from "./Navigation"
 import ProjectTable from "./ProjectTable";
@@ -7,11 +7,19 @@ import type { Project } from "./data/pt-types";
 import CreateProjectModal from "./CreateProjectModal";
 
 const ProjectTracker = () => {
-  const [projects,setProjects]=useState(projectsData);
+  const [projects,setProjects]=useState<Project[]>(()=>{
+    const saved=localStorage.getItem('projects');
+    return saved?JSON.parse(saved):projectsData;
+  });
+
   const [search,setSearch]=useState("");
   const [sort,setSort]=useState<"newest"|"priority"|"progress">("newest");
   const [statusFilter,setStatusFilter]=useState<"all"|"planned"|"in-progress"|"completed">("all");
   const [showCreate,setShowCreate]=useState(false);
+
+  useEffect(()=>{
+    localStorage.setItem("projects",JSON.stringify(projects));
+  },[projects]);
 
   const handleCreateProject=(project:Project)=>{
     setProjects(prev=>[project,...prev]);
