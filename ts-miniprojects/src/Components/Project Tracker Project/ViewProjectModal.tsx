@@ -5,10 +5,11 @@ type Props={
   project:Project|null;
   onClose:()=>void;
   onDelete:(id:string)=>void;
+  onEdit:(project:Project)=>void;
 };
 
 
-const ViewProjectModal=({project,onClose,onDelete}:Props)=>{
+const ViewProjectModal=({project,onClose,onDelete,onEdit}:Props)=>{
   if(!project) return null;
   return (
     <div onClick={onClose} className="fixed inset-0 bg-black/70 backdrop-blur-sm flex justify-center items-center z-50">
@@ -61,11 +62,14 @@ const ViewProjectModal=({project,onClose,onDelete}:Props)=>{
           ))}
         </div>
 
-        <div className="flex justify-between mt-10">
-          <button onClick={() => onDelete(project.id)} className="px-5 py-2 bg-red-500 hover:bg-red-600 rounded-lg font-semibold cursor-pointer border-none">
-            Delete Project
-          </button>
-
+        <div className="flex justify-between items-center mt-10">
+          <div className="flex gap-3">
+            <button onClick={() => onDelete(project.id)} className="px-5 py-2 bg-red-500 hover:bg-red-600 rounded-lg font-semibold cursor-pointer border-none">
+              Delete
+            </button>
+            <button onClick={()=>onEdit(project)} className="px-5 py-2 bg-blue-500 hover:bg-blue-600 rounded-lg font-semibold cursor-pointer border-none">Edit</button>
+          </div>
+          
           <button onClick={onClose} className="px-5 py-2 bg-white/65 hover:bg-white/10 rounded-lg cursor-pointer border-none">
             Close
           </button>

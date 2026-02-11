@@ -58,7 +58,7 @@ const ProjectTable = ({projects,onView}:Props) => {
           </thead>
           <tbody>
             {projects.map((project)=>(
-              <tr className="border-b border-white/5 odd:bg-white/[0.01] hover:bg-white/[0.03] transition">
+              <tr key={project.id} className="border-b border-white/5 odd:bg-white/[0.01] hover:bg-white/[0.03] transition">
                 <td className="py-4 px-3 font-medium text-[#b1cbe2] text-[1.2rem]">-</td>
                 <td className="py-4 px-3 font-medium text-[#b1cbe2]">{project.title}</td>
                 <td className="py-4 px-3">

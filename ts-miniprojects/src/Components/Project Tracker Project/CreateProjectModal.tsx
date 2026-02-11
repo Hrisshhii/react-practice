@@ -2,45 +2,45 @@ import { useState } from "react";
 import type { Project } from "./data/pt-types";
 
 type Props = {
+  project?:Project;
   onClose:()=>void;
-  onCreate:(project:Project)=>void;
+  onSave:(project:Project)=>void;
 };
 
-const CreateProjectModal=({onClose,onCreate}:Props)=>{
-  const [title,setTitle]=useState("");
-  const [priority,setPriority]=useState<Project["priority"]>("medium");
-  const [status,setStatus]=useState<Project["status"]>("planned");
-  const [description,setDescription]=useState("");
-  const [progress,setProgress]=useState(0);
-  const [tags,setTags]=useState("");
-  const [dueDate,setDueDate]=useState("");
+const CreateProjectModal=({onClose,onSave,project}:Props)=>{
+  const [title,setTitle]=useState(project?.title??"");
+  const [priority,setPriority]=useState<Project["priority"]>(project?.priority??"medium");
+  const [status,setStatus]=useState<Project["status"]>(project?.status??"planned");
+  const [description,setDescription]=useState(project?.description??"");
+  const [progress,setProgress]=useState(project?.progress??0);
+  const [tags,setTags]=useState(project?.tags?.join(", ")??"");
+  const [dueDate,setDueDate]=useState(project?.dueDate??"");
 
-  const handleCreate=()=>{
-    if(!title.trim()) return;
-    let computedStatus=status;
-    if(progress===100) computedStatus="completed";
-    else if (progress>0 && status==="planned") computedStatus="in-progress";
-    const newProject:Project={
-      id:crypto.randomUUID(),
-      title,
-      description,
-      status:computedStatus,
-      priority,
-      dueDate: dueDate || undefined,
-      tags:tags.split(",").map(tag=>tag.trim()).filter(Boolean),
-      createdAt:new Date(),
-      progress
-    };
-    onCreate(newProject);
-    onClose();
+  const handleSave=()=>{
+  if(!title.trim()) return;
+
+  const updatedProject:Project={
+    id: project?.id ?? crypto.randomUUID(),
+    title,
+    description,
+    status,
+    priority,
+    dueDate,
+    tags:tags.split(",").map(tag=>tag.trim()).filter(Boolean),
+    createdAt: project?.createdAt ?? new Date(),
+    progress
   };
 
+  onSave(updatedProject);
+  onClose();
+};
+
   return (
-    <div className="fixed inset-0 bg-black/60 backdrop-blur-md flex justify-center items-center z-50" onClick={onClose}>
-        <div className="bg-[#16181C]/95 w-[95%] max-w-xl rounded-2xl p-8 shadow-xl border border-white/10 backdrop-blur-xl" onClick={(e) => e.stopPropagation()}>
+    <div className="fixed inset-0 bg-black/60 backdrop-blur-md flex justify-center items-center z-50" onMouseDown={onClose}>
+        <div className="bg-[#16181C]/95 w-[95%] max-w-xl rounded-2xl p-8 shadow-xl border border-white/10 backdrop-blur-xl" onMouseDown={(e) => e.stopPropagation()}>
           <div className="space-y-4">
             <h2 className="text-3xl text-[#b1cbe2] font-semibold">
-              Create Project
+              {project ? "Edit Project" : "Create Project"}
             </h2>
 
             <input placeholder="Project title..." value={title}
@@ -94,8 +94,8 @@ const CreateProjectModal=({onClose,onCreate}:Props)=>{
               <button onClick={onClose} className="px-4 py-2 rounded-lg bg-white/5 hover:bg-white/10 border-none text-white cursor-pointer">
                 Cancel
               </button>
-              <button onClick={handleCreate} className="px-4 py-2 rounded-lg bg-[#b1cbe2] hover:bg-[#b1cbe2]/50 text-black border-none font-semibold cursor-pointer">
-                Create
+              <button onClick={handleSave} className="px-4 py-2 rounded-lg bg-[#b1cbe2] hover:bg-[#b1cbe2]/50 text-black border-none font-semibold cursor-pointer">
+                {project ? "Save Changes" : "Create"}
               </button>
             </div>
           </div>
