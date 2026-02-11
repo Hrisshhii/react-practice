@@ -1,4 +1,5 @@
 import type { Project } from "./data/pt-types"
+import ProjectStatusChart from "./ProjectStatusChart";
 
 type Props={
   projects:Project[];
@@ -6,8 +7,8 @@ type Props={
 
 const ProjectTable = ({projects}:Props) => {
   return (
-    <div className="w-full overflow-x-auto px-4 sm:px-8 mt-6">
-      <table className="w-[50%] border-collapse text-left text-sm sm:text-base">
+    <div className="flex flex-col sm:flex-row gap-8 items-center px-4 sm:px-8 mt-6">
+      <table className="flex-1 border-collapse text-left text-sm sm:text-base">
         <thead className="bg-white/[0.03] backdrop-blur-md">
           <tr className="text-gray-300">
             <th className="py-4 px-3">ID</th>
@@ -78,6 +79,8 @@ const ProjectTable = ({projects}:Props) => {
           ))}
         </tbody>
       </table>
+      <div className="shrink-0"></div>
+      <ProjectStatusChart projects={projects}/>
     </div>
   )
 }
