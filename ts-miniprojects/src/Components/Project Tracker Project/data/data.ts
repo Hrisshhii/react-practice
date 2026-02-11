@@ -11,6 +11,7 @@ export const projectsData: Project[] = [
     dueDate: "2026-03-15",
     tags: ["React", "AI", "Node"],
     createdAt: new Date("2026-01-10"),
+    progress:70,
   },
   {
     id: "p2",
@@ -22,6 +23,7 @@ export const projectsData: Project[] = [
     dueDate: "2026-05-01",
     tags: ["Next.js", "API", "MongoDB"],
     createdAt: new Date("2026-02-01"),
+    progress:0,
   },
   {
     id: "p3",
@@ -33,6 +35,7 @@ export const projectsData: Project[] = [
     dueDate: "2025-12-20",
     tags: ["Framer Motion", "Tailwind"],
     createdAt: new Date("2025-11-05"),
+    progress:100,
   },
   {
     id: "p4",
@@ -44,6 +47,7 @@ export const projectsData: Project[] = [
     dueDate: "2026-02-28",
     tags: ["TypeScript", "React"],
     createdAt: new Date("2026-01-25"),
+    progress:55,
   },
   {
     id: "p5",
@@ -55,6 +59,7 @@ export const projectsData: Project[] = [
     dueDate: "2026-04-10",
     tags: ["Socket.io", "Express"],
     createdAt: new Date("2026-02-05"),
+    progress:10,
   },
   {
     id: "p6",
@@ -66,6 +71,7 @@ export const projectsData: Project[] = [
     dueDate: "2025-10-10",
     tags: ["Charts", "React"],
     createdAt: new Date("2025-09-01"),
+    progress:100,
   },
   {
     id: "p7",
@@ -77,6 +83,7 @@ export const projectsData: Project[] = [
     dueDate: "2026-03-05",
     tags: ["UI/UX", "Tailwind"],
     createdAt: new Date("2026-01-18"),
+    progress:35,
   },
   {
     id: "p8",
@@ -87,6 +94,7 @@ export const projectsData: Project[] = [
     priority: "low",
     tags: ["Electron", "LocalStorage"],
     createdAt: new Date("2026-02-12"),
+    progress:0,
   },
   {
     id: "p9",
@@ -98,6 +106,7 @@ export const projectsData: Project[] = [
     dueDate: "2026-03-30",
     tags: ["WebSockets", "PostgreSQL"],
     createdAt: new Date("2026-01-28"),
+    progress:65,
   },
   {
     id: "p10",
@@ -109,5 +118,6 @@ export const projectsData: Project[] = [
     dueDate: "2025-11-12",
     tags: ["PWA", "IndexedDB"],
     createdAt: new Date("2025-10-01"),
+    progress:100,
   },
 ];

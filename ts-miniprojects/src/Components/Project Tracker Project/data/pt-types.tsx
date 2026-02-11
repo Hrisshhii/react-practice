@@ -7,4 +7,5 @@ export type Project={
   dueDate?:string;
   tags?:string[];
   createdAt:Date;
+  progress:number;
 }
