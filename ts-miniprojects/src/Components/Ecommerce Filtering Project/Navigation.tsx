@@ -65,6 +65,7 @@ const Navigation = () => {
           {keyword.map((word)=>(
             <button key={word} className="text-xs md:text-sm bg-white/5 hover:bg-white/10 rounded-md py-2 px-3 border-solid border-white/10 transition text-white cursor-pointer">{word}</button>
           ))}
+          <button className="mt-3 text-s md:text-sm bg-black/50 hover:bg-black/10 rounded-md py-3 px-3 border-solid border-white/30 transition text-white cursor-pointer">Reset Filters</button>
         </div>
       </div>
       <div  className="text-center">
