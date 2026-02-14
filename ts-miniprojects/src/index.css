@@ -47,3 +47,12 @@ textarea::-webkit-scrollbar-thumb:hover {
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
 }
+
+.scrollbar-hidden::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hidden {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;     /* Firefox */
+}
