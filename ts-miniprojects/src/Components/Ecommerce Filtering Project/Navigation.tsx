@@ -14,9 +14,13 @@ interface FetchResponse{
   products:Products[];
 };
 
-const Navigation = () => {
+interface Props {
+  showNavBar: boolean;
+  setShowNavbar: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const Navigation=({ showNavBar,setShowNavbar}:Props)=>{
   const [categories,setCategories]=useState<string[]>([]);
-  const [showNavBar,setShowNavbar]=useState<boolean>(false);
   const [keyword]=useState<string[]>(
     ["apple","watch","fashion","trend","shoes","shirts"]
   );
@@ -38,7 +42,7 @@ const Navigation = () => {
   },[]);
 
   return (
-    <aside className={`flex flex-col transition-[width] duration-500 font-mono h-screen ${showNavBar?"bg-[#1A1C1E] w-64":"w-16 bg-[#1A1C1E] justify-between"}`}>
+    <aside className={`fixed top-0 left-0 z-50 h-screen bg-[#1A1C1E] transition-transform duration-500 ${showNavBar ? "translate-x-0 w-64" : "-translate-x-full w-16"}`}>
       <div className="px-3 pb-2 pt-6">
         <BackHome />
         <div className={`text-center pt-4`}>
@@ -51,7 +55,6 @@ const Navigation = () => {
               className="text-white/80 hover:text-white/40 cursor-pointer transition-all duration-500"
             />
           )}
-          
         </div>
       </div>
       
