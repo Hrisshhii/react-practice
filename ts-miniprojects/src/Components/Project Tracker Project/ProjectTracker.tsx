@@ -23,6 +23,9 @@ const ProjectTracker = () => {
   const [showCreate,setShowCreate]=useState(false);
   const [editingProject,setEditingProject]=useState<Project|null>(null);
 
+  const [currentPage,setCurrentPage]=useState(1);
+  const projectPerPage=5;
+
   useEffect(()=>{
     localStorage.setItem("projects",JSON.stringify(projects));
   },[projects]);
@@ -56,6 +59,15 @@ const ProjectTracker = () => {
       return new Date(b.createdAt).getTime()-new Date(a.createdAt).getTime();
     })
 
+  const totalPages=Math.ceil(processesProjects.length/projectPerPage);
+
+  const safePage=totalPages===0?1:Math.min(currentPage,totalPages)
+
+  const paginatedProjects=processesProjects.slice(
+    (safePage-1)*projectPerPage,
+    safePage*projectPerPage
+  );
+
   return (
     <div className="min-h-screen bg-[#121212]">
       <Navigation/>
@@ -66,7 +78,24 @@ const ProjectTracker = () => {
         }}
         setStatusFilter={setStatusFilter} setSort={setSort}
       />
-      <ProjectTable projects={processesProjects} onView={setSeletedProject}/>
+      <ProjectTable projects={paginatedProjects} onView={setSeletedProject}/>
+      <div className="flex justify-center items-center gap-4 mt-6 pb-10">
+        <button onClick={()=>setCurrentPage(prev=>Math.max(prev-1,1))}
+            disabled={safePage===1}
+            className={`px-4 py-2 rounded-md font-semibold cursor-pointer
+                ${currentPage===1?"hidden":"bg-[#b1cbe2] text-black hover:bg-[#b1cbe2]/70"}
+              `}
+          >Prev</button>
+        <span className="text-gray-300 text-sm">
+          Page {safePage} of {totalPages || 1}
+        </span>
+        <button onClick={()=>setCurrentPage(prev=>Math.min(prev+1,totalPages))}
+            disabled={safePage===totalPages || totalPages===0}
+            className={`px-4 py-2 rounded-md font-semibold cursor-pointer
+                ${currentPage===totalPages?"hidden":"bg-[#b1cbe2] text-black hover:bg-[#b1cbe2]/70"}
+              `}
+        >Next</button>
+      </div>
       {showCreate && (
         <CreateProjectModal project={editingProject??undefined} onClose={()=>{setShowCreate(false);setEditingProject(null);}} onSave={handleSaveProject}/>
       )}
