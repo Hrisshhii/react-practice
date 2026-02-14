@@ -42,7 +42,7 @@ const Navigation=({ showNavBar,setShowNavbar}:Props)=>{
   },[]);
 
   return (
-    <aside className={`fixed top-0 left-0 z-50 h-screen bg-[#1A1C1E] transition-transform duration-500 ${showNavBar ? "translate-x-0 w-64" : "-translate-x-full w-16"}`}>
+    <aside className={`fixed top-0 left-0 z-50 h-screen bg-[#1A1C1E] font-mono transition-transform duration-500 ${showNavBar ? "translate-x-0 w-64" : "-translate-x-full w-16"}`}>
       <div className="px-3 pb-2 pt-6">
         <BackHome />
         <div className={`text-center pt-4`}>
