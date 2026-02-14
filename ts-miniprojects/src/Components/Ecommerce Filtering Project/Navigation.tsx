@@ -81,7 +81,7 @@ const Navigation=({ showNavBar,setShowNavbar}:Props)=>{
                 type="radio"
                 name="category"
                 value={cat}
-                className="accent-[#bbc9ee] cursor-pointer"
+                className="accent-[#6a8ce9] cursor-pointer"
               />
             </label>
           ))}
