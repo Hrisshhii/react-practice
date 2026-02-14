@@ -1,5 +1,4 @@
 import type { Project } from "./data/pt-types"
-import ProjectStatusChart from "./ProjectStatusChart";
 import { motion } from "framer-motion";
 
 type Props={
@@ -9,7 +8,7 @@ type Props={
 
 const ProjectTable = ({projects,onView}:Props) => {
   return (
-    <div className="flex flex-col-reverse lg:flex-row gap-5 items-center px-5 mt-6">
+    <div>
       <div className="md:hidden flex flex-col gap-4 w-full">
         {projects.map(project=>(
           <motion.div key={project.id}
@@ -115,9 +114,6 @@ const ProjectTable = ({projects,onView}:Props) => {
             ))}
           </tbody>
         </table>
-      </div>
-      <div className="shrink-0 sm:mr-12">
-        <ProjectStatusChart projects={projects}/>
       </div>
     </div>
   )

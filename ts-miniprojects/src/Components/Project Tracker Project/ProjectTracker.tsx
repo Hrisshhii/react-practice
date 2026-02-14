@@ -6,6 +6,7 @@ import { projectsData } from "./data/data";
 import type { Project } from "./data/pt-types";
 import CreateProjectModal from "./CreateProjectModal";
 import ViewProjectModal from "./ViewProjectModal";
+import ProjectStatusChart from "./ProjectStatusChart";
 
 const ProjectTracker = () => {
   const [projects,setProjects]=useState<Project[]>(()=>{
@@ -78,7 +79,17 @@ const ProjectTracker = () => {
         }}
         setStatusFilter={setStatusFilter} setSort={setSort}
       />
-      <ProjectTable projects={paginatedProjects} onView={setSeletedProject}/>
+      
+      <div className="flex flex-col-reverse lg:flex-row gap-5 items-center px-5 mt-6">
+        <div className="flex-1 w-full">
+          <ProjectTable projects={paginatedProjects} onView={setSeletedProject}/>
+        </div>
+        
+        <div className="shrink-0">
+          <ProjectStatusChart projects={processesProjects} />
+        </div>
+      </div>
+
       <div className="flex justify-center items-center gap-4 mt-6 pb-10">
         <button onClick={()=>setCurrentPage(prev=>Math.max(prev-1,1))}
             disabled={safePage===1}
