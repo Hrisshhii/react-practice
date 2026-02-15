@@ -3,6 +3,7 @@ import { BackHome } from "../BackHome"
 import { MdOutlineArrowBackIos, MdOutlineArrowForwardIos } from "react-icons/md";
 import { IoMdSettings } from "react-icons/io";
 import { FaUser } from "react-icons/fa";
+import { useFilter } from "./FilterContext";
 
 interface Products{
   id: number;
@@ -19,11 +20,23 @@ interface Props {
   setShowNavbar: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const Navigation=({ showNavBar,setShowNavbar}:Props)=>{
+const Navigation=({showNavBar,setShowNavbar}:Props)=>{
   const [categories,setCategories]=useState<string[]>([]);
-  const [keyword]=useState<string[]>(
+  const [keywordList]=useState<string[]>(
     ["apple","watch","fashion","trend","shoes","shirts"]
   );
+  const {
+    searchQuery,
+    setSearchQuery,
+    selectedCategory,
+    setSelectedCategory,
+    minPrice,
+    setMinPrice,
+    maxPrice,
+    setMaxPrice,
+    keyword,
+    setKeyword
+  }=useFilter();
 
   useEffect(()=>{
     const fetchCat=async()=>{
@@ -41,8 +54,35 @@ const Navigation=({ showNavBar,setShowNavbar}:Props)=>{
     fetchCat();
   },[]);
 
+  const handleMinPrice=(e:React.ChangeEvent<HTMLInputElement>)=>{
+    const value=e.target.value;
+    setMinPrice(value?parseFloat(value):undefined);
+  };
+
+  const handleMaxPrice=(e:React.ChangeEvent<HTMLInputElement>)=>{
+    const value=e.target.value;
+    setMaxPrice(value?parseFloat(value):undefined);
+  };
+
+  const handleRadioChange=(cat:string)=>{
+    setSelectedCategory(cat);
+
+  };
+
+  const handleKeyword=(word:string)=>{
+    setKeyword(word);
+  };
+
+  const handleReset=()=>{
+    setSearchQuery("");
+    setSelectedCategory("");
+    setMinPrice(undefined);
+    setMaxPrice(undefined);
+    setKeyword("");
+  };
+
   return (
-    <aside className={`fixed top-0 left-0 z-50 h-screen bg-[#1A1C1E] font-mono transition-all duration-500 ${showNavBar ? "translate-x-0 w-64" : "-translate-x-full w-16"}`}>
+    <aside className={`fixed top-0 left-0 z-50 h-screen bg-[#1A1C1E] font-mono transition-all duration-500 ${showNavBar ? "w-64" : "w-16"}`}>
       <div className="px-3 pb-2 pt-6">
         <BackHome />
         <div className={`text-center pt-4`}>
@@ -60,10 +100,10 @@ const Navigation=({ showNavBar,setShowNavbar}:Props)=>{
       
       <div className={`flex-1 overflow-y-auto overflow-x-hidden scrollbar-hidden px-3 transition ${showNavBar?"":"hidden"}`}>
         <div className="flex flex-col gap-2 ">
-          <input type="text" placeholder="Search Items . . . " className="text-[1.15rem] px-3 py-3 text-[#bbc9ee] bg-transparent border-solid rounded-full focus:outline-none"/>
+          <input type="text" placeholder="Search Items . . . " value={searchQuery} onChange={e=>setSearchQuery(e.target.value)} className="text-[1.15rem] px-3 py-3 text-[#bbc9ee] bg-transparent border-solid rounded-full focus:outline-none"/>
           <div className="grid grid-cols-2 gap-1.5">
-            <input type="text" placeholder="Max" className="text-[1.1rem] px-3 py-1.5 text-[#bbc9ee] bg-transparent border-solid rounded-lg focus:outline-none"/>
-            <input type="text" placeholder="Min" className="text-[1.1rem] px-3 py-1.5 text-[#bbc9ee] bg-transparent border-solid rounded-lg focus:outline-none"/>
+            <input type="text" value={minPrice??""} onChange={handleMinPrice} placeholder="Max" className="text-[1.1rem] px-3 py-1.5 text-[#bbc9ee] bg-transparent border-solid rounded-lg focus:outline-none"/>
+            <input type="text" value={maxPrice??""} onChange={handleMaxPrice} placeholder="Min" className="text-[1.1rem] px-3 py-1.5 text-[#bbc9ee] bg-transparent border-solid rounded-lg focus:outline-none"/>
           </div>
           
           <div  className="relative">
@@ -81,7 +121,9 @@ const Navigation=({ showNavBar,setShowNavbar}:Props)=>{
                 type="radio"
                 name="category"
                 value={cat}
+                onChange={()=>handleRadioChange(cat)}
                 className="accent-[#6a8ce9] cursor-pointer"
+                checked={selectedCategory===cat}
               />
             </label>
           ))}
@@ -89,15 +131,20 @@ const Navigation=({ showNavBar,setShowNavbar}:Props)=>{
             <div className="h-px bg-[#bbc9ee]/90 w-full absolute top-1/2 -translate-y-1/2"/>
             <h2 className="relative text-center text-[#bbc9ee] bg-[#1A1C1E] px-3 w-fit mx-auto">Keywords</h2>
           </div>
-          {keyword.map((word)=>(
-            <button key={word} className="font-mono text-xs md:text-sm bg-white/5 hover:bg-white/10 rounded-md py-2 px-3 border-solid border-white/10 transition text-white cursor-pointer">{word}</button>
+          {keywordList.map((word)=>(
+            <button key={word} onClick={()=>handleKeyword(word)} 
+            className={`font-mono text-xs md:text-sm rounded-md py-2 px-3 border-solid border-white/10 transition cursor-pointer
+              ${keyword===word?"bg-[#6a8ce9]/20 text-[#a3b7f0]":" bg-white/5 hover:bg-white/10  text-white"}
+              `}>
+              {word}
+            </button>
           ))}
 
           <div className="relative my-4">
             <div className="h-px bg-[#bbc9ee] w-full absolute top-1/2 -translate-y-1/2"/>
           </div>
 
-          <button className="font-mono mt-1 text-sm text-semibold bg-black/50 hover:bg-black/10 rounded-md py-3 px-3 border-solid border-white/30 transition text-white cursor-pointer">Reset Filters</button>
+          <button onClick={handleReset} className="font-mono mt-1 text-sm text-semibold bg-black/50 hover:bg-black/10 rounded-md py-3 px-3 border-solid border-white/30 transition text-white cursor-pointer">Reset Filters</button>
         </div>
       </div>
       <div className={`px-3 py-4 flex flex-col items-center gap-4`}>
