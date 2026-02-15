@@ -12,6 +12,8 @@ interface FilterContextType{
   setMaxPrice:(price:number|undefined)=>void;
   keyword:string;
   setKeyword:(keyword:string)=>void;
+  currentPage: number;
+  setCurrentPage: (page: number) => void;
 }
 
 const FilterContext=createContext<FilterContextType|undefined>(undefined)
@@ -22,6 +24,7 @@ export const FilterProvider: React.FC<{children:ReactNode}>=({children,})=>{
   const [minPrice,setMinPrice]=useState<number|undefined>(undefined);
   const [maxPrice,setMaxPrice]=useState<number|undefined>(undefined);
   const [keyword,setKeyword]=useState("");
+  const [currentPage, setCurrentPage] = useState(1);
 
   return <FilterContext.Provider value={{
     searchQuery,
@@ -33,7 +36,9 @@ export const FilterProvider: React.FC<{children:ReactNode}>=({children,})=>{
     maxPrice,
     setMaxPrice,
     keyword,
-    setKeyword
+    setKeyword,
+    currentPage,
+    setCurrentPage,
   }}>
     {children}
   </FilterContext.Provider>

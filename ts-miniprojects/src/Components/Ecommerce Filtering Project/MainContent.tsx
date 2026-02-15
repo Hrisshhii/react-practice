@@ -13,25 +13,31 @@ interface Product {
 }
 
 const MainContent = () => {
-  const {searchQuery,selectedCategory,minPrice,maxPrice,keyword}=useFilter();
+  const {searchQuery,selectedCategory,minPrice,maxPrice,keyword,setCurrentPage,currentPage}=useFilter();
   const [products,setProducts]=useState<Product[]>([]);
   const [filter,setFilter]=useState("all");
-  const [currentPage,setCurrentPage]=useState(1);
   const [dropDown,setDropDown]=useState(false);
   const [pageRange,setPageRange]=useState(2);
   const itemsPerPage=12;
 
   useEffect(()=>{
-    let url=`https://dummyjson.com/products?limit=${itemsPerPage}&skip=${(currentPage-1)*itemsPerPage}`;
-    if(keyword){
-      url=`https://dummyjson.com/products/search?q=${keyword}`
+    let url="";
+
+    if (selectedCategory) {
+      url = `https://dummyjson.com/products/category/${selectedCategory}?limit=${itemsPerPage}&skip=${(currentPage - 1) * itemsPerPage}`;
+    } 
+    else if (keyword) {
+      url = `https://dummyjson.com/products/search?q=${keyword}&limit=${itemsPerPage}&skip=${(currentPage - 1) * itemsPerPage}`;
+    } 
+    else {
+      url = `https://dummyjson.com/products?limit=${itemsPerPage}&skip=${(currentPage - 1) * itemsPerPage}`;
     }
     axios.get(url).then(response=>{
       setProducts(response.data.products);
     }).catch(error=>{
       console.error("Error Fetching Data",error)
     });
-  },[currentPage,keyword]);
+  },[currentPage,keyword,selectedCategory]);
 
   const getFilterProducts=()=>{
     let filteredProducts=[...products]
@@ -81,7 +87,7 @@ const MainContent = () => {
     handleResize();
     window.addEventListener("resize",handleResize);
     return()=>window.removeEventListener("resize",handleResize);
-  })
+  },[])
 
   const getPage=()=>{
     const buttons:number[]=[]

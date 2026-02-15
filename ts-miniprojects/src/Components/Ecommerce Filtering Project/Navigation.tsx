@@ -35,7 +35,8 @@ const Navigation=({showNavBar,setShowNavbar}:Props)=>{
     maxPrice,
     setMaxPrice,
     keyword,
-    setKeyword
+    setKeyword,
+    setCurrentPage,
   }=useFilter();
 
   useEffect(()=>{
@@ -66,11 +67,12 @@ const Navigation=({showNavBar,setShowNavbar}:Props)=>{
 
   const handleRadioChange=(cat:string)=>{
     setSelectedCategory(cat);
-
+    setCurrentPage(1);
   };
 
   const handleKeyword=(word:string)=>{
     setKeyword(word);
+    setCurrentPage(1);
   };
 
   const handleReset=()=>{
@@ -79,6 +81,7 @@ const Navigation=({showNavBar,setShowNavbar}:Props)=>{
     setMinPrice(undefined);
     setMaxPrice(undefined);
     setKeyword("");
+    setCurrentPage(1);
   };
 
   return (
