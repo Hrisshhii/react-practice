@@ -1,13 +1,14 @@
 import { useState } from "react";
 import Navigation from "./Navigation";
 import { FilterProvider } from "./FilterContext";
+import MainContent from "./MainContent";
 
 const EcomFiltering = () => {
   const [showNavBar, setShowNavbar] = useState<boolean>(false);
 
   return (
     <FilterProvider>
-      <div className="relative min-h-screen bg-[#121212] overflow-hidden ml-16">
+      <div className="relative min-h-screen bg-[#121212] overflow-hidden ml-14 md:ml-16">
         <Navigation showNavBar={showNavBar} setShowNavbar={setShowNavbar} />
         {showNavBar && (
           <div
@@ -17,7 +18,7 @@ const EcomFiltering = () => {
         )}
 
         <div className="relative z-0 p-6 text-white">
-          <h1>Main Page Content</h1>
+          <MainContent/>
         </div>
 
       </div>
