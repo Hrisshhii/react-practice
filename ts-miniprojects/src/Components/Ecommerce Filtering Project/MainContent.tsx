@@ -18,6 +18,7 @@ const MainContent = () => {
   const [filter,setFilter]=useState("all");
   const [currentPage,setCurrentPage]=useState(1);
   const [dropDown,setDropDown]=useState(false);
+  const [pageRange,setPageRange]=useState(2);
   const itemsPerPage=12;
 
   useEffect(()=>{
@@ -69,10 +70,23 @@ const MainContent = () => {
     }
   };
 
+  useEffect(()=>{
+    const handleResize=()=>{
+      if(window.innerWidth<640){
+        setPageRange(1);
+      }else{
+        setPageRange(2);
+      }
+    };
+    handleResize();
+    window.addEventListener("resize",handleResize);
+    return()=>window.removeEventListener("resize",handleResize);
+  })
+
   const getPage=()=>{
     const buttons:number[]=[]
-    let startPage=Math.max(1,currentPage-2)
-    let endPage=Math.min(totalPages,currentPage+2)
+    let startPage=Math.max(1,currentPage-pageRange)
+    let endPage=Math.min(totalPages,currentPage+pageRange)
 
     if(currentPage-2<1){
       endPage=Math.min(totalPages,endPage+(2-currentPage-1));
