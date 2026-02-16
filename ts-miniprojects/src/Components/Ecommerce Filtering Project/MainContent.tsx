@@ -113,7 +113,7 @@ const MainContent = () => {
   };
 
   return (
-    <section className="flex flex-col sm:flex-row p-2 font-mono">
+    <section className="flex flex-col sm:flex-row font-mono">
       <div className="mb-3 flex-1">
         <div className="flex flex-col sm:flex-row justify-between items-center">
           <div className="relative mb-3 mt-3">
@@ -190,7 +190,7 @@ const MainContent = () => {
           </button>
         </div>
       </div>
-      <div className="flex flex-1 flex-col w-full">
+      <div className="flex flex-1 flex-col w-[95%]">
         <TopSeller/>
         <Blogs/>
       </div>

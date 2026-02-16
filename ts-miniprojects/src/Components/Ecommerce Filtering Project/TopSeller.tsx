@@ -51,12 +51,12 @@ const TopSeller = () => {
   };
 
   return (
-    <div className="rounded p-2 sm:p-6">
-      <h2 className="text-2xl font-bold mb-5 text-center">Top Sellers</h2>
-      <ul>
+    <div className="p-0 md:p-6">
+      <h2 className="text-2xl font-bold text-center">Top Sellers</h2>
+      <ul className="list-none">
         {authors.map((author)=>(
-          <li key={author.id} className="flex items-center justify-between mb-3">
-            <section className="flex items-center justify-center">
+          <li key={author.id} className="flex items-center justify-between mb-3 mt-3">
+            <section className="flex items-center">
               <img src={author.image} alt={author.name} className="w-[25%] h-[25%] rounded-full object-cover mr-3"/>
               <span className="text-[1.2rem]">{author.name}</span>
             </section>
