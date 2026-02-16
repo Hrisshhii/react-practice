@@ -24,20 +24,23 @@ const MainContent = () => {
     let url="";
 
     if (selectedCategory) {
-      url = `https://dummyjson.com/products/category/${selectedCategory}?limit=${itemsPerPage}&skip=${(currentPage - 1) * itemsPerPage}`;
+      url=`https://dummyjson.com/products/category/${selectedCategory}?limit=${itemsPerPage}&skip=${(currentPage-1)*itemsPerPage}`;
     } 
     else if (keyword) {
-      url = `https://dummyjson.com/products/search?q=${keyword}&limit=${itemsPerPage}&skip=${(currentPage - 1) * itemsPerPage}`;
+      url=`https://dummyjson.com/products/search?q=${keyword}&limit=${itemsPerPage}&skip=${(currentPage-1)*itemsPerPage}`;
     } 
+    else if (searchQuery) {
+      url=`https://dummyjson.com/products/search?q=${searchQuery}&limit=${itemsPerPage}&skip=${(currentPage-1)*itemsPerPage}`;
+    }
     else {
-      url = `https://dummyjson.com/products?limit=${itemsPerPage}&skip=${(currentPage - 1) * itemsPerPage}`;
+      url=`https://dummyjson.com/products?limit=${itemsPerPage}&skip=${(currentPage-1)*itemsPerPage}`;
     }
     axios.get(url).then(response=>{
       setProducts(response.data.products);
     }).catch(error=>{
       console.error("Error Fetching Data",error)
     });
-  },[currentPage,keyword,selectedCategory]);
+  },[currentPage,keyword,selectedCategory,searchQuery,minPrice,maxPrice]);
 
   const getFilterProducts=()=>{
     let filteredProducts=[...products]
