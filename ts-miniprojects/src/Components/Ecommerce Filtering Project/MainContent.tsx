@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { useFilter } from "./FilterContext"
 import { Tally3 } from "lucide-react";
 import axios from "axios";
+import Blogs from "./Blogs";
+import TopSeller from "./TopSeller";
 
 interface Product {
   id: number;
@@ -111,8 +113,8 @@ const MainContent = () => {
   };
 
   return (
-    <section className="p-2 w-[18rem] lg:w-[55rem] sm:w-[40rem] md:w-[45rem] font-mono">
-      <div className="mb-3">
+    <section className="flex flex-col sm:flex-row p-2 font-mono">
+      <div className="mb-3 flex-1">
         <div className="flex flex-col sm:flex-row justify-between items-center">
           <div className="relative mb-3 mt-3">
             <button onClick={()=>setDropDown(prev=>!prev)} className="items-center flex rounded-full bg-transparent border-none text-[#bbc9ee]">
@@ -187,6 +189,10 @@ const MainContent = () => {
             Next
           </button>
         </div>
+      </div>
+      <div className="flex flex-1 flex-col w-full">
+        <TopSeller/>
+        <Blogs/>
       </div>
     </section>
   )
