@@ -45,11 +45,6 @@ html, body, #root {
   animation: fadeUp 0.8s ease forwards;
 }
 
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
 .card {
   position: relative;
   text-decoration: none;
