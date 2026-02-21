@@ -25,7 +25,13 @@ export const Home = () => {
         >
           ⚡ TypeScript Mini Projects
         </a>
-
+        <a
+          href="https://hrisshhii.github.io/react-practice/framer"
+          className="card"
+          style={{ background: "linear-gradient(135deg,#9333ea,#ec4899)" }}
+        >
+          🎴 Framer Motion Cards
+        </a>
       </div>
       <p className="footer">React Mini Projects</p>
     </div>

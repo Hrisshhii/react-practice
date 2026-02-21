@@ -14,7 +14,10 @@ const HomePage = () => {
         <a href="https://hrisshhii.github.io/react-practice/" className="card">
           🏠 React Mini Projects
         </a>
+        <a href="https://hrisshhii.github.io/react-practice/framer" className="card">
+        🎴 Framer Motion Cards</a>
       </div>
+
 
       <p className="footer">TypeScript-React Mini Projects</p>
     </div>
