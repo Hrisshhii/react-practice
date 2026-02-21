@@ -17,18 +17,10 @@ export const Home = () => {
         <Link to="/ecommercefiltering" className="card">🛒 E-commerce (Filtering)</Link>
         <Link to="/weather" className="card">🌤️ Weather App (API based)</Link>
         <Link to="/musicplayer" className="card">🎵 Music Player UI</Link>
-        <a
-          href="https://hrisshhii.github.io/react-practice/ts"
-          className="card"
-          style={{ background: "linear-gradient(135deg,#6366f1,#22d3ee)" }}
-        >
+        <a href="https://hrisshhii.github.io/react-practice/ts" className="card" style={{ background: "linear-gradient(135deg,#6366f1,#22d3ee)" }}>
           ⚡ TypeScript Mini Projects
         </a>
-        <a
-          href="https://hrisshhii.github.io/react-practice/framer"
-          className="card"
-          style={{ background: "linear-gradient(135deg,#9333ea,#ec4899)" }}
-        >
+        <a href="https://hrisshhii.github.io/react-practice/framer" className="card" style={{ background: "linear-gradient(135deg,#9333ea,#ec4899)" }}>
           🎴 Framer Motion Cards
         </a>
       </div>
