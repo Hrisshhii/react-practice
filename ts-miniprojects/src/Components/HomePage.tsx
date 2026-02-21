@@ -11,7 +11,7 @@ const HomePage = () => {
         <Link to="/blogs" className="card">📝 Blogs Project</Link>
         <Link to="/project-tracker" className="card">📊 Project Tracker</Link>
         <Link to="/ecommerce-filtering" className="card">🔍 Ecommerce Advanced Filtering</Link>
-        <a href="https://hrisshhii.github.io/react-practice/" className="card" style={{ background: "linear-gradient(135deg,#9333ea,#ec4899)" }}>
+        <a href="https://hrisshhii.github.io/react-practice/" className="card" style={{ background: "linear-gradient(135deg,#6366f1,#22d3ee)" }}>
           🏠 React Mini Projects
         </a>
         <a href="https://hrisshhii.github.io/react-practice/framer" className="card" style={{ background: "linear-gradient(135deg,#9333ea,#ec4899)" }}>
