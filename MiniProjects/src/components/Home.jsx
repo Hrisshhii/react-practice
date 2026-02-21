@@ -17,7 +17,6 @@ export const Home = () => {
         <Link to="/ecommercefiltering" className="card">🛒 E-commerce (Filtering)</Link>
         <Link to="/weather" className="card">🌤️ Weather App (API based)</Link>
         <Link to="/musicplayer" className="card">🎵 Music Player UI</Link>
-
         <a
           href="https://hrisshhii.github.io/react-practice/ts"
           className="card"
