@@ -1,7 +1,8 @@
 import { AnimatePresence, motion } from "framer-motion";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { BackHome } from "../BackHome";
 import { MousePointer2 } from "lucide-react";
+import waterDrop from "../../assets/sounds/water-drop.mp3";
 
 interface Ripple{
   id:number;
@@ -13,8 +14,18 @@ const PulseButton = () => {
   const [clicked, setClicked] = useState(false);
   const [ripples,setRipples]=useState<Ripple[]>([]);
   const [screenRipples,setScreenRipples]=useState<Ripple[]>([]);
+  const audioRef=useRef<HTMLAudioElement|null>(null);
+  useEffect(()=>{
+    audioRef.current=new Audio(waterDrop);
+    audioRef.current.volume=0.5;
+  },[]);
 
   const handleClick=(e:React.MouseEvent<HTMLButtonElement>)=>{
+    if(audioRef.current){
+      audioRef.current.currentTime=0;
+      audioRef.current.playbackRate=0.9+Math.random()*0.2;
+      audioRef.current.play();
+    }
     setClicked(prev=>!prev);
 
     const rect=e.currentTarget.getBoundingClientRect();
@@ -31,15 +42,15 @@ const PulseButton = () => {
       x:buttonCenterX,
       y:buttonCenterY
     };
-    setScreenRipples(prev=>[...prev,screenRipple])
 
+    setScreenRipples(prev=>[...prev,screenRipple])
     setRipples(prev=>[...prev,newRipple]);
     setTimeout(()=>{
       setRipples(prev=>prev.filter(r=>r.id!==newRipple.id));
     },600);
     setTimeout(()=>{
       setScreenRipples(prev=>prev.filter(r=>r.id!==screenRipple.id));
-    },1000);
+    },1500);
   };
 
   return (
@@ -68,7 +79,7 @@ const PulseButton = () => {
               opacity: 0
             }}
             transition={{
-              duration: 4,
+              duration: 5,
               ease: "easeOut"
             }}
           />
