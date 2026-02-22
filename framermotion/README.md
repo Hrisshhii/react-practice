@@ -77,7 +77,13 @@ eg:
     - skew
     Using transforms instead of layout properties (like width/height) improves performance because it avoids layout recalculations.
 
-10. Additional Important Concepts
+10. Transition: 
+
+- Duration: how long the animation takes
+- Easing: the speed curve of the animation
+- Delay: How long to wait before starting the animation
+
+11. Additional Important Concepts
 - Declarative Animation: Framer Motion is declarative you describe the final state, and the library handles the animation.
 
 - Spring Animations: Framer supports physics-based animations eg: transition={{ type: "spring", stiffness: 100, damping: 10 }}

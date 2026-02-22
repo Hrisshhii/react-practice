@@ -1,6 +1,7 @@
 import { Routes,Route } from 'react-router-dom'
 import './App.css'
 import Home from './components/Home'
+import PulseButton from './components/PulseButton/PulseButton'
 
 function App() {
 
@@ -8,7 +9,7 @@ function App() {
     <>
     <Routes>
       <Route path="/" element={<Home />}/>
-      <Route path="" element={``}/>
+      <Route path="/pulse-button" element={<PulseButton/>}/>
     </Routes>
     </>
   )
