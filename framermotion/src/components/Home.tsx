@@ -7,6 +7,9 @@ export default function Home() {
       <h1 className="title">Framer Motion Cards</h1>
       <div className="projects">
         <Link to="/water-drop" className="card">💧 Water Drop</Link>
+        <Link to="/explosion" className="card">💥 Particle Explosion Button</Link>
+        <Link to="" className="card">📣 Sound-Reactive Animation</Link>
+        <Link to="" className="card">⬜️ Glass Morphing Card Transition</Link>
         <a href="https://hrisshhii.github.io/react-practice/ts" className="card" style={{ background: "linear-gradient(135deg,#6366f1,#22d3ee)" }}>
           ⚡ TypeScript Mini Projects
         </a>
