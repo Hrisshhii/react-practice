@@ -14,6 +14,7 @@ export default function Home() {
           🏠 React Mini Projects
         </a>
       </div>
+      <p className="footer">Framer motion practices</p>
     </div>
   );
 }
