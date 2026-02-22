@@ -1,7 +1,7 @@
 import { AnimatePresence, motion,useMotionValue,useSpring } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { BackHome } from "../BackHome";
-import { MousePointer2 } from "lucide-react";
+import { Droplet } from "lucide-react";
 import waterDrop from "../../assets/sounds/water-drop.mp3";
 
 interface Ripple{
@@ -147,7 +147,7 @@ const WaterDropButton = () => {
           </AnimatePresence>
 
           <span className="relative z-10">
-            <MousePointer2 />
+            <Droplet size={20}/>
           </span>
         </motion.button>
       </div>
