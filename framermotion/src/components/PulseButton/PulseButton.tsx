@@ -82,30 +82,35 @@ const PulseButton = () => {
 
       <AnimatePresence>
         {screenRipples.map((ripple) => (
-          <motion.span
-            key={ripple.id}
-            className="absolute rounded-full pointer-events-none bg-blue-400/20"
-            style={{
-              top: ripple.y,
-              left: ripple.x,
-              width: 40,
-              height: 40
-            }}
-            initial={{
-              scale: 0,
-              opacity: 0.5,
-              x: "-50%",
-              y: "-50%"
-            }}
-            animate={{
-              scale: 90,
-              opacity: 0
-            }}
-            transition={{
-              duration: 5,
-              ease: "easeOut"
-            }}
-          />
+          <div key={ripple.id}>
+            {[0,0.2,0.4].map((delay,index)=>(
+              <motion.span
+                key={index}
+                className="absolute rounded-full pointer-events-none bg-blue-400/20"
+                style={{
+                  top: ripple.y,
+                  left: ripple.x,
+                  width: 60,
+                  height: 60
+                }}
+                initial={{
+                  scale: 0,
+                  opacity: 0.5,
+                  x: "-50%",
+                  y: "-50%"
+                }}
+                animate={{
+                  scale: 90,
+                  opacity: 0
+                }}
+                transition={{
+                  duration: 5,
+                  ease: "easeOut",
+                  delay
+                }}
+              />
+            ))}
+          </div>
         ))}
       </AnimatePresence>
 
