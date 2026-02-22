@@ -1,4 +1,4 @@
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion,useMotionValue,useSpring } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { BackHome } from "../BackHome";
 import { MousePointer2 } from "lucide-react";
@@ -19,6 +19,29 @@ const PulseButton = () => {
     audioRef.current=new Audio(waterDrop);
     audioRef.current.volume=0.5;
   },[]);
+
+  const x=useMotionValue(0);
+  const y=useMotionValue(0);
+
+  const springX=useSpring(x,{stiffness:150,damping:15});
+  const springY=useSpring(y,{stiffness:150,damping:15});
+
+  const handleMouseMove=(e:React.MouseEvent<HTMLButtonElement>)=>{
+    const rect=e.currentTarget.getBoundingClientRect();
+    const centerX=rect.left+rect.width/2;
+    const centerY=rect.top+rect.height/2;
+
+    const deltaX=(e.clientX-centerX)*2;
+    const deltaY=(e.clientY-centerY)*2;
+
+    x.set(deltaX);
+    y.set(deltaY);
+  }
+  
+  const handleMouseLeave=()=>{
+    x.set(0);
+    y.set(0);
+  }
 
   const handleClick=(e:React.MouseEvent<HTMLButtonElement>)=>{
     if(audioRef.current){
@@ -89,12 +112,11 @@ const PulseButton = () => {
       <div className="flex justify-center items-center h-screen">
         <motion.button
           onClick={handleClick}
+          style={{x:springX,y:springY}}
+          onMouseMove={handleMouseMove}
+          onMouseLeave={handleMouseLeave}
           className="relative text-white bg-blue-500 rounded-full p-4 text-xl cursor-pointer overflow-hidden"
-          animate={
-            clicked
-              ? { scale: [1, 1.2, 1], backgroundColor: "#22c55e" }
-              : { scale: [1, 1.1, 1] }
-          }
+          animate={clicked ? { scale: [1,1.2,1], backgroundColor:"#22c55e"}:{ scale: [1,1.1,1]}}
           transition={{
             duration: 0.8,
             ease: "easeInOut",
