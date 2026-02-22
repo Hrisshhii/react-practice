@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { BackHome } from "../BackHome";
 import { AnimatePresence,motion } from "framer-motion";
+import explosionSound from "../../assets/sounds/explosion.mp3";
 
 interface Particle{
   id:number;
@@ -16,8 +17,22 @@ interface Particle{
 export default function ExplosionButton(){
   const [particles,setParticles]=useState<Particle[]>([]);
   const [exploded,setExploded]=useState(false);
+  const audioRef=useRef<HTMLAudioElement|null>(null);
+
+  useEffect(()=>{
+    audioRef.current=new Audio(explosionSound);
+    if(audioRef.current){
+      audioRef.current.volume=0.4;
+    }
+  },[]);
 
   const handleClick=()=>{
+    if(audioRef.current){
+      audioRef.current.currentTime=0;
+      audioRef.current.playbackRate=0.9+Math.random()*0.2;
+      audioRef.current.play();
+    }
+
     const newParticles: Particle[]=Array.from({length:150}).map((_,i)=>{
       const hue = Math.random()*60;
       return {
