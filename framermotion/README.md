@@ -1,73 +1,85 @@
-# React + TypeScript + Vite
+### Theory: 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+motion is a factory object provided by Framer Motion that enables animation capabilities for React components. It provides animated versions of HTML and SVG elements and supports declarative animations, gestures, layout transitions, and scroll-based effects.
 
-Currently, two official plugins are available:
+---
+1. <motion.element> for animating a specific element. It also has various props to it.
+- Initial: to define initial state of the components before it enters the DOM. 
+    eg: initial={{ opacity: 0 }}
+- Animate: use to create animations, lets you set target value.
+    eg: animate={{ opacity: 1 }}
+- Exit: animation when component is removed from the React tree, smooth transition for unmounting/removing element.
+    works with <AnimatePresence>
+- Transition: Controls timing, easing, delay, type.
+    eg: transition={{ duration: 0.5, ease: "easeInOut" }}
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+2. Variants: Variants allow reusable animation states.
+eg: 
+    const cardVariants = {
+      hidden: { opacity: 0, y: 50 },
+      visible: { opacity: 1, y: 0 }
+    }
+    <motion.div
+      variants={cardVariants}
+      initial="hidden"
+      animate="visible"
+    />
 
-## React Compiler
+3. AnimatePresence: Used to enable exit animations when components unmount.
+eg: 
+  <AnimatePresence>
+    {isVisible && (
+      <motion.div exit={{ opacity: 0 }} />
+    )}
+  </AnimatePresence>
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+4. Stagger Animations: Used for animating multiple children sequentially. Typically used with parent-child variant structure.
+eg: 
+    const container = {
+      hidden: {},
+      visible: {
+        transition: {
+          staggerChildren: 0.2
+        }
+      }
+    }
 
-## Expanding the ESLint configuration
+5. Layout Animations: Automatically animates position changes.
+eg: 
+    <motion.div layout />
+  If items reorder, they smoothly transition.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+6. Shared Layout Animations: Uses layoutId to create smooth transitions between components across renders or routes.
+eg: 
+    <motion.div layoutId="card" />
+  Allows smooth transformation between elements across routes.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+7. Gestures: Framer supports built-in gestures
+- whileHover
+- whileTap
+- drag
+- dragConstraints
+eg: 
+    <motion.div
+      whileHover={{ scale: 1.1 }}
+      whileTap={{ scale: 0.95 }}
+      drag
+      dragConstraints={{ left: 0, right: 300 }}
+    />
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+8. Scroll-Based Animations uses useScroll() and useTransform()
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+9. Transformation: 
+    Framer Motion primarily animates transform-based properties:
+    - translateX / translateY
+    - scale
+    - rotate
+    - skew
+    Using transforms instead of layout properties (like width/height) improves performance because it avoids layout recalculations.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+10. Additional Important Concepts
+- Declarative Animation: Framer Motion is declarative you describe the final state, and the library handles the animation.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- Spring Animations: Framer supports physics-based animations eg: transition={{ type: "spring", stiffness: 100, damping: 10 }}
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- Keyframes: You can define multiple animation states eg: animate={{ x: [0, 100, 0] }}
