@@ -37,6 +37,7 @@ html, body, #root {
 .title{
     font-size: 3rem;
     margin-bottom: 2rem;
+    font-weight: 600;
     background: linear-gradient(90deg, #ffffff, #b0c7ff);
     background-clip: text;
     -webkit-background-clip: text;

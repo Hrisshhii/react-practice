@@ -6,7 +6,7 @@ export default function Home() {
     <div className="home">
       <h1 className="title">Framer Motion Cards</h1>
       <div className="projects">
-        <Link to="/pulse-button" className="card"></Link>
+        <Link to="/pulse-button" className="card">Pulse Button</Link>
         <a href="https://hrisshhii.github.io/react-practice/ts" className="card" style={{ background: "linear-gradient(135deg,#6366f1,#22d3ee)" }}>
           ⚡ TypeScript Mini Projects
         </a>
