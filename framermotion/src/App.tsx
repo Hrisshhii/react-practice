@@ -1,7 +1,7 @@
 import { Routes,Route } from 'react-router-dom'
 import './App.css'
 import Home from './components/Home'
-import PulseButton from './components/PulseButton/PulseButton'
+import WaterDropButton from './components/PulseButton/WaterDropButton'
 
 function App() {
 
@@ -9,7 +9,7 @@ function App() {
     <>
     <Routes>
       <Route path="/" element={<Home />}/>
-      <Route path="/pulse-button" element={<PulseButton/>}/>
+      <Route path="/water-drop" element={<WaterDropButton/>}/>
     </Routes>
     </>
   )

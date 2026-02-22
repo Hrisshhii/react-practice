@@ -10,7 +10,7 @@ interface Ripple{
   y:number;
 }
 
-const PulseButton = () => {
+const WaterDropButton = () => {
   const [clicked, setClicked] = useState(false);
   const [ripples,setRipples]=useState<Ripple[]>([]);
   const [screenRipples,setScreenRipples]=useState<Ripple[]>([]);
@@ -155,4 +155,4 @@ const PulseButton = () => {
   );
 };
 
-export default PulseButton;
+export default WaterDropButton;
