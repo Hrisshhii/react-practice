@@ -18,6 +18,7 @@ export default function ExplosionButton(){
   const [particles,setParticles]=useState<Particle[]>([]);
   const [exploded,setExploded]=useState(false);
   const audioRef=useRef<HTMLAudioElement|null>(null);
+  const [countdown,setCountdown]=useState<number|null>(null);
 
   useEffect(()=>{
     audioRef.current=new Audio(explosionSound);
@@ -26,33 +27,49 @@ export default function ExplosionButton(){
     }
   },[]);
 
-  const handleClick=()=>{
-    if(audioRef.current){
-      audioRef.current.currentTime=0;
-      audioRef.current.playbackRate=0.9+Math.random()*0.2;
+  const triggerExplosion=()=>{
+    if (audioRef.current) {
+      audioRef.current.currentTime = 0;
+      audioRef.current.playbackRate = 0.9 + Math.random() * 0.2;
       audioRef.current.play();
     }
-
-    const newParticles: Particle[]=Array.from({length:150}).map((_,i)=>{
-      const hue = Math.random()*60;
+    const newParticles: Particle[] = Array.from({ length: 150 }).map((_, i) => {
+      const hue = Math.random() * 60;
       return {
-        id: Date.now()+i,
-        angle: Math.random()*360,
-        distance: 350+Math.random()*700,
-        color:`hsl(${hue},90%,${50+Math.random()*20}%)`,
-        size:6+Math.random()*18,
-        duration:0.6+Math.random()*0.6,
-        scaleEnd:Math.random()*0.5,
-        rotation:Math.random()*720
+        id: Date.now() + i,
+        angle: Math.random() * 360,
+        distance: 350 + Math.random() * 700,
+        color: `hsl(${hue},90%,${50 + Math.random() * 20}%)`,
+        size: 6 + Math.random() * 18,
+        duration: 0.6 + Math.random() * 0.6,
+        scaleEnd: Math.random() * 0.5,
+        rotation: Math.random() * 720
       };
     });
-
     setParticles(newParticles);
     setExploded(true);
+
     setTimeout(()=>{
       setParticles([]);
       setExploded(false);
-    },800)
+    }, 800);
+  };
+
+  const handleClick=()=>{
+    if(countdown!==null) return;
+    setCountdown(3);
+    let timer=3;
+
+    const interval=setInterval(()=>{
+      timer--;
+      if (timer>0) {
+        setCountdown(timer);
+      } else {
+        clearInterval(interval);
+        setCountdown(null);
+        triggerExplosion();
+      }
+    },500);
   };
 
   return(
@@ -73,11 +90,16 @@ export default function ExplosionButton(){
               className="relative px-10 py-5 text-xl font-semibold text-white rounded-2xl cursor-pointer overflow-hidden bg-linear-to-r from-red-600 via-orange-500 to-yellow-400 shadow-[0_0_15px_rgba(255,100,0,0.6)]"
               initial={{scale:1}}
               whileTap={{scale:0.85}}
-              animate={exploded?{scale:1.6,opacity:0}:{scale:[1,1.05,1]}}
-              transition={{duration:0.6,ease:"easeInOut",repeat:exploded?0:Infinity}}
+              animate={
+                countdown!=null?{scale:[1,1.3,1]}
+                :exploded?{scale:1.6,opacity:0}:{scale:[1,1.05,1]}
+              }
+              transition={{duration:0.6,ease:"easeInOut",repeat:countdown!==null?Infinity:exploded?0:Infinity}}
               exit={{scale:0}}
             >
-              <span className="relative z-10">EXPLODE</span>
+              <span className="relative z-10">
+                {countdown!==null?countdown:"EXPLODE"}
+              </span>
               <motion.div
                 className="absolute top-0 -left-full w-full h-full bg-white/20"
                 animate={{ left: ["-100%", "120%"] }}
