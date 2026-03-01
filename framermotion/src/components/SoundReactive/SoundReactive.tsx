@@ -50,15 +50,16 @@ const SoundReactive = () => {
   const animateBars=()=>{
     if(!analyserRef.current) return;
 
-    if(audioRef.current){
-      const percent=audioRef.current.currentTime/audioRef.current.duration;
-      setProgress(percent||0)
-    }
-
     const bufferLen=analyserRef.current.frequencyBinCount;
     const dataArray=new Uint8Array(bufferLen);
     const update=()=>{
       analyserRef.current?.getByteFrequencyData(dataArray);
+
+      if(audioRef.current){
+        const percent=audioRef.current.currentTime/audioRef.current.duration;
+        setProgress(percent||0)
+      }
+
       const bass=dataArray.slice(0,5).reduce((a,b)=>a+b,0)/5;
       const normalizedBass=bass/255;
 
