@@ -14,6 +14,7 @@ function App() {
       <Route path="/water-drop" element={<WaterDropButton/>}/>
       <Route path="/explosion" element={<ExplosionButton/>} />
       <Route path="/sound-reactive" element={<SoundReactive/>} />
+      <Route path="/glass-morphing" element={``}/>
     </Routes>
     </>
   )
