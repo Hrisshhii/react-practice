@@ -6,7 +6,8 @@ import { PlusCircle } from "lucide-react";
 
 const SoundReactive = () => {
   const [isPlaying,setIsPlaying]=useState(false);
-  const bassRef = useRef(0);
+  const [trackName, setTrackName]=useState("Default Track");
+  const bassRef=useRef(0);
   const [bassLevel,setBassLevel]=useState(0);
   const barsRef = useRef<(HTMLDivElement | null)[]>([]);
   const audioRef=useRef<HTMLAudioElement|null>(null);
@@ -81,8 +82,8 @@ const SoundReactive = () => {
       <motion.div className="absolute inset-0 bg-purple-900 blur-3xl -z-10"
         animate={{opacity: 0.2+bassLevel*0.5}}
       />
-      <div className="flex items-center justify-center h-screen">
-        <div className="backdrop-blur-xl bg-white/5 border border-white/10 p-6 rounded-2xl flex flex-col items-center gap-4 shadow-xl">
+      <div className="border-white/10 flex items-center justify-center h-screen">
+        <div className="backdrop-blur-xl shadow-[0_0_40px_rgba(168,85,247,0.5)] p-6 rounded-2xl flex flex-col items-center gap-4">
           <label>
             <PlusCircle className="text-white cursor-pointer"/>
             <input
@@ -105,6 +106,7 @@ const SoundReactive = () => {
                 const url=URL.createObjectURL(file);
                 audioRef.current=new Audio(url);
                 audioRef.current.loop=true;
+                setTrackName(file.name);
                 setIsPlaying(false);
               }}
             />
@@ -123,9 +125,10 @@ const SoundReactive = () => {
           >
             {isPlaying ? "Pause":"Play"}
           </button>
+          <h2 className="text-white/20 text-lg font-semibold tracking-wide">{trackName}</h2>
           <div className="flex items-end gap-2 h-40">
             {Array.from({length:32}).map((_,i)=>(
-              <div key={i} className="w-2 bg-linear-to-t from-purple-500 to-pink-500 rounded"
+              <div key={i} className="w-1.5 bg-linear-to-t from-purple-500 to-pink-500 rounded"
               ref={(el)=>{barsRef.current[i]=el!}}
               style={{height:"100%"}}
               />
