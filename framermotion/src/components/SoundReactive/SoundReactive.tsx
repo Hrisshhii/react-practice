@@ -86,13 +86,13 @@ const SoundReactive = () => {
 }, []);
 
   return (
-    <div className="relative h-screen bg-black overflow-hidden">
+    <div className={`relative h-screen overflow-hidden bg-black`}>
       <BackHome />
       <motion.div className="absolute inset-0 bg-purple-900 blur-3xl -z-10"
         animate={{opacity: 0.2+bassLevel*0.5}}
       />
       <div className="border-white/10 flex items-center justify-center h-screen">
-        <div className="backdrop-blur-xl shadow-[0_0_40px_rgba(168,85,247,0.5)] p-6 rounded-2xl flex flex-col items-center gap-4">
+        <div className="w-[30%] backdrop-blur-xl shadow-[0_0_40px_rgba(168,85,247,0.5)] p-6 rounded-2xl flex flex-col items-center gap-4">
           <label>
             <PlusCircle className="text-white cursor-pointer"/>
             <input
@@ -153,9 +153,13 @@ const SoundReactive = () => {
 
           <div className="flex items-end gap-2 h-40">
             {Array.from({length:32}).map((_,i)=>(
-              <div key={i} className="w-1.5 bg-linear-to-t from-purple-500 to-pink-500 rounded"
+              <div key={i} className="w-2 bg-linear-to-t from-purple-500 to-pink-500 rounded"
               ref={(el)=>{barsRef.current[i]=el!}}
-              style={{height:"100%"}}
+              style={{
+                height:"100%",
+                transformOrigin:"bottom",
+                transformStyle:"preserve-3d"
+              }}
               />
             ))}
           </div>
