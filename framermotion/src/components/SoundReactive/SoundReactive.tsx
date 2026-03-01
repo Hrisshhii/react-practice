@@ -7,6 +7,8 @@ import { PlusCircle } from "lucide-react";
 const SoundReactive = () => {
   const [isPlaying,setIsPlaying]=useState(false);
   const [trackName, setTrackName]=useState("Default Track");
+  const [progress,setProgress]=useState(0);
+  const [volume,setVolume]=useState(1);
   const bassRef=useRef(0);
   const [bassLevel,setBassLevel]=useState(0);
   const barsRef = useRef<(HTMLDivElement | null)[]>([]);
@@ -47,6 +49,12 @@ const SoundReactive = () => {
 
   const animateBars=()=>{
     if(!analyserRef.current) return;
+
+    if(audioRef.current){
+      const percent=audioRef.current.currentTime/audioRef.current.duration;
+      setProgress(percent||0)
+    }
+
     const bufferLen=analyserRef.current.frequencyBinCount;
     const dataArray=new Uint8Array(bufferLen);
     const update=()=>{
@@ -59,7 +67,7 @@ const SoundReactive = () => {
         const scale=value/255;
         if(bar){
           bar.style.transform=`scaleY(${Math.max(scale,0.1)})`;
-          bar.style.transition="transform 0.08s ease-out";
+          bar.style.transition="transform 0.12s cubic-bezier(.17,.67,.83,.67)";
         }
       });
       requestAnimationFrame(update);
@@ -121,11 +129,27 @@ const SoundReactive = () => {
               startAudio();
             }
             }} 
-            className="px-6 py-3 bg-purple-600 text-white rounded-lg cursor-pointer"
+            className="px-8 py-3 rounded-xl bg-linear-to-r from-purple-600 to-pink-600 text-white font-semibold shadow-lg shadow-purple-500/30 hover:scale-105 transition-all cursor-pointer"
           >
             {isPlaying ? "Pause":"Play"}
           </button>
+
+          <input type="range" min="0" max="1" step="0.01" value={volume}
+            onChange={e=>{
+              const v=parseFloat(e.target.value);
+              setVolume(v);
+              if(audioRef.current){
+                audioRef.current.volume=v;
+              }
+            }}
+            className="w-full accent-purple-400"
+          />
+
           <h2 className="text-white/20 text-lg font-semibold tracking-wide">{trackName}</h2>
+          <div className="w-full h-1 bg-white/10 rounded-full overflow-hidden">
+            <motion.div className="h-full bg-linear-to-r from-purple-500 to-pink-500" style={{width:`${progress*100}%`}}/>
+          </div>
+
           <div className="flex items-end gap-2 h-40">
             {Array.from({length:32}).map((_,i)=>(
               <div key={i} className="w-1.5 bg-linear-to-t from-purple-500 to-pink-500 rounded"
