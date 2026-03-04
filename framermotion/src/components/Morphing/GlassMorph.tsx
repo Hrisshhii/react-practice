@@ -1,7 +1,21 @@
-import {motion} from "framer-motion";
+import {AnimatePresence, motion} from "framer-motion";
 import { BackHome } from "../BackHome";
+import { useState } from "react";
+
+interface Card{
+  id: number;
+  title: string;
+  description: string;
+};
+
+const cards: Card[]=[
+  { id: 1, title: "Aurora", description: "Beautiful gradient glass card." },
+  { id: 2, title: "Nebula", description: "Morphing layout animation." },
+  { id: 3, title: "Eclipse", description: "Smooth premium transitions." }
+];
 
 const GlassMorph=()=>{
+  const [selected,setSelected]=useState<Card|null>(null);
   return (
     <div className="relative h-screen bg-black overflow-hidden">
       <BackHome/>
@@ -12,6 +26,33 @@ const GlassMorph=()=>{
           }}
           transition={{duration:8,repeat:Infinity}}
         />
+        <div className="relative z-10 rid grid-cols-3 gap-8">
+          {cards.map((card)=>(
+            <motion.div key={card.id} layoutId={`card-${card.id}`} onClick={()=>setSelected(card)}
+              className="cursor-pointer p-6 w-64 h-40 bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl shadow-[0_0_40px_rgba(168,85,247,0.2)] text-white"
+            >
+              <motion.h2 layoutId={`title-${card.id}`} className="text-xl font-semibold">{card.title}</motion.h2>
+              <motion.p layoutId={`desc-${card.id}`} className="text-white/50 text-sm mt-2">{card.description}</motion.p>
+            </motion.div>
+          ))}
+        </div>
+        <AnimatePresence>
+          {selected && (
+            <>
+              <motion.div className="absolute inset-0 bg-black/50 backdrop-blur-lg" 
+                initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}} onClick={()=>setSelected(null)}
+              />
+
+              <motion.div layoutId={`card-${selected.id}`}
+                className="absolute z-20 p-10 w-150 h-100 bg-white/10 backdrop-blur-2xl border border-white/20 rounded-3xl shadow-[0_0_80px_rgba(168,85,247,0.4)] text-white flex flex-col"
+              >
+                <motion.h2 layoutId={`title-${selected.id}`} className="text-3xl font-bold">{selected.title}</motion.h2>
+                <motion.p layoutId={`desc-${selected.id}`} className="mt-4 text-white/60">{selected.description}</motion.p>
+                <button onClick={()=>setSelected(null)} className="mt-auto px-6 py-2 bg-white/10 rounded-xl hover:bg-white/20 transition">Close</button>
+              </motion.div>
+            </>
+          )}
+        </AnimatePresence>
       </div>
       
     </div>
