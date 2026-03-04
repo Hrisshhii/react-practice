@@ -1,6 +1,7 @@
 import {AnimatePresence, motion} from "framer-motion";
 import { BackHome } from "../BackHome";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { Sparkles } from "lucide-react";
 
 interface Card{
   id: number;
@@ -43,6 +44,15 @@ const cards: Card[] = [
 
 const GlassMorph=()=>{
   const [selected,setSelected]=useState<Card|null>(null);
+
+  useEffect(()=>{
+    const handleKey=(e:KeyboardEvent)=>{
+      if(e.key==="Escape") setSelected(null);
+    };
+    window.addEventListener("keydown",handleKey);
+    return()=>window.removeEventListener("keydown",handleKey);
+  },[]);
+
   return (
     <div className="relative h-screen bg-black overflow-hidden">
       <BackHome/>
@@ -61,6 +71,7 @@ const GlassMorph=()=>{
               transition={{type:"spring",stiffness:200,damping:20}}  onClick={()=>setSelected(card)}
               className="cursor-pointer p-6 w-72 h-50 bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl shadow-[0_0_40px_rgba(168,85,247,0.2)] text-white flex justify-center items-center"
             >
+              <Sparkles className="mb-3 text-purple-400" />
               <motion.h2 layoutId={`title-${card.id}`} className="text-xl font-semibold">{card.title}</motion.h2>
             </motion.div>
           ))}
