@@ -55,7 +55,9 @@ const GlassMorph=()=>{
 
   return (
     <div className="relative h-screen bg-black overflow-hidden">
-      <BackHome/>
+      <div className="relative z-50">
+        <BackHome />
+      </div>
       <div className="absolute inset-0 flex justify-center items-center">
         <motion.div className="absolute w-180 h-180 rounded-full blur-[220px]"
           animate={{
