@@ -8,10 +8,37 @@ interface Card{
   description: string;
 };
 
-const cards: Card[]=[
-  { id: 1, title: "Aurora", description: "Beautiful gradient glass card." },
-  { id: 2, title: "Nebula", description: "Morphing layout animation." },
-  { id: 3, title: "Eclipse", description: "Smooth premium transitions." }
+const cards: Card[] = [
+  {
+    id: 1,
+    title: "Aurora",
+    description:"Aurora represents smooth gradient animations and glowing glass surfaces inspired by northern lights UI design patterns."
+  },
+  {
+    id: 2,
+    title: "Nebula",
+    description:"Nebula focuses on layout morphing animations where UI components smoothly transform between states using shared layout transitions."
+  },
+  {
+    id: 3,
+    title: "Eclipse",
+    description:"Eclipse demonstrates premium dark UI design using soft shadows, glass morphism, and fluid animation interactions."
+  },
+  {
+    id: 4,
+    title: "Cosmos",
+    description:"Cosmos explores immersive visual experiences with glowing backgrounds and depth-based UI composition."
+  },
+  {
+    id: 5,
+    title: "Nova",
+    description:"Nova focuses on modern interaction design where cards respond dynamically to hover, click, and motion effects."
+  },
+  {
+    id: 6,
+    title: "Orbit",
+    description:"Orbit represents fluid transitions and spatial UI movement inspired by orbital motion and futuristic dashboards."
+  }
 ];
 
 const GlassMorph=()=>{
@@ -34,7 +61,6 @@ const GlassMorph=()=>{
               className="cursor-pointer p-6 w-64 h-40 bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl shadow-[0_0_40px_rgba(168,85,247,0.2)] text-white"
             >
               <motion.h2 layoutId={`title-${card.id}`} className="text-xl font-semibold">{card.title}</motion.h2>
-              <motion.p layoutId={`desc-${card.id}`} className="text-white/50 text-sm mt-2">{card.description}</motion.p>
             </motion.div>
           ))}
         </div>
