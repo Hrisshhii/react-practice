@@ -20,15 +20,17 @@ const GlassMorph=()=>{
     <div className="relative h-screen bg-black overflow-hidden">
       <BackHome/>
       <div className="absolute inset-0 flex justify-center items-center">
-        <motion.div className="w-200 h-200 rounded-full blur-[220px]"
+        <motion.div className="absolute w-180 h-180 rounded-full blur-[220px]"
           animate={{
+            scale:[1,1.2,1],
+            opacity:[0.6,0.9,0.6],
             background:["radial-gradient(circle, #9333ea 0%, transparent 60%)","radial-gradient(circle, #ec4899 0%, transparent 60%)","radial-gradient(circle, #6366f1 0%, transparent 60%)"]
           }}
           transition={{duration:8,repeat:Infinity}}
         />
-        <div className="relative z-10 rid grid-cols-3 gap-8">
+        <div className="relative z-10 grid grid-cols-3 gap-8">
           {cards.map((card)=>(
-            <motion.div key={card.id} layoutId={`card-${card.id}`} onClick={()=>setSelected(card)}
+            <motion.div key={card.id} layoutId={`card-${card.id}`} whileHover={{scale:1.05,y:-10}} onClick={()=>setSelected(card)}
               className="cursor-pointer p-6 w-64 h-40 bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl shadow-[0_0_40px_rgba(168,85,247,0.2)] text-white"
             >
               <motion.h2 layoutId={`title-${card.id}`} className="text-xl font-semibold">{card.title}</motion.h2>
