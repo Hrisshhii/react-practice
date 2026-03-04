@@ -4,7 +4,7 @@ import Home from './components/Home'
 import WaterDropButton from './components/PulseButton/WaterDropButton'
 import ExplosionButton from './components/ExplodeButton/ExplosionButton'
 import SoundReactive from './components/SoundReactive/SoundReactive'
-import GlassMorph from './components/Morphing/GLassMorph'
+import GlassMorph from './components/Morphing/GlassMorph'
 
 function App() {
 
