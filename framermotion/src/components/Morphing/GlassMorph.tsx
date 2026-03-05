@@ -2,45 +2,8 @@ import {AnimatePresence, motion} from "framer-motion";
 import { BackHome } from "../BackHome";
 import { useEffect, useState } from "react";
 import { Sparkles } from "lucide-react";
-
-interface Card{
-  id: number;
-  title: string;
-  description: string;
-};
-
-const cards: Card[] = [
-  {
-    id: 1,
-    title: "Aurora",
-    description:"Aurora represents smooth gradient animations and glowing glass surfaces inspired by northern lights UI design patterns."
-  },
-  {
-    id: 2,
-    title: "Nebula",
-    description:"Nebula focuses on layout morphing animations where UI components smoothly transform between states using shared layout transitions."
-  },
-  {
-    id: 3,
-    title: "Eclipse",
-    description:"Eclipse demonstrates premium dark UI design using soft shadows, glass morphism, and fluid animation interactions."
-  },
-  {
-    id: 4,
-    title: "Cosmos",
-    description:"Cosmos explores immersive visual experiences with glowing backgrounds and depth-based UI composition."
-  },
-  {
-    id: 5,
-    title: "Nova",
-    description:"Nova focuses on modern interaction design where cards respond dynamically to hover, click, and motion effects."
-  },
-  {
-    id: 6,
-    title: "Orbit",
-    description:"Orbit represents fluid transitions and spatial UI movement inspired by orbital motion and futuristic dashboards."
-  }
-];
+import type { Card } from "./data";
+import { cards } from "./data";
 
 const GlassMorph=()=>{
   const [selected,setSelected]=useState<Card|null>(null);
