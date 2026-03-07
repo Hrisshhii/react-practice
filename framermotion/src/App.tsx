@@ -5,6 +5,7 @@ import WaterDropButton from './components/PulseButton/WaterDropButton'
 import ExplosionButton from './components/ExplodeButton/ExplosionButton'
 import SoundReactive from './components/SoundReactive/SoundReactive'
 import GlassMorph from './components/Morphing/GlassMorph'
+import BouncingLoader from './components/BouncingLoader/BouncingLoader'
 
 function App() {
 
@@ -16,6 +17,7 @@ function App() {
       <Route path="/explosion" element={<ExplosionButton/>} />
       <Route path="/sound-reactive" element={<SoundReactive/>} />
       <Route path="/glass-morphing" element={<GlassMorph/>}/>
+      <Route path="/bouncing-loader" element={<BouncingLoader />}/>
     </Routes>
     </>
   )
