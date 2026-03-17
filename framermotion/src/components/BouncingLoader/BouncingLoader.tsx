@@ -42,7 +42,7 @@ const BouncingLoader = () => {
           />
         )
       }
-      
+
       return (
         <motion.div key={index} className="m-1 w-4 h-4 bg-purple-400 rounded-full shadow-[0_0_15px_rgba(96,165,250,0.8)]"
           animate={{
@@ -80,8 +80,8 @@ const BouncingLoader = () => {
         <div className="absolute bottom-12 w-full flex justify-center gap-4">
           {["bounce","wave","pulse"].map((type)=>(
             <button key={type} onClick={()=>setVariant(type as any)}
-              className={`px-4 py-2 rounded-lg text-sm transition ${
-                variant===type ? "bg-white text-black":"bg-white/10 text-white hover:bg-white/20"
+              className={`px-4 py-2 rounded-lg text-sm transition bg-gray-700 text-white cursor-pointer border border-white ${
+                variant===type ? "hover:bg-gray-700/25":"bg-transparent hover:text-white/20 hover:border-white/20"
               }`}
             >{type}</button>
           ))}
