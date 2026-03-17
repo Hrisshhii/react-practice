@@ -25,6 +25,24 @@ const BouncingLoader = () => {
           />
         )
       }
+      
+      if(variant==="wave"){
+        return (
+          <motion.div key={index} className="m-1 w-4 h-4 bg-blue-400 rounded-full shadow-[0_0_15px_rgba(96,165,250,0.8)]"
+            animate={{
+              y:[0,-20,0],
+              opacity:[0.4,1,0.4],
+            }}
+            transition={{
+              duration:0.8,
+              ease:"easeInOut",
+              repeat:Infinity,
+              delay: index * 0.15,
+            }}
+          />
+        )
+      }
+      
       return (
         <motion.div key={index} className="m-1 w-4 h-4 bg-purple-400 rounded-full shadow-[0_0_15px_rgba(96,165,250,0.8)]"
           animate={{
