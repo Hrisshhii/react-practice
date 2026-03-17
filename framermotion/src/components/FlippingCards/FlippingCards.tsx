@@ -18,6 +18,10 @@ const FlippingCards = () => {
             style={{transformStyle:"preserve-3d"}}
             animate={{rotateY:isFlipped?180:0}}
             transition={{duration:0.6}}
+            whileHover={{
+              rotateX:8,
+              rotateY:isFlipped?180:8,
+            }}
           >
             <div className="absolute inset-0 backface-hidden rounded-xl overflow-hidden">
               <img src={cardFront} className="w-full h-full object-cover" />
