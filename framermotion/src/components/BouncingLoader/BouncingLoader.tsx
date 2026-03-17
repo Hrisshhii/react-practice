@@ -8,13 +8,16 @@ const BouncingLoader = () => {
       </div>
       <div className="absolute inset-0 flex justify-center items-center">
         {[...Array(3)].map((_,index)=>(
-          <motion.div key={index} className="m-1 w-4 h-4 bg-teal-500 rounded-full"
-            animate={{y:[0,-30,0]}}
+          <motion.div key={index} className="m-1 w-4 h-4 bg-teal-400 rounded-full shadow-[0_0_15px_rgba(45,212,191,0.8)]"
+            animate={{
+              y:[0,-30,0],
+              scale:[1,1.3,1],
+            }}
             transition={{
               duration:0.6,
               ease:"easeInOut",
               repeat:Infinity,
-              repeatDelay: index * 0.2,
+              delay: index * 0.2,
             }}
           />
         ))}
