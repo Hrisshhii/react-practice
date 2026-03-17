@@ -17,7 +17,7 @@ function App() {
       <Route path="/explosion" element={<ExplosionButton/>} />
       <Route path="/sound-reactive" element={<SoundReactive/>} />
       <Route path="/glass-morphing" element={<GlassMorph/>}/>
-      <Route path="/bouncing-loader" element={<BouncingLoader />}/>
+      <Route path="/loader-animation" element={<BouncingLoader />}/>
     </Routes>
     </>
   )

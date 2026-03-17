@@ -10,7 +10,7 @@ export default function Home() {
         <Link to="/explosion" className="card">💥 Particle Explosion Button</Link>
         <Link to="/sound-reactive" className="card">📣 Sound-Reactive Animation</Link>
         <Link to="/glass-morphing" className="card">⬜️ Glass Morphing Card Transition</Link>
-        <Link to="/bouncing-loader" className="card">⏳ Bouncing Loader</Link>
+        <Link to="/loader-animation" className="card">⏳ Loader Animation</Link>
         <a href="https://hrisshhii.github.io/react-practice/ts" className="card" style={{ background: "linear-gradient(135deg,#6366f1,#22d3ee)" }}>
           ⚡ TypeScript Mini Projects
         </a>
