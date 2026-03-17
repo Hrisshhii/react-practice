@@ -1,4 +1,4 @@
-import {motion} from "framer-motion";
+import {motion, useMotionValue, useTransform} from "framer-motion";
 import { BackHome } from "../BackHome";
 import { useState } from "react";
 import cardFront from "../../assets/card-front.png";
@@ -6,6 +6,10 @@ import cardBack from "../../assets/card-back.png";
 
 const FlippingCards = () => {
   const [isFlipped,setIsFlipped]=useState(false);
+  const x=useMotionValue(0);
+  const y=useMotionValue(0);
+  const rotateX=useTransform(y,[-100,100],[15,-15]);
+  const rotateY=useTransform(x,[-100,100],[-15,15]);
   return (
     <div className="relative h-screen bg-black overflow-hidden">
       <div className="relative z-50">
@@ -15,12 +19,19 @@ const FlippingCards = () => {
       <div className="absolute inset-0 flex justify-center items-center">
         <div className="perspective-[1000px]">
           <motion.div onClick={()=>setIsFlipped(!isFlipped)} className="relative w-60 h-90 cursor-pointer"
-            style={{transformStyle:"preserve-3d"}}
-            animate={{rotateY:isFlipped?180:0}}
-            transition={{duration:0.6}}
-            whileHover={{
-              rotateX:8,
-              rotateY:isFlipped?180:8,
+            style={{
+              transformStyle:"preserve-3d",
+              rotateX,
+              rotateY:isFlipped?180:rotateY,
+            }}
+            animate={{ y:[0,-10,0] }}
+            transition={{
+              y:{
+                duration:2,
+                repeat:Infinity,
+                ease:"easeInOut",
+              },
+              rotateY:{duration:0.6},
             }}
           >
             <div className="absolute inset-0 backface-hidden rounded-xl overflow-hidden">
