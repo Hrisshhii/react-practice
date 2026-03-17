@@ -11,6 +11,7 @@ export default function Home() {
         <Link to="/sound-reactive" className="card">📣 Sound-Reactive Animation</Link>
         <Link to="/glass-morphing" className="card">⬜️ Glass Morphing Card Transition</Link>
         <Link to="/loader-animation" className="card">⏳ Loader Animation</Link>
+        <Link to="/flipping-card" className="card">🃏 Flipping Cards</Link>
         <a href="https://hrisshhii.github.io/react-practice/ts" className="card" style={{ background: "linear-gradient(135deg,#6366f1,#22d3ee)" }}>
           ⚡ TypeScript Mini Projects
         </a>
