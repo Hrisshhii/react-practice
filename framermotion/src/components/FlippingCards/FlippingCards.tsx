@@ -10,6 +10,18 @@ const FlippingCards = () => {
   const y=useMotionValue(0);
   const rotateX=useTransform(y,[-100,100],[15,-15]);
   const rotateY=useTransform(x,[-100,100],[-15,15]);
+
+  const handleMouseMove=(e:React.MouseEvent<HTMLDivElement>)=>{
+    const rect=e.currentTarget.getBoundingClientRect();
+    const centerX=rect.left+rect.width/2;
+    const centerY=rect.top+rect.height/2;
+    x.set(e.clientX-centerX);
+    y.set(e.clientY-centerY);
+  };
+  const handleMouseLeave=()=>{
+    x.set(0);
+    y.set(0);
+  };
   return (
     <div className="relative h-screen bg-black overflow-hidden">
       <div className="relative z-50">
@@ -18,7 +30,7 @@ const FlippingCards = () => {
       <h1 className="text-center text-5xl font-bold bg-clip-text bg-linear-to-r from-white to-blue-400 text-transparent tracking-wide">Flip Card</h1>
       <div className="absolute inset-0 flex justify-center items-center">
         <div className="perspective-[1000px]">
-          <motion.div onClick={()=>setIsFlipped(!isFlipped)} className="relative w-60 h-90 cursor-pointer"
+          <motion.div onClick={()=>setIsFlipped(!isFlipped)} onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave} className="relative w-60 h-90 cursor-pointer transition"
             style={{
               transformStyle:"preserve-3d",
               rotateX,
