@@ -45,6 +45,7 @@ const FlippingCards = () => {
               },
               rotateY:{duration:0.6},
             }}
+            whileHover={{scale:1.25}}
           >
             <div className="absolute inset-0 backface-hidden rounded-xl overflow-hidden">
               <img src={cardFront} className="w-full h-full object-cover" />
