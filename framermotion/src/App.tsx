@@ -7,6 +7,7 @@ import SoundReactive from './components/SoundReactive/SoundReactive'
 import GlassMorph from './components/Morphing/GlassMorph'
 import BouncingLoader from './components/BouncingLoader/BouncingLoader'
 import FlippingCards from './components/FlippingCards/FlippingCards'
+import Gesture from './components/Gesture/Gesture'
 
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
       <Route path="/glass-morphing" element={<GlassMorph/>}/>
       <Route path="/loader-animation" element={<BouncingLoader />}/>
       <Route path="/flipping-card" element={<FlippingCards/>}/>
+      <Route path="/gesture" element={<Gesture/>}/>
     </Routes>
     </>
   )
