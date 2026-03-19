@@ -21,6 +21,10 @@ const Gesture=()=>{
           }}
           dragElastic={0.4}
           dragTransition={{bounceStiffness:300,bounceDamping:15}}
+          whileDrag={{
+            scale:1.2,cursor:"grabbing"
+          }}
+          dragMomentum={true}
         >
           Drag Me
         </motion.div>
