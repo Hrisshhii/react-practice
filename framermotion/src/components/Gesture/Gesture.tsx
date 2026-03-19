@@ -1,7 +1,7 @@
 import { BackHome } from "../BackHome"
 
 
-const Gesture = () => {
+const Gesture=()=>{
   return (
     <div className="relative h-screen bg-black overflow-hidden">
       <div className="relative z-50">
@@ -12,4 +12,4 @@ const Gesture = () => {
   )
 }
 
-export default Gesture
+export default Gesture;
