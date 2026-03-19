@@ -11,14 +11,16 @@ const Gesture=()=>{
       <div className="absolute inset-0 flex justify-center items-center">
         <motion.div className="w-[15%] h-[30%] bg-red-300 flex justify-center items-center font-bold text-black"
           whileHover={{scale:1.2,rotate:10}}
-          transition={{type:"spring",stiffness:300,duration:300}}
+          transition={{type:"spring",stiffness:300,duration:0.3}}
           whileTap={{borderRadius:400,scale:0.8,backgroundColor:"crimson"}}
           drag dragConstraints={{
-            top:-100,
-            left:-100,
-            right:100,
-            bottom:100,
+            top:-150,
+            left:-150,
+            right:150,
+            bottom:150,
           }}
+          dragElastic={0.4}
+          dragTransition={{bounceStiffness:300,bounceDamping:15}}
         >
           Drag Me
         </motion.div>
