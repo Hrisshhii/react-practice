@@ -49,7 +49,7 @@ const SwipeGame=({onBack}:{onBack:()=>void})=>{
       </p>
       <div className="w-72 h-72 border border-white/10 rounded-xl flex items-center justify-center bg-white/5 backdrop-blur-md">
         <motion.div drag dragConstraints={{top:0,left:0,right:0,bottom:0}}
-          dragElastic={0.8} onDragEnd={(e,info)=>handleSwipe(info)}
+          dragElastic={0.8} onDragEnd={(_e,info)=>handleSwipe(info)}
           whileDrag={{
             scale:1.2,
           }}
