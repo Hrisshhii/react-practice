@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { BackHome } from "../BackHome"
 import { DragGame } from "./DragGame";
+import SwipeGame from "./SwipeGame";
 
 type Game="menu" | "drag" | "swipe" | "flick";
 
@@ -37,7 +38,7 @@ const Gesture=()=>{
       )}
 
       {game==="swipe" && (
-        <></>
+        <SwipeGame onBack={()=>setGame("menu")}/>
       )}
 
       {game==="flick" && (
