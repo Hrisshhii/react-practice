@@ -32,8 +32,11 @@ const FlickThrow=({ onBack }: { onBack: () => void })=>{
   };
 
   return (
-    <div className="absolute inset-0 flex flex-col items-center justify-center gap-6 text-white">
-      <button onClick={onBack} className="text-white/50 hover:text-white hover:scale-140 transition duration-300 cursor-pointer">
+    <div className="absolute inset-0 flex flex-col items-center text-white pt-30">
+      <button
+        onClick={onBack}
+        className="z-50 text-white/50 hover:text-white hover:scale-110 transition cursor-pointer p-2"
+      >
         ← Back
       </button>
       <p>{score}</p>
