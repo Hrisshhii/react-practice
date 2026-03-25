@@ -48,6 +48,10 @@ const FlickThrow=({ onBack }: { onBack: () => void })=>{
             scale:1.2,
             cursor:"grabbing",
           }}
+          animate={{
+            x:result?600:0,
+            opacity:result?0:1
+          }}
           className="absolute left-6 top-1/2 -translate-y-1/2 w-20 h-20 bg-purple-400 rounded-full flex items-center justify-center cursor-grab font-bold"
         >
           Throw Me
