@@ -2,6 +2,7 @@ import { useState } from "react";
 import { BackHome } from "../BackHome"
 import { DragGame } from "./DragGame";
 import SwipeGame from "./SwipeGame";
+import FlickThrow from "./FlickThrow";
 
 type Game="menu" | "drag" | "swipe" | "flick";
 
@@ -42,7 +43,7 @@ const Gesture=()=>{
       )}
 
       {game==="flick" && (
-        <></>
+        <FlickThrow onBack={()=>setGame("menu")}/>
       )}
 
     </div>
