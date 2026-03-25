@@ -9,14 +9,13 @@ const FlickThrow=({ onBack }: { onBack: () => void })=>{
   const [key,setKey]=useState(0);
 
   const handleThrow=(info:any)=>{
-    const velocityX=info.velocity.x;
-    const velocityY=info.velocity.y;
+    const {x,y}=info.velocity;
     let direction="";
 
-    if(Math.abs(velocityX)>Math.abs(velocityY)){
-      direction=velocityX>500?"right":velocityY<-500?"left":"";
+    if(Math.abs(x)>Math.abs(y)){
+      direction=x>600?"right":x<-600?"left":"";
     }else{
-      direction=velocityY<-500?"up":velocityX>500?"down":"";
+      direction=y<-600?"up":y>600?"down":"";
     }
 
     if(direction==="right"){
@@ -41,7 +40,7 @@ const FlickThrow=({ onBack }: { onBack: () => void })=>{
       <div ref={containerRef}
         className="relative w-[80%] h-[60%] border border-white/10 rounded-xl bg-white/5 backdrop-blur-md overflow-hidden"
       >
-        <div className="absloute right-4 top-1/2 -translate-y-1/2 w-20 h-20 bg-green-500/30 rounded-xl flex items-center justify-center">🎯</div>
+        <div className="absolute right-4 top-1/2 -translate-y-1/2 w-20 h-20 bg-green-500/30 rounded-xl flex items-center justify-center">🎯</div>
         <motion.div
           key={key}
           drag dragMomentum dragConstraints={containerRef} dragElastic={0.3} onDragEnd={(_e,info)=>handleThrow(info)}
