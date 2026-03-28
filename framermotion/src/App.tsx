@@ -22,6 +22,7 @@ function App() {
       <Route path="/loader-animation" element={<BouncingLoader />}/>
       <Route path="/flipping-card" element={<FlippingCards/>}/>
       <Route path="/gesture" element={<Gesture/>}/>
+      <Route path="" element={``}/>
     </Routes>
     </>
   )
