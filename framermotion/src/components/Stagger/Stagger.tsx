@@ -1,19 +1,29 @@
-import {motion} from "framer-motion";
+import {motion,type Variants} from "framer-motion";
 import { BackHome } from "../BackHome";
 
-const parentVariant={
-    hidden:{opacity:0},
-    visible:{
-        opacity:1,
-        transition:{
-            staggerChildren:0.8,
-        },
+const parentVariant:Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15,
+      repeat: Infinity,
+      repeatType: "reverse" as const,
     },
+  },
 };
 
-const childVariant={
-    hidden:{opacity:0,y:20},
-    visible:{opacity:1,y:0},
+const childVariant:Variants={
+    hidden:{opacity:0,y:40,scale:0.6},
+    visible:{
+        opacity:1,
+        y:0,
+        scale:[1,1.3,1],
+        transition:{
+            duration:1,
+            ease:"easeInOut" as const,
+        },
+    },
 };
 
 const Stagger = () => {
@@ -25,7 +35,7 @@ const Stagger = () => {
         <h1 className="p-2 text-center text-5xl font-bold bg-clip-text bg-linear-to-r from-white to-blue-400 text-transparent tracking-wide">
             Stagger Animation
         </h1>
-      <motion.div variants={parentVariant} initial="hidden" animate="visible" className="absolute inset-0 flex justify-center items-center">
+      <motion.div variants={parentVariant} whileHover="visible" initial="hidden" animate="visible" className="absolute inset-0 flex justify-center items-center">
         {[...Array(5)].map((_,index)=>(
             <motion.div key={index} className="h-20 w-20 rounded-full bg-white m-2" variants={childVariant}/>
         ))}
