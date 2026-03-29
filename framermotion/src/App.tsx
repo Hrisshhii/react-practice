@@ -24,6 +24,8 @@ function App() {
       <Route path="/flipping-card" element={<FlippingCards/>}/>
       <Route path="/gesture" element={<Gesture/>}/>
       <Route path="/stagger" element={<Stagger/>}/>
+      <Route path="" element={``}/>
+      <Route path="" element={``}/>
     </Routes>
     </>
   )
