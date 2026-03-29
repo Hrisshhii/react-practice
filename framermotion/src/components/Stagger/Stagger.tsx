@@ -22,7 +22,7 @@ const Stagger = () => {
         <div className="relative z-50">
             <BackHome/>
         </div>
-        <h1 className="text-center text-5xl font-bold bg-clip-text bg-linear-to-r from-white to-blue-400 text-transparent tracking-wide">
+        <h1 className="p-2 text-center text-5xl font-bold bg-clip-text bg-linear-to-r from-white to-blue-400 text-transparent tracking-wide">
             Stagger Animation
         </h1>
       <motion.div variants={parentVariant} initial="hidden" animate="visible" className="absolute inset-0 flex justify-center items-center">
