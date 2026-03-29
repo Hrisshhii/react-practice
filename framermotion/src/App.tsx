@@ -8,6 +8,7 @@ import GlassMorph from './components/Morphing/GlassMorph'
 import BouncingLoader from './components/BouncingLoader/BouncingLoader'
 import FlippingCards from './components/FlippingCards/FlippingCards'
 import Gesture from './components/Gesture/Gesture'
+import Stagger from './components/Stagger/Stagger'
 
 function App() {
 
@@ -22,7 +23,7 @@ function App() {
       <Route path="/loader-animation" element={<BouncingLoader />}/>
       <Route path="/flipping-card" element={<FlippingCards/>}/>
       <Route path="/gesture" element={<Gesture/>}/>
-      <Route path="" element={``}/>
+      <Route path="/stagger" element={<Stagger/>}/>
     </Routes>
     </>
   )
