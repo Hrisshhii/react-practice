@@ -152,8 +152,8 @@ const SoundReactive = () => {
           </div>
 
           <div className="flex items-end gap-2 h-40">
-            {Array.from({length:32}).map((_,i)=>(
-              <div key={i} className="w-2 bg-linear-to-t from-purple-500 to-pink-500 rounded"
+            {Array.from({length:28}).map((_,i)=>(
+              <div key={i} className="w-1.5 bg-linear-to-t from-purple-500 to-pink-500 rounded"
               ref={(el)=>{barsRef.current[i]=el!}}
               style={{
                 height:"100%",
