@@ -7,7 +7,6 @@ const parentVariant:Variants = {
     opacity: 1,
     transition: {
       staggerChildren: 0.15,
-      repeat: Infinity,
       repeatType: "reverse" as const,
     },
   },
@@ -35,9 +34,9 @@ const Stagger = () => {
         <h1 className="p-2 text-center text-5xl font-bold bg-clip-text bg-linear-to-r from-white to-blue-400 text-transparent tracking-wide">
             Stagger Animation
         </h1>
-      <motion.div variants={parentVariant} whileHover="visible" initial="hidden" animate="visible" className="absolute inset-0 flex justify-center items-center">
+      <motion.div variants={parentVariant} whileHover="visible" initial="hidden" className="absolute inset-0 flex justify-center items-center">
         {[...Array(5)].map((_,index)=>(
-            <motion.div key={index} className="h-20 w-20 rounded-full bg-white m-2" variants={childVariant}/>
+            <motion.div key={index} className="h-20 w-20 rounded-full bg-gradient-to-tr from-purple-500 to-pink-500 m-3" variants={childVariant}/>
         ))}
       </motion.div>
     </div>
