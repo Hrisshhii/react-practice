@@ -10,6 +10,7 @@ import FlippingCards from './components/FlippingCards/FlippingCards'
 import Gesture from './components/Gesture/Gesture'
 import Stagger from './components/Stagger/Stagger'
 import RangeSlider from './components/RangeSlider/RangeSlider'
+import DragColor from './components/DragColor/DragColor'
 
 function App() {
 
@@ -26,7 +27,7 @@ function App() {
       <Route path="/gesture" element={<Gesture/>}/>
       <Route path="/stagger" element={<Stagger/>}/>
       <Route path="/range-slider" element={<RangeSlider/>}/>
-      <Route path="" element={``}/>
+      <Route path="/drag-color" element={<DragColor/>}/>
     </Routes>
     </>
   )
