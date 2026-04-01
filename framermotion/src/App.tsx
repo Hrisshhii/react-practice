@@ -9,6 +9,7 @@ import BouncingLoader from './components/BouncingLoader/BouncingLoader'
 import FlippingCards from './components/FlippingCards/FlippingCards'
 import Gesture from './components/Gesture/Gesture'
 import Stagger from './components/Stagger/Stagger'
+import RangeSlider from './components/RangeSlider/RangeSlider'
 
 function App() {
 
@@ -24,7 +25,7 @@ function App() {
       <Route path="/flipping-card" element={<FlippingCards/>}/>
       <Route path="/gesture" element={<Gesture/>}/>
       <Route path="/stagger" element={<Stagger/>}/>
-      <Route path="" element={``}/>
+      <Route path="/range-slider" element={<RangeSlider/>}/>
       <Route path="" element={``}/>
     </Routes>
     </>
