@@ -5,7 +5,7 @@ import { useState } from "react";
 
 const DragColor = () => {
   const [color,setColor]=useState("");
-
+  const [copied,setCopied]=useState(false);
   const x=useMotionValue(0);
   const y=useMotionValue(0);
   const hue=useTransform(x,[-400,400],[0,360]);
@@ -17,7 +17,8 @@ const DragColor = () => {
   const copyColor=async()=>{
     try{
       await navigator.clipboard.writeText(color);
-      alert("Color: "+color);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 1000);
     }catch(err){
       alert("Failed to copy!!"+err)
     };
@@ -42,6 +43,11 @@ const DragColor = () => {
           <Copy className="cursor-pointer text-white/50" onClick={copyColor}/>
         </motion.div>
       </motion.div>
+      {copied && (
+        <p className="absolute bottom-20 left-1/2 -translate-x-1/2 text-green-400 text-sm">
+          Copied!
+        </p>
+)}
     </div>
   )
 }
