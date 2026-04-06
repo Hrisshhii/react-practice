@@ -11,6 +11,7 @@ import Gesture from './components/Gesture/Gesture'
 import Stagger from './components/Stagger/Stagger'
 import RangeSlider from './components/RangeSlider/RangeSlider'
 import DragColor from './components/DragColor/DragColor'
+import ScrollAnimation from './components/ScrollAnimations/ScrollAnimation'
 
 function App() {
 
@@ -28,6 +29,7 @@ function App() {
       <Route path="/stagger" element={<Stagger/>}/>
       <Route path="/range-slider" element={<RangeSlider/>}/>
       <Route path="/drag-color" element={<DragColor/>}/>
+      <Route path="/scroll-animation" element={<ScrollAnimation/>}/>
     </Routes>
     </>
   )

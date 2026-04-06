@@ -16,6 +16,7 @@ export default function Home() {
         <Link to="/stagger" className="card">〰 Staggering Animation</Link>
         <Link to="/range-slider" className="card">🎚️ Range Slider</Link>
         <Link to="/drag-color" className="card">🎨 Drag Color</Link>
+        <Link to="/scroll-animation" className="card">⬇ Scroll animation</Link>
         <a href="https://hrisshhii.github.io/react-practice/ts" className="card" style={{ background: "linear-gradient(135deg,#6366f1,#22d3ee)" }}>
           ⚡ TypeScript Mini Projects
         </a>
