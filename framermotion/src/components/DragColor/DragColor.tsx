@@ -47,7 +47,7 @@ const DragColor = () => {
         <p className="absolute bottom-20 left-1/2 -translate-x-1/2 text-green-400 text-sm">
           Copied!
         </p>
-)}
+      )}
     </div>
   )
 }
