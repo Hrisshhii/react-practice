@@ -21,7 +21,6 @@ const ScrollAnimation=()=>{
 
   const y=useTransform(scrollY,[0,2000],[0,-500]);
   const x=useTransform(scrollYProgress,[0,1],[500,-500]);
-  const scale=useTransform(scrollY,[2500,3000],[0.5, 1]);
   const rotate = useTransform(scrollYProgress,[0,1],[5,-5]);
 
   return (
@@ -49,7 +48,7 @@ const ScrollAnimation=()=>{
       </section>
 
       <section ref={sectionRef} className="h-[200vh] flex items-center overflow-hidden">
-        <motion.div style={{x,scale,rotate}} className="flex gap-6 mx-auto">
+        <motion.div style={{x,rotate}} className="flex gap-6 mx-auto">
           {[1,2,3,4].map(i=>(
             <div key={i} className="w-60 h-40 bg-purple-500/20 text-white rounded-xl flex items-center justify-center backdrop-blur-md shadow-[0_0_40px_rgba(168,85,247,0.3)] hover:scale-105 transition">
               Card {i}
