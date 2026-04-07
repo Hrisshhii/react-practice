@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import { BackHome } from "../BackHome"
-import { useInView,motion } from "framer-motion";
+import { useInView,motion, useScroll, useTransform } from "framer-motion";
 
 const Reveal=({children}:{children:React.ReactNode}) => {
   const ref=useRef(null);
@@ -15,6 +15,8 @@ const Reveal=({children}:{children:React.ReactNode}) => {
 
 
 const ScrollAnimation=()=>{
+  const {scrollY}=useScroll();
+  const y=useTransform(scrollY,[0,2000],[0,-1000])
 
   return (
     <div className="relative bg-black overflow-hidden">
@@ -24,6 +26,7 @@ const ScrollAnimation=()=>{
       <h1 className="text-center text-5xl font-bold bg-clip-text bg-linear-to-r from-white to-blue-400 text-transparent tracking-wide">
         Scroll Animations
       </h1>
+
       <section className="h-screen flex flex-col items-center justify-center gap-6">
         {[1,2,3].map(i=>(
           <Reveal key={i}>
@@ -32,6 +35,11 @@ const ScrollAnimation=()=>{
             </div>
           </Reveal>
         ))}
+      </section>
+
+      <section className="h-screen flex items-center justify-center relative overflow-hidden">
+        <motion.div style={{y}} className="absolute text-6xl font-bold opacity-20 text-white">PARALLAX</motion.div>
+        <h2>Scroll down</h2>
       </section>
     </div>
   )
