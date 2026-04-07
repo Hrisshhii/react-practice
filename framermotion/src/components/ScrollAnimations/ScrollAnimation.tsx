@@ -17,14 +17,20 @@ const Reveal=({children}:{children:React.ReactNode}) => {
 const ScrollAnimation=()=>{
   const sectionRef=useRef(null);
   const {scrollY}=useScroll();
+  const parallaxRef=useRef(null);
   const {scrollYProgress}=useScroll({target:sectionRef});
+  const { scrollYProgress: parallaxProgress } = useScroll({
+    target: parallaxRef,
+    offset: ["start end", "end start"],
+  });
 
-  const y=useTransform(scrollY,[0,2000],[0,-500]);
+  const y=useTransform(parallaxProgress,[0,1],[1000,-1000]);
   const x=useTransform(scrollYProgress,[0,1],[500,-500]);
-  const rotate = useTransform(scrollYProgress,[0,1],[5,-5]);
+  const rotate=useTransform(scrollYProgress,[0,1],[5,-5]);
+  const bg=useTransform(scrollY,[0,2000],["#000000","#0f172a"]);
 
   return (
-    <div className="relative bg-black overflow-hidden">
+    <motion.div style={{backgroundColor:bg}} className="relative overflow-hidden">
       <div className="relative z-50">
         <BackHome />
       </div>
@@ -42,7 +48,7 @@ const ScrollAnimation=()=>{
         ))}
       </section>
 
-      <section className="h-50 flex items-center justify-center relative overflow-hidden">
+      <section ref={parallaxRef} className="h-[25vh] flex items-center justify-center relative overflow-hidden">
         <motion.div style={{y}} className="absolute text-6xl font-bold opacity-20 text-white">PARALLAX</motion.div>
         <h2>Scroll down</h2>
       </section>
@@ -56,7 +62,7 @@ const ScrollAnimation=()=>{
           ))}
         </motion.div>
       </section>
-    </div>
+    </motion.div>
   )
 }
 
