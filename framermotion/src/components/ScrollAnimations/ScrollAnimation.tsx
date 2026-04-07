@@ -2,7 +2,7 @@ import { useRef } from "react";
 import { BackHome } from "../BackHome"
 import { useInView,motion } from "framer-motion";
 
-const Reveal=({children}:{children:React.ReactNode})=>{
+const Reveal=({children}:{children:React.ReactNode}) => {
   const ref=useRef(null);
   const isInView=useInView(ref,{once:true});
 
@@ -15,7 +15,7 @@ const Reveal=({children}:{children:React.ReactNode})=>{
 
 
 const ScrollAnimation=()=>{
-  
+
   return (
     <div className="relative bg-black overflow-hidden">
       <div className="relative z-50">
