@@ -3,9 +3,26 @@ import { BackHome } from "../BackHome";
 import { useState } from "react";
 
 const movies=[
-  { id: 1, title: "Inception", image: "https://image.tmdb.org/t/p/w500/qmDpIHrmpJINaRKAfWQfftjCdyi.jpg" },
-  { id: 2, title: "Interstellar", image: "https://image.tmdb.org/t/p/w500/rAiYTfKGqDCRIIqo664sY9XZIvQ.jpg" },
-  { id: 3, title: "The Dark Knight", image: "https://image.tmdb.org/t/p/w500/qJ2tW6WMUDux911r6m7haRef0WH.jpg" },
+  { id: 1, title: "Pulp Fiction", image: "https://image.tmdb.org/t/p/w500/tptjnB0j36VXMak7xd6R0uZzR1M.jpg" },
+  { id: 2, title: "Kill Bill Vol. 1", image: "https://image.tmdb.org/t/p/w500/v7TaX8kXMXs5yFFGR41guUDNcnB.jpg" },
+  { id: 3, title: "Django Unchained", image: "https://image.tmdb.org/t/p/w500/7oWY8VDWW7thTzWh3OKYRkWUlD5.jpg" },
+  { id: 4, title: "Jurassic Park", image: "https://image.tmdb.org/t/p/w500/9i3plLl89DHMz7mahksDaAo7HIS.jpg" },
+  { id: 5, title: "Jaws", image: "https://image.tmdb.org/t/p/w500/l1yltvzILaZcx2jYvc5sEMkM7Eh.jpg" },
+  { id: 6, title: "E.T.", image: "https://image.tmdb.org/t/p/w500/an0nD6uq6byfxXCfk6lQBzdL2J1.jpg" },
+  { id: 7, title: "Pather Panchali", image: "https://upload.wikimedia.org/wikipedia/en/8/84/Pather_Panchali_poster.jpg" },
+  { id: 8, title: "Aparajito", image: "https://upload.wikimedia.org/wikipedia/en/0/0c/Aparajito_poster.jpg" },
+  { id: 9, title: "Apur Sansar", image: "https://upload.wikimedia.org/wikipedia/en/3/3c/The_World_of_Apu_poster.jpg" },
+  { id: 10, title: "The Apartment", image: "https://image.tmdb.org/t/p/original/tRkUPRexT0qbBcSczaGJ4fGq6OJ.jpg" },
+  { id: 11, title: "Sunset Boulevard", image: "https://image.tmdb.org/t/p/w1280/zt8aQ6ksqK6p1AopC5zVTDS9pKT.jpg" },
+  { id: 12, title: "Interstellar", image: "https://image.tmdb.org/t/p/w500/rAiYTfKGqDCRIIqo664sY9XZIvQ.jpg" },
+  { id: 13, title: "The Dark Knight", image: "https://image.tmdb.org/t/p/w500/qJ2tW6WMUDux911r6m7haRef0WH.jpg" },
+  { id: 14, title: "Fight Club", image: "https://image.tmdb.org/t/p/w500/bptfVGEQuv6vDTIMVCHjJ9Dz8PX.jpg" },
+  { id: 15, title: "The Shawshank Redemption", image: "https://image.tmdb.org/t/p/w500/q6y0Go1tsGEsmtFryDOJo3dEmqu.jpg" },
+  { id: 16, title: "Forrest Gump", image: "https://image.tmdb.org/t/p/w500/arw2vcBveWOVZr6pxd9XTd1TdQa.jpg" },
+  { id: 17, title: "The Godfather", image: "https://image.tmdb.org/t/p/w500/3bhkrj58Vtu7enYsRolD1fZdja1.jpg" },
+  { id: 18, title: "Whiplash", image: "https://image.tmdb.org/t/p/w500/6uSPcdGNA2A6vJmCagXkvielt3x.jpg" },
+  { id: 19, title: "Parasite", image: "https://image.tmdb.org/t/p/w500/7IiTTgloJzvGI1TAYymCfbfl3vT.jpg" },
+  { id: 20, title: "La La Land", image: "https://image.tmdb.org/t/p/w500/uDO8zWDhfWwoFdKS4fzkUJt0Rf0.jpg" },
 ];
 
 export const TinderMovies = () => {
@@ -49,7 +66,7 @@ export const TinderMovies = () => {
           onDragEnd={handleDragEnd}
           whileTap={{cursor:"grabbing"}}
         >
-          <img src={movie.image} className="w-full h-full object-cover" />
+          <img src={movie.image} className="w-full h-full object-cover pointer-events-none" />
           <div className="absolute bottom-0 w-full bg-linear-to-t from-black/80 to-transparent p-4">
             <h2 className="text-white text-xl font-bold">{movie.title}</h2>
           </div>
