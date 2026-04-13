@@ -30,6 +30,7 @@ function App() {
       <Route path="/range-slider" element={<RangeSlider/>}/>
       <Route path="/drag-color" element={<DragColor/>}/>
       <Route path="/scroll-animation" element={<ScrollAnimation/>}/>
+      <Route path="/tinder-movies" element={``}/>
     </Routes>
     </>
   )
