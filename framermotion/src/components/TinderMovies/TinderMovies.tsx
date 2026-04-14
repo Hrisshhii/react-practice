@@ -27,13 +27,19 @@ const movies=[
 
 export const TinderMovies = () => {
   const [index,setIndex]=useState(0);
+  const [feedback,setFeedback]=useState<"like"|"nope"|null>();
 
   const x=useMotionValue(0);
   const rotate=useTransform(x,[-200,200],[-15,15]);
 
   const swipe=(dir:"left"|"right")=>{
-    setIndex(prev=>prev+1)
-    x.set(0);
+    setFeedback(dir==="right"?"like":"nope");
+    setTimeout(() => {
+      setFeedback(null);
+      setIndex(prev=>prev+1)
+      x.set(0);
+    },400);
+    
   };
 
   const handleDragEnd=(_:any,info:any)=>{
@@ -55,6 +61,14 @@ export const TinderMovies = () => {
         Tinder Movies
       </h1>
       <div className="relative h-160 flex justify-center mt-20">
+        {feedback && (
+          <motion.div initial={{scale:0,opacity:0}} animate={{scale:1.5,opacity:0.8}} exit={{opacity:0}}
+            transition={{type:"spring",stiffness:200}} className="absolute text-6xl z-50"
+          >
+            {feedback==="like"?"❤️":"💔"}
+          </motion.div>
+        )}
+
         {movies.slice(index,index+3).map((movie,i)=>{
           const isTop= i === 0;
           return (
