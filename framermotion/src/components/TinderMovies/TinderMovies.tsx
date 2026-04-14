@@ -45,11 +45,6 @@ export const TinderMovies = () => {
     }
   };
 
-  const movie=movies[index];
-  if(!movie){
-    return <div className="text-white text-center mt-20">No more movies 🎬</div>;
-  };
-
   return (
     <div className="relative overflow-hidden">
       <div className="relative z-50">
@@ -59,20 +54,31 @@ export const TinderMovies = () => {
         Tinder Movies
       </h1>
       <div className="relative h-screen flex justify-center items-center">
-        <motion.div className="absolute w-80 h-125 rounded-2xl overflow-hidden shadow-2xl cursor-grab"
-          style={{x,rotate,opacity}}
-          drag="x"
-          dragConstraints={{left:0,right:0}}
-          onDragEnd={handleDragEnd}
-          whileTap={{cursor:"grabbing"}}
-        >
-          <img src={movie.image} className="w-full h-full object-cover pointer-events-none" />
-          <div className="absolute bottom-0 w-full bg-linear-to-t from-black/80 to-transparent p-4">
-            <h2 className="text-white text-xl font-bold">{movie.title}</h2>
-          </div>
-        </motion.div>
+        {movies.slice(index,index+3).map((movie,i)=>{
+          const isTop= i === 0;
+          return (
+            <motion.div key={movie.id} className="absolute w-80 h-125 rounded-2xl overflow-hidden shadow-2xl"
+              style={{
+                zIndex:10-i,
+                scale:1-i*0.05,
+                y:i*10,
+                x:isTop?x:0,
+                rotate:isTop?rotate:0,
+              }}
+              drag={isTop?"x":false}
+              dragConstraints={{left:0,right:0}}
+              onDragEnd={isTop?handleDragEnd:undefined}
+              whileTap={isTop?{cursor:"grabbing"}:{}}
+            >
+              <img src={movie.image} className="w-full h-full object-cover pointer-events-none" />
+
+              <div className="absolute bottom-0 w-full bg-linear-to-t from-black/80 to-transparent p-4">
+                <h2 className="text-white text-xl font-bold">{movie.title}</h2>
+              </div>
+            </motion.div>
+          );
+        })}
       </div>
-      
     </div>
   )
 }
