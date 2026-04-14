@@ -30,7 +30,6 @@ export const TinderMovies = () => {
 
   const x=useMotionValue(0);
   const rotate=useTransform(x,[-200,200],[-15,15]);
-  const opacity=useTransform(x,[-200,0,200],[0,1,0]);
 
   const swipe=(dir:"left"|"right")=>{
     setIndex(prev=>prev+1)
@@ -39,8 +38,10 @@ export const TinderMovies = () => {
 
   const handleDragEnd=(_:any,info:any)=>{
     if(info.offset.x>100){
+      x.set(500);
       swipe("right");
     }else if(info.offset.x<-100){
+      x.set(-500);
       swipe("left")
     }
   };
