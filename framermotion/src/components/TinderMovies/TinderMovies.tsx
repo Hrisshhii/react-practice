@@ -1,4 +1,4 @@
-import {motion, useMotionValue, useTransform} from "framer-motion";
+import {motion, useMotionValue, useSpring, useTransform} from "framer-motion";
 import { BackHome } from "../BackHome";
 import { useState } from "react";
 
@@ -33,8 +33,10 @@ export const TinderMovies = () => {
   const hoverY=useMotionValue(0); 
   const x=useMotionValue(0);
   const rotate=useTransform(x,[-200,200],[-15,15]);
-  const rotateX=useTransform(hoverY,[-100,100],[10,-10]);
-  const rotateY=useTransform(hoverX,[-100,100],[-10,10]);
+  const smoothX=useSpring(hoverX,{stiffness:120,damping:15});
+  const smoothY=useSpring(hoverY,{stiffness:120,damping:15});
+  const rotateX=useTransform(smoothY,[-100,100],[10,-10]);
+  const rotateY=useTransform(smoothX,[-100,100],[-10,10]);
 
   const swipe=(dir:"left"|"right")=>{
     setFeedback(dir==="right"?"like":"nope");
@@ -101,6 +103,7 @@ export const TinderMovies = () => {
                 rotateX:isTop?rotateX:0,
                 rotateY:isTop?rotateY:0,
                 transformPerspective:1000,
+                transition: "transform 0.1s ease-out",
               }}
               drag={isTop?"x":false}
               dragConstraints={{left:0,right:0}}
