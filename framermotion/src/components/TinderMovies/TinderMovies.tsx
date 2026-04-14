@@ -29,8 +29,12 @@ export const TinderMovies = () => {
   const [index,setIndex]=useState(0);
   const [feedback,setFeedback]=useState<"like"|"nope"|null>();
 
+  const hoverX=useMotionValue(0);
+  const hoverY=useMotionValue(0); 
   const x=useMotionValue(0);
   const rotate=useTransform(x,[-200,200],[-15,15]);
+  const rotateX=useTransform(hoverY,[-100,100],[10,-10]);
+  const rotateY=useTransform(hoverX,[-100,100],[-10,10]);
 
   const swipe=(dir:"left"|"right")=>{
     setFeedback(dir==="right"?"like":"nope");
@@ -50,6 +54,19 @@ export const TinderMovies = () => {
       x.set(-500);
       swipe("left")
     }
+  };
+
+  const handleMouse=(e:React.MouseEvent<HTMLDivElement>)=>{
+    const rect=e.currentTarget.getBoundingClientRect();
+    const x=e.clientX-rect.left-rect.width/2;
+    const y=e.clientY-rect.top-rect.height/2;
+    hoverX.set(x);
+    hoverY.set(y);
+  };
+
+  const MouseLeave=()=>{
+    hoverX.set(0);
+    hoverY.set(0);
   };
 
   return (
@@ -73,20 +90,25 @@ export const TinderMovies = () => {
           const isTop= i === 0;
           return (
             <motion.div key={movie.id} className="absolute w-80 h-125 rounded-2xl overflow-hidden shadow-2xl"
+              onMouseMove={isTop?handleMouse:undefined}
+              onMouseLeave={isTop?MouseLeave:undefined}
               style={{
                 zIndex:10-i,
                 scale:1-i*0.05,
                 y:i*10,
                 x:isTop?x:0,
                 rotate:isTop?rotate:0,
+                rotateX:isTop?rotateX:0,
+                rotateY:isTop?rotateY:0,
+                transformPerspective:1000,
               }}
               drag={isTop?"x":false}
               dragConstraints={{left:0,right:0}}
               onDragEnd={isTop?handleDragEnd:undefined}
               whileTap={isTop?{cursor:"grabbing"}:{}}
             >
+              
               <img src={movie.image} className="w-full h-full object-cover pointer-events-none" />
-
               <div className="absolute bottom-0 w-full bg-linear-to-t from-black/80 to-transparent p-4">
                 <h2 className="text-white text-xl font-bold">{movie.title}</h2>
               </div>
