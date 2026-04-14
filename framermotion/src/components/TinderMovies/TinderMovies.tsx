@@ -54,7 +54,7 @@ export const TinderMovies = () => {
       <h1 className="text-center text-5xl font-bold bg-clip-text bg-linear-to-r from-white to-blue-400 text-transparent tracking-wide">
         Tinder Movies
       </h1>
-      <div className="relative h-screen flex justify-center items-center">
+      <div className="relative h-160 flex justify-center mt-20">
         {movies.slice(index,index+3).map((movie,i)=>{
           const isTop= i === 0;
           return (
